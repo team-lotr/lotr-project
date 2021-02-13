@@ -69,7 +69,7 @@ function CharacterEvents({ characterName }) {
     <div>
       <p>Events:</p>
       {characterEvents.map((event) => (
-        <p>
+        <p key={event.id}>
           {event.name} - {event.date}
         </p>
       ))}
