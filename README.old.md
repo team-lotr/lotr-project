@@ -1,2 +1,0 @@
-# lotr-project
-LOTR Project 
