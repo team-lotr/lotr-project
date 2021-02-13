@@ -6,14 +6,16 @@ import "./styles/App.scss";
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/demo">
-          <Demo />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <div className="container">
+        <Switch>
+          <Route path="/demo">
+            <Demo />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
 }

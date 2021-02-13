@@ -1,0 +1,60 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+
+.home-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  max-width: 400px;
+  height: 50%;
+  padding: 20px;
+  border: 1px solid $border-color;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: $sm-shadow;
+
+  .home-menu__title {
+    text-align: center;
+    color: $header-text-color;
+    @extend .curvy-header;
+  }
+
+  .home-menu__logo {
+    height: 100px;
+    width: 170px;
+    justify-self: center;
+    border-radius: 10px;
+  }
+
+  .home-menu__subtitle {
+    text-align: center;
+    @extend .body-text;
+  }
+
+  .home-menu__content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      list-style-type: none;
+
+      li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  & > * {
+    margin-bottom: 10px;
+  }
+}
