@@ -49,7 +49,7 @@ function HomeMenu() {
       <div className="home-menu__content">
         <ul>
           {links.map((link) => (
-            <li>
+            <li key={link.name}>
               <a href={link.href}>{link.name}</a>
             </li>
           ))}
