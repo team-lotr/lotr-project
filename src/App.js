@@ -1,6 +1,7 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Demo } from "./pages/Demo";
 import { Home } from "./pages/Home";
+import { Data } from "./pages/Data";
 import "./styles/App.scss";
 
 function App() {
@@ -10,6 +11,9 @@ function App() {
         <Switch>
           <Route path="/demo">
             <Demo />
+          </Route>
+          <Route path="/data">
+            <Data />
           </Route>
           <Route path="/">
             <Home />

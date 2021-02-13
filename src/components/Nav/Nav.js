@@ -10,6 +10,9 @@ export function Nav() {
         <li>
           <Link to="/demo">Demo</Link>
         </li>
+        <li>
+          <Link to="/data">Data</Link>
+        </li>
       </ul>
     </nav>
   );

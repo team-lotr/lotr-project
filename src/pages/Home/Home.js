@@ -7,6 +7,10 @@ const links = [
     href: "/demo",
   },
   {
+    name: "Data",
+    href: "/data",
+  },
+  {
     name: "Trello Board",
     href: "https://trello.com/b/aVA9GvU8/lotr-project",
   },
