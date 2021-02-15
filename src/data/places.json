@@ -2,14 +2,15 @@
   {
     "id": 1,
     "name": "Hobbiton",
-    "x": 0,
-    "y": 0
+    "x": 820,
+    "y": 670
   },
+  
   {
     "id": 2,
     "name": "Eastern Shire",
-    "x": 0,
-    "y": 0
+    "x": 900,
+    "y": 660
   },
   {
     "id": 3,
@@ -62,20 +63,20 @@
   {
     "id": 11,
     "name": "The Prancing Pony inn, Bree",
-    "x": 0,
-    "y": 0
+    "x": 1150,
+    "y": 670
   },
   {
     "id": 12,
     "name": "Sarn Ford",
-    "x": 0,
-    "y": 0
+    "x": 1550,
+    "y": 635
   },
   {
     "id": 13,
     "name": "East Road near Staddle",
-    "x": 0,
-    "y": 0
+    "x": 1050,
+    "y": 670
   },
   {
     "id": 14,
@@ -86,8 +87,8 @@
   {
     "id": 15,
     "name": "Weathertop",
-    "x": 0,
-    "y": 0
+    "x": 1660,
+    "y": 900
   },
   {
     "id": 16,
