@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Nav } from "../../components/Nav";
 import "./data.scss";
-import characters from "../../data/characters.json";
-import events from "../../data/events.json";
-import places from "../../data/places.json";
+import events from "../../data/datasets/events.json";
+import characters from "../../data/datasets/characters.json";
+import places from "../../data/datasets/places.json";
 
 function getCharacterById(id) {
   return characters.find((character) => character.id === id);
@@ -32,9 +32,7 @@ export function Data() {
         characterName={currentCharacterName}
         onChange={(event) => handleCharacterSelect(event.target.value)}
       />
-      {currentCharacterName !== "None" && (
-        <CharacterEvents characterName={currentCharacterName} />
-      )}
+      {currentCharacterName !== "None" && <CharacterEvents characterName={currentCharacterName} />}
     </div>
   );
 }
@@ -43,12 +41,7 @@ function CharacterSelect({ characterName, onChange }) {
   return (
     <>
       <label htmlFor="character">Choose a Character:</label>
-      <select
-        name="character"
-        id="characters"
-        value={characterName}
-        onChange={onChange}
-      >
+      <select name="character" id="characters" value={characterName} onChange={onChange}>
         {characters
           .map((i) => i.name)
           .map((name) => (

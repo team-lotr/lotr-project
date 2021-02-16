@@ -1,56 +1,34 @@
 import { Nav } from "../../components/Nav";
-import { MyFn } from '../../components/CharacterSelection';
+import { MyFn } from "../../components/CharacterSelection";
 import { useEffect, useRef } from "react";
 import { ReactComponent as MapSvg } from "../../assets/mapome-slim.svg";
 import * as d3 from "d3";
 
-import characters from "../../data/characters.json";
-import events from "../../data/events.json";
-import places from "../../data/places.json";
+import { DataClient } from "../../data/DataClient";
 import { drawTimeline, highlight, unhighlight } from "./drawTimeline";
-
 
 const margin = { top: 0, left: 0, bottom: 0, right: 0 };
 // const width = document.body.clientWidth - margin.left - margin.right;
 // const height = window.innerHeight - margin.top - margin.bottom;
 
 // Set up constants and variables for dynamic data.
-let currentTime = 5;
+let currentTime = 30200000;
 let useCurves = true;
 let highlightedCharacter;
 const fadedOpacity = 0.4;
 const regularStrokeWidth = 7;
 const highlightedStrokeWidth = 10;
 
+const dataClient = new DataClient();
 const gandalfId = 10;
-
-function getCharacterById(id) {
-  return characters.find((character) => character.id === id);
-}
-
-function getEventsWithCharacter(characterId) {
-  const character = getCharacterById(characterId);
-  return events.filter((event) => character.events.includes(event.id));
-}
-
-function joinEventsWithPlaces(events) {
-  return events.map((event, index) => {
-    const place = places.find((p) => p.id === event.place);
-    return {
-      id: event.id,
-      t: index,
-      x: place.x + index,
-      y: place.y + index,
-    };
-  });
-}
-
-const gandalfCharacter = getCharacterById(gandalfId);
-const gandalfTimeline = joinEventsWithPlaces(getEventsWithCharacter(gandalfId));
 const gandalfData = {
-  character: gandalfCharacter,
-  timeline: gandalfTimeline,
+  character: dataClient.getCharacterBy("id", gandalfId),
+  timeline: dataClient.getCharacterTimelineBy("id", gandalfId),
 };
+
+// Modification to get path drawing working until we handle
+// two subsequent events being in the same place
+gandalfData.timeline[0].x += 1;
 
 const updateTimelines = (selection, data) => {
   // Do data join.
@@ -83,8 +61,6 @@ const updateTimelines = (selection, data) => {
 export function Demo() {
   const chartRef = useRef(null);
 
-  console.log(gandalfData);
-
   useEffect(() => {
     const svg = d3.select("svg");
     const zoomGroup = d3.select("#zoomContainer");
@@ -104,7 +80,7 @@ export function Demo() {
     <>
       <Nav />
       <h2>Demo</h2>
-      <MyFn data="hello"/>
+      <MyFn data="hello" />
       <div ref={chartRef}>
         <MapSvg />
       </div>
