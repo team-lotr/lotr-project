@@ -1,22 +1,10 @@
 import { useState } from "react";
 import { Nav } from "../../components/Nav";
 import "./data.scss";
-import events from "../../data/datasets/events.json";
-import characters from "../../data/datasets/characters.json";
-import places from "../../data/datasets/places.json";
+import { DataClient } from "../../data/DataClient";
 
-function getCharacterById(id) {
-  return characters.find((character) => character.id === id);
-}
-
-function getCharacterByName(name) {
-  return characters.find((character) => character.name === name);
-}
-
-function getEventsWithCharacter(characterId) {
-  const character = getCharacterById(characterId);
-  return events.filter((event) => character.events.includes(event.id));
-}
+const dataClient = new DataClient();
+const characters = dataClient.getAll("character");
 
 export function Data() {
   const [currentCharacterName, setCurrentCharacter] = useState("None");
@@ -38,6 +26,8 @@ export function Data() {
 }
 
 function CharacterSelect({ characterName, onChange }) {
+
+
   return (
     <>
       <label htmlFor="character">Choose a Character:</label>
@@ -55,8 +45,8 @@ function CharacterSelect({ characterName, onChange }) {
 }
 
 function CharacterEvents({ characterName }) {
-  const currentCharacter = getCharacterByName(characterName);
-  const characterEvents = getEventsWithCharacter(currentCharacter.id);
+  const currentCharacter = dataClient.getCharacterBy("name", characterName);
+  const characterEvents = dataClient.getEventsById(currentCharacter.events);
 
   return (
     <div>

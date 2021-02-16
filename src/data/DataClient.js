@@ -99,4 +99,21 @@ export class DataClient {
 
     return timeline;
   }
+
+  getAll(dataType) {
+    if (!["event", "place", "character"].includes(dataType)) {
+      throw new Error("Not a valid data type");
+    }
+
+    switch (dataType) {
+      case "event":
+        return events;
+      case "place":
+        return places;
+      case "character":
+        return characters;
+      default:
+        return null;
+    }
+  }
 }
