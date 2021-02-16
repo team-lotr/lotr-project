@@ -1,22 +1,10 @@
 import { useState } from "react";
 import { Nav } from "../../components/Nav";
 import "./data.scss";
-import characters from "../../data/characters.json";
-import events from "../../data/events.json";
-import places from "../../data/places.json";
+import { DataClient } from "../../data/DataClient";
 
-function getCharacterById(id) {
-  return characters.find((character) => character.id === id);
-}
-
-function getCharacterByName(name) {
-  return characters.find((character) => character.name === name);
-}
-
-function getEventsWithCharacter(characterId) {
-  const character = getCharacterById(characterId);
-  return events.filter((event) => character.events.includes(event.id));
-}
+const dataClient = new DataClient();
+const characters = dataClient.getAll("character");
 
 export function Data() {
   const [currentCharacterName, setCurrentCharacter] = useState("None");
@@ -32,23 +20,18 @@ export function Data() {
         characterName={currentCharacterName}
         onChange={(event) => handleCharacterSelect(event.target.value)}
       />
-      {currentCharacterName !== "None" && (
-        <CharacterEvents characterName={currentCharacterName} />
-      )}
+      {currentCharacterName !== "None" && <CharacterEvents characterName={currentCharacterName} />}
     </div>
   );
 }
 
 function CharacterSelect({ characterName, onChange }) {
+
+
   return (
     <>
       <label htmlFor="character">Choose a Character:</label>
-      <select
-        name="character"
-        id="characters"
-        value={characterName}
-        onChange={onChange}
-      >
+      <select name="character" id="characters" value={characterName} onChange={onChange}>
         {characters
           .map((i) => i.name)
           .map((name) => (
@@ -62,8 +45,8 @@ function CharacterSelect({ characterName, onChange }) {
 }
 
 function CharacterEvents({ characterName }) {
-  const currentCharacter = getCharacterByName(characterName);
-  const characterEvents = getEventsWithCharacter(currentCharacter.id);
+  const currentCharacter = dataClient.getCharacterBy("name", characterName);
+  const characterEvents = dataClient.getEventsById(currentCharacter.events);
 
   return (
     <div>
