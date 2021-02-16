@@ -166,7 +166,8 @@ describe("createTimeline()", () => {
 
     expect(timeline).toEqual([
       {
-        date: "22 Sept 3001",
+        lotrDate: "22 Sept 3001",
+        lotrDateValue: 30010922,
         description: "Some Description of major event",
         eventId: 1,
         eventName: "A Major Event",
@@ -174,7 +175,8 @@ describe("createTimeline()", () => {
         y: 123,
       },
       {
-        date: "30 Sept 3001",
+        lotrDate: "30 Sept 3001",
+        lotrDateValue: 30010930,
         description: "Some Description of minor event",
         eventId: 2,
         eventName: "A Minor Event",
@@ -189,7 +191,8 @@ describe("getCharacterTimelineBy()", () => {
   it("creates a timeline of all the character events", () => {
     expect(dataClient.getCharacterTimelineBy("id", 1)).toEqual([
       {
-        date: "22 Sept 3001",
+        lotrDate: "22 Sept 3001",
+        lotrDateValue: 30010922,
         description: "Some Description of major event",
         eventId: 1,
         eventName: "A Major Event",
@@ -197,7 +200,8 @@ describe("getCharacterTimelineBy()", () => {
         y: 123,
       },
       {
-        date: "30 Sept 3001",
+        lotrDate: "30 Sept 3001",
+        lotrDateValue: 30010930,
         description: "Some Description of minor event",
         eventId: 2,
         eventName: "A Minor Event",

@@ -1,6 +1,7 @@
 import characters from "./characters.json";
 import events from "./events.json";
 import places from "./places";
+import { LotrDate } from "./LotrDate";
 
 const defaultSearchFields = {
   id: "number",
@@ -83,7 +84,8 @@ export class DataClient {
         eventId: e.id,
         eventName: e.name,
         description: e.description,
-        date: e.date,
+        lotrDate: e.date,
+        lotrDateValue: new LotrDate(e.date).value,
         x: place.x,
         y: place.y,
       };
