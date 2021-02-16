@@ -6,7 +6,7 @@ jest.mock(
     {
       id: 1,
       name: "SomeCoolCharacter",
-      events: [1, 2, 3, 4],
+      events: [1, 2],
     },
   ],
   { virtual: true }
@@ -21,7 +21,15 @@ jest.mock(
       place: 1,
       date: "22 Sept 3001",
       chapter: 1,
-      description: "Some Description",
+      description: "Some Description of major event",
+    },
+    {
+      id: 2,
+      name: "A Minor Event",
+      place: 2,
+      date: "30 Sept 3001",
+      chapter: 2,
+      description: "Some Description of minor event",
     },
   ],
   { virtual: true }
@@ -35,6 +43,12 @@ jest.mock(
       name: "Rivendell",
       x: 543,
       y: 123,
+    },
+    {
+      id: 2,
+      name: "Mines of Moria",
+      x: 1200,
+      y: 456,
     },
   ],
   { virtual: true }
@@ -126,4 +140,70 @@ describe("getPlaceBy()", () => {
   });
 });
 
+describe("getEventsById()", () => {
+  it("throws an error if there are non-integer ids", () => {
+    expect(() => dataClient.getEventsById([1, null])).toThrowError("Received some invalid eventIds: (1,)");
+  });
 
+  it("returns a list of event objects", () => {
+    const events = dataClient.getEventsById([1]);
+
+    expect(events[0]).toEqual(
+      expect.objectContaining({
+        id: 1,
+        name: "A Major Event",
+        date: "22 Sept 3001",
+      })
+    );
+  });
+});
+
+describe("createTimeline()", () => {
+  it("joins events with places data", () => {
+    const character = dataClient.getCharacterBy("id", 1);
+    const characterEvents = dataClient.getEventsById(character.events);
+    const timeline = dataClient.createTimeline(characterEvents);
+
+    expect(timeline).toEqual([
+      {
+        date: "22 Sept 3001",
+        description: "Some Description of major event",
+        eventId: 1,
+        eventName: "A Major Event",
+        x: 543,
+        y: 123,
+      },
+      {
+        date: "30 Sept 3001",
+        description: "Some Description of minor event",
+        eventId: 2,
+        eventName: "A Minor Event",
+        x: 1200,
+        y: 456,
+      },
+    ]);
+  });
+});
+
+describe("getCharacterTimelineBy()", () => {
+  it("creates a timeline of all the character events", () => {
+    expect(dataClient.getCharacterTimelineBy("id", 1)).toEqual([
+      {
+        date: "22 Sept 3001",
+        description: "Some Description of major event",
+        eventId: 1,
+        eventName: "A Major Event",
+        x: 543,
+        y: 123,
+      },
+      {
+        date: "30 Sept 3001",
+        description: "Some Description of minor event",
+        eventId: 2,
+        eventName: "A Minor Event",
+        x: 1200,
+        y: 456,
+      },
+    ]);
+  });
+});

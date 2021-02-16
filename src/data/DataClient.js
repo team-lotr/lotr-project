@@ -65,6 +65,36 @@ export class DataClient {
       throw new Error(`Could not find place with ${field} = ${value}`);
     }
 
-    return place; 
+    return place;
+  }
+
+  getEventsById(eventIds) {
+    if (!eventIds.every(Number.isInteger)) {
+      throw new Error(`Received some invalid eventIds: (${eventIds})`);
+    }
+
+    return events.filter((e) => eventIds.includes(e.id));
+  }
+
+  createTimeline(events) {
+    return events.map((e) => {
+      const place = this.getPlaceBy("id", e.place);
+      return {
+        eventId: e.id,
+        eventName: e.name,
+        description: e.description,
+        date: e.date,
+        x: place.x,
+        y: place.y,
+      };
+    });
+  }
+
+  getCharacterTimelineBy(field, value) {
+    const character = this.getCharacterBy(field, value);
+    const characterEvents = this.getEventsById(character.events);
+    const timeline = this.createTimeline(characterEvents);
+
+    return timeline;
   }
 }
