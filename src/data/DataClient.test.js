@@ -1,7 +1,7 @@
 import { DataClient } from "./DataClient";
 
 jest.mock(
-  "./characters.json",
+  "./datasets/characters.json",
   () => [
     {
       id: 1,
@@ -13,7 +13,7 @@ jest.mock(
 );
 
 jest.mock(
-  "./events.json",
+  "./datasets/events.json",
   () => [
     {
       id: 1,
@@ -36,7 +36,7 @@ jest.mock(
 );
 
 jest.mock(
-  "./places.json",
+  "./datasets/places.json",
   () => [
     {
       id: 1,

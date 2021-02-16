@@ -1,6 +1,6 @@
-import characters from "./characters.json";
-import events from "./events.json";
-import places from "./places";
+import characters from "./datasets/characters.json";
+import events from "./datasets/events.json";
+import places from "./datasets/places.json";
 import { LotrDate } from "./LotrDate";
 
 const defaultSearchFields = {
