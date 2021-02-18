@@ -6,6 +6,8 @@ import * as d3 from "d3";
 
 import { DataClient } from "../../data/DataClient";
 import { drawTimeline, highlight, unhighlight } from "./drawTimeline";
+import { renderDebugDot } from "./debugDot";
+import "./Demo.scss";
 
 const margin = { top: 0, left: 0, bottom: 0, right: 0 };
 // const width = document.body.clientWidth - margin.left - margin.right;
@@ -73,6 +75,7 @@ export function Demo() {
       })
     );
 
+    renderDebugDot(zoomGroup, { xStart: 100, yStart: 100, radius: 10});
     updateTimelines(timelinesGroup, [gandalfData]);
   }, []);
 
