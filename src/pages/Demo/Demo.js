@@ -41,9 +41,9 @@ const updateTimelines = (selection, data) => {
     .style("stroke-width", regularStrokeWidth)
     .style("stroke", (d) => d.character.color)
     .style("fill", "none")
-    .attr("class", "timeline");
-  // .on("mouseover", highlight)
-  // .on("mouseout", unhighlight)
+    .attr("class", "timeline")
+    .on("mouseover", highlight)
+    .on("mouseout", unhighlight)
 
   timelineEnter.append("title").text((d) => d.character.name);
 

@@ -16,8 +16,6 @@ export const drawTimeline = (pathData, currentTime) => {
     (event) => event.lotrDateValue
   );
 
-  console.log("coords: ", coordinates);
-
   // If there is only a single coordinate left, there is nothing to draw.
   if (coordinates.length < 1) return;
 
@@ -140,8 +138,6 @@ export const drawTimeline = (pathData, currentTime) => {
         )
       );
     }
-
-    //controlPoints.forEach((element, i, array) => g.append("circle").attr("cx", element.x).attr("cy", element.y).attr("r", 10).attr("fill", d3.interpolateBlues(i / array.length)));
 
     // Create path instructions from the control points and the coordinates.
     coordinates.forEach(function (coordinate, i) {
