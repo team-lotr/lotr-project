@@ -8,29 +8,29 @@ import { DataClient } from "../../data/DataClient";
 import { drawTimeline, highlight, unhighlight } from "./drawTimeline";
 import { renderDebugDot } from "./debugDot";
 import "./Demo.scss";
-
-const margin = { top: 0, left: 0, bottom: 0, right: 0 };
-// const width = document.body.clientWidth - margin.left - margin.right;
-// const height = window.innerHeight - margin.top - margin.bottom;
+import { noConflict } from "underscore";
 
 // Set up constants and variables for dynamic data.
 let currentTime = 30200000;
-let useCurves = true;
-let highlightedCharacter;
-const fadedOpacity = 0.4;
-const regularStrokeWidth = 7;
-const highlightedStrokeWidth = 10;
+const debugDot = false;
 
+// Set up the timeline data.
 const dataClient = new DataClient();
-const gandalfId = 10;
-const gandalfData = {
-  character: dataClient.getCharacterBy("id", gandalfId),
-  timeline: dataClient.getCharacterTimelineBy("id", gandalfId),
-};
-
-// Modification to get path drawing working until we handle
-// two subsequent events being in the same place
-gandalfData.timeline[0].x += 1;
+const timelineData = dataClient
+  .getAll("character")
+  .map(character => {
+    const timeline = dataClient
+      .getCharacterTimelineBy("id", character.id)
+      .sort((first, second) => first.lotrDateValue - second.lotrDateValue) // Sort according to ascending time.
+      .reduce((noRedundantEvents, event, i, array) => { // Remove the redundant events from the timeline.
+        // Only keep event if it is the first event or the previous event was not in the same place as this one.
+        if (i == 0 || (i > 0 && event.placeId !== array[i-1].placeId)) {
+          noRedundantEvents.push(event);
+        }
+        return noRedundantEvents;
+      }, []);
+    return { character, timeline };
+  });
 
 const updateTimelines = (selection, data) => {
   // Do data join.
@@ -40,10 +40,9 @@ const updateTimelines = (selection, data) => {
   const timelineEnter = timelineUpdate
     .enter()
     .append("path")
-    .style("stroke-width", regularStrokeWidth)
-    .style("stroke", (d) => d.character.color)
-    .style("fill", "none")
-    .attr("class", "timeline")
+    .classed("regularLine", true)
+    .classed("timeline", true)
+    .style("stroke", d => d.character.color1)
     .on("mouseover", highlight)
     .on("mouseout", unhighlight)
 
@@ -75,8 +74,10 @@ export function Demo() {
       })
     );
 
-    renderDebugDot(zoomGroup, { xStart: 100, yStart: 100, radius: 10});
-    updateTimelines(timelinesGroup, [gandalfData]);
+    if (debugDot) {
+      renderDebugDot(zoomGroup, { xStart: 100, yStart: 100, radius: 10});
+    }
+    updateTimelines(timelinesGroup, timelineData);
   }, []);
 
   return (

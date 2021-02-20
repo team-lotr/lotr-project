@@ -1,189 +1,190 @@
 import * as d3 from "d3";
 import _ from "underscore";
 
-let useCurves = true;
-let highlightedCharacter;
-const fadedOpacity = 0.4;
-const regularStrokeWidth = 7;
-const highlightedStrokeWidth = 10;
+const drawControlPoints = false;
+const drawPoints = false;
+const useCurves = true;
 
 // Function for generating a path string from the selection of a path.
 // { character: {}, timeline: {} }
 export const drawTimeline = (pathData, currentTime) => {
-  // Filter out points that are beyond the current time, then sort by the time.
-  const coordinates = _.sortBy(
-    pathData.timeline.filter((event) => event.lotrDateValue <= currentTime),
-    (event) => event.lotrDateValue
-  );
+    // Filter out points that are beyond the current time, then sort by the time.
+    const coordinates = _.sortBy(
+        pathData.timeline.filter((event) => event.lotrDateValue <= currentTime),
+        (event) => event.lotrDateValue
+    );
 
-  // If there is only a single coordinate left, there is nothing to draw.
-  if (coordinates.length < 1) return;
+    // If there is only a single coordinate left, there is nothing to draw.
+    if (coordinates.length < 1) return;
 
-  // Initialize D3 path serializer.
-  const path = d3.path();
-  path.moveTo(coordinates[0].x, coordinates[0].y);
+    // Initialize D3 path serializer.
+    const path = d3.path();
+    path.moveTo(coordinates[0].x, coordinates[0].y);
 
-  // Decide whether to draw curves or lines.
-  if (useCurves) {
-    // Initialize empty list of control points.
-    let controlPoints = [];
+    // Decide whether to draw curves or lines.
+    if (useCurves) {
+        // Initialize empty list of control points.
+        let controlPoints = [];
 
-    // Convert coordinates to position vectors and iterate to make control points.
-    coordinates
-      .map((coordinate) => coordinateToVector(coordinate))
-      .forEach(function (inner, i, array) {
-        if (i == 0 || i == array.length - 1) return; // Do nothing for endpoints (outer points).
+        if (drawPoints) {
+            coordinates.forEach(coordinate => d3
+                .select("#zoomContainer")
+                .append("circle")
+                .attr("cx", coordinate.x)
+                .attr("cy", coordinate.y)
+                .attr("r", 10)
+                .style("fill", "cyan"));
+        }
 
-        // "inner" is an inner point, meaning it is not an endpoint.
-        const left = array[i - 1]; // The point before inner.
-        const right = array[i + 1]; // The point after inner.
+        // Convert coordinates to position vectors and iterate to make control points.
+        coordinates
+            .map((coordinate) => coordinateToVector(coordinate))
+            .forEach(function(inner, i, array) {
+                if (i == 0 || i == array.length - 1) return; // Do nothing for endpoints (outer points).
 
-        // See if the point before is to the left of the point after.
-        const leftIsLeft = left.x <= right.x;
+                // "inner" is an inner point, meaning it is not an endpoint.
+                const left = array[i - 1]; // The point before inner.
+                const right = array[i + 1]; // The point after inner.
 
-        // See if the line between left and right is above inner.
-        const innerIsAbove = right.y > inner.y && left.y > inner.y;
+                // See if the point before is to the left of the point after.
+                const leftIsLeft = left.x <= right.x;
 
-        // Find vector from right to left.
-        const rightToLeft = subtractVectors(left, right);
-        const rightTowardsLeft = normalized(rightToLeft);
+                // See if the line between left and right is above inner.
+                const innerIsAbove = right.y > inner.y && left.y > inner.y;
 
-        // The vector from inner to the line between left and right, orthogonal to that line
-        // is clockwise or counter clockwise perpendicular from the right-left vector depending on
-        // the exclusive or of leftIsLeft and innerIsAbove.
-        const innerTowardsCenter = xor(leftIsLeft, innerIsAbove)
-          ? perpendicularClockwise(rightTowardsLeft)
-          : perpendicularCounterClockwise(rightTowardsLeft);
+                // Find vector from right to left.
+                const rightToLeft = subtractVectors(left, right);
+                const rightTowardsLeft = normalized(rightToLeft);
 
-        // Find intersection between ray from inner orthogonal to the right-left vector using method
-        // as suggested in: https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect/565282#565282
-        const distanceAlongToCenter =
-          crossProduct2D(subtractVectors(right, inner), rightTowardsLeft) /
-          crossProduct2D(innerTowardsCenter, rightTowardsLeft);
+                // The vector from inner to the line between left and right, orthogonal to that line
+                // is clockwise or counter clockwise perpendicular from the right-left vector depending on
+                // the exclusive or of leftIsLeft and innerIsAbove.
+                const innerTowardsCenter = xor(leftIsLeft, innerIsAbove) ?
+                    perpendicularClockwise(rightTowardsLeft) :
+                    perpendicularCounterClockwise(rightTowardsLeft);
 
-        // Find the center point that is inner "projected" onto the right-left vector.
-        const center = addVectors(
-          inner,
-          vectorScalarMult(innerTowardsCenter, distanceAlongToCenter)
-        );
+                // Find intersection between ray from inner orthogonal to the right-left vector using method
+                // as suggested in: https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect/565282#565282
+                const distanceAlongToCenter =
+                    crossProduct2D(subtractVectors(right, inner), rightTowardsLeft) /
+                    crossProduct2D(innerTowardsCenter, rightTowardsLeft);
 
-        // Find a tenth of the distance between right and left.
-        const distance = magnitude(rightToLeft) * 0.1;
+                // Find the center point that is inner "projected" onto the right-left vector.
+                const center = addVectors(
+                    inner,
+                    vectorScalarMult(innerTowardsCenter, distanceAlongToCenter)
+                );
 
-        // The vector from inner to center.
-        const innerToCenter = subtractVectors(center, inner);
+                // Find a tenth of the distance between right and left.
+                const distance = magnitude(rightToLeft) * 0.1;
 
-        // Calculate the offset vector from inner perpendicular to inner-center vector clockwise.
-        const clockwiseOffsetVector = vectorScalarMult(
-          normalized(perpendicularClockwise(innerToCenter)),
-          distance
-        );
+                // The vector from inner to center.
+                const innerToCenter = subtractVectors(center, inner);
 
-        // Find points offset from inner perpendicular clockwise and counter clockwise the distance calculated earlier.
-        const clockwiseOffsetPoint = addVectors(inner, clockwiseOffsetVector);
-        const counterClockwiseOffsetPoint = addVectors(
-          inner,
-          negatedVector(clockwiseOffsetVector)
-        );
+                // Calculate the offset vector from inner perpendicular to inner-center vector clockwise.
+                const clockwiseOffsetVector = vectorScalarMult(
+                    normalized(perpendicularClockwise(innerToCenter)),
+                    distance
+                );
 
-        // Add the control points in an order depending on the equality between leftIsLeft and innerIsAbove.
-        // One is always the clockwise offset point and the other is always the opposite.
-        controlPoints.push(
-          leftIsLeft === innerIsAbove
-            ? clockwiseOffsetPoint
-            : counterClockwiseOffsetPoint
-        );
-        controlPoints.push(
-          leftIsLeft === innerIsAbove
-            ? counterClockwiseOffsetPoint
-            : clockwiseOffsetPoint
-        );
-      });
+                // Find points offset from inner perpendicular clockwise and counter clockwise the distance calculated earlier.
+                const clockwiseOffsetPoint = addVectors(inner, clockwiseOffsetVector);
+                const counterClockwiseOffsetPoint = addVectors(
+                    inner,
+                    negatedVector(clockwiseOffsetVector)
+                );
 
-    // Createa one control point for each of the endpoints.
-    const firstPoint = { x: coordinates[0].x, y: coordinates[0].y };
-    const lastPoint = {
-      x: coordinates[coordinates.length - 1].x,
-      y: coordinates[coordinates.length - 1].y,
-    };
+                // Add the control points in an order depending on the distance from left.
+                // One is always the clockwise offset point and the other is always the opposite.
+                _.sortBy(
+                        [
+                            { point: clockwiseOffsetPoint, distanceToLeft: sqDistance(clockwiseOffsetPoint, left) },
+                            { point: counterClockwiseOffsetPoint, distanceToLeft: sqDistance(counterClockwiseOffsetPoint, left) }
+                        ],
+                        element => element.distanceToLeft)
+                    .forEach(element => controlPoints.push(element.point));
+            });
 
-    if (controlPoints.length > 0) {
-      // If there are control points, place the endpoint control points between the endpoint and its nearest control point.
-      controlPoints.splice(
-        0,
-        0,
-        addVectors(
-          firstPoint,
-          vectorScalarMult(subtractVectors(controlPoints[0], firstPoint), 0.5)
-        )
-      );
-      controlPoints.push(
-        addVectors(
-          lastPoint,
-          vectorScalarMult(subtractVectors(firstPoint, controlPoints[0]), 0.5)
-        )
-      );
+        // Createa one control point for each of the endpoints.
+        const firstPoint = { x: coordinates[0].x, y: coordinates[0].y };
+        const lastPoint = {
+            x: coordinates[coordinates.length - 1].x,
+            y: coordinates[coordinates.length - 1].y,
+        };
+
+        if (controlPoints.length > 0) {
+            // If there are control points, place the endpoint control points between the endpoint and its nearest control point.
+            controlPoints.splice(
+                0,
+                0,
+                addVectors(
+                    firstPoint,
+                    vectorScalarMult(subtractVectors(controlPoints[0], firstPoint), 0.5)
+                )
+            );
+            controlPoints.push(
+                addVectors(
+                    lastPoint,
+                    vectorScalarMult(subtractVectors(controlPoints[controlPoints.length - 1], lastPoint), 0.5)
+                )
+            );
+        } else {
+            // If there are no control points, place the control points 0.25 and 0.75 of the distance between the endpoints.
+            controlPoints.push(
+                addVectors(
+                    firstPoint,
+                    vectorScalarMult(subtractVectors(lastPoint, firstPoint), 0.25)
+                )
+            );
+            controlPoints.push(
+                addVectors(
+                    firstPoint,
+                    vectorScalarMult(subtractVectors(lastPoint, firstPoint), 0.75)
+                )
+            );
+        }
+
+        if (drawControlPoints) {
+            controlPoints.forEach((element, i, array) => d3.select("#zoomContainer").append("circle").attr("cx", element.x).attr("cy", element.y).attr("r", 10).attr("fill", d3.interpolateBlues(i / array.length)));
+        }
+
+        // Create path instructions from the control points and the coordinates.
+        coordinates.forEach(function(coordinate, i) {
+            if (i == 0) return;
+
+            path.bezierCurveTo(
+                controlPoints[(i - 1) * 2].x,
+                controlPoints[(i - 1) * 2].y,
+                controlPoints[(i - 1) * 2 + 1].x,
+                controlPoints[(i - 1) * 2 + 1].y,
+                coordinate.x,
+                coordinate.y
+            );
+        });
     } else {
-      // If there are no control points, place the control points 0.25 and 0.75 of the distance between the endpoints.
-      controlPoints.push(
-        addVectors(
-          firstPoint,
-          vectorScalarMult(subtractVectors(lastPoint, firstPoint), 0.25)
-        )
-      );
-      controlPoints.push(
-        addVectors(
-          firstPoint,
-          vectorScalarMult(subtractVectors(lastPoint, firstPoint), 0.75)
-        )
-      );
+        // Create line instructions from the coordinates.
+        coordinates.forEach((coordinate) =>
+            path.lineTo(coordinate.x, coordinate.y)
+        );
     }
 
-    // Create path instructions from the control points and the coordinates.
-    coordinates.forEach(function (coordinate, i) {
-      if (i == 0) return;
-
-      path.bezierCurveTo(
-        controlPoints[(i - 1) * 2].x,
-        controlPoints[(i - 1) * 2].y,
-        controlPoints[(i - 1) * 2 + 1].x,
-        controlPoints[(i - 1) * 2 + 1].y,
-        coordinate.x,
-        coordinate.y
-      );
-    });
-  } else {
-    // Create line instructions from the coordinates.
-    coordinates.forEach((coordinate) =>
-      path.lineTo(coordinate.x, coordinate.y)
-    );
-  }
-
-  return path.toString();
+    return path.toString();
 };
 
 // Function for highlighting a path and de-emphasizing the other paths.
 export const highlight = (event, d) => {
-  highlightedCharacter = d.characterID;
-
-  d3.selectAll(".timeline")
-    .style("stroke-opacity", (d) =>
-      d.characterID === highlightedCharacter ? 1 : fadedOpacity
-    )
-    .style("stroke-width", (d) =>
-      d.characterID === highlightedCharacter
-        ? highlightedStrokeWidth
-        : regularStrokeWidth
-    );
+    d3.selectAll(".timeline")
+        .classed("highlightedLine", _d => d.character.id === _d.character.id)
+        .classed("fadedLine", _d => d.character.id !== _d.character.id)
+        .classed("regularLine", false);
 };
 
 // Function for resetting the paths from the effects of the highlight function.
 export const unhighlight = () => {
-  highlightedCharacter = null;
-
-  d3.selectAll(".timeline")
-    .style("stroke-opacity", 1)
-    .style("stroke-width", regularStrokeWidth);
+    d3.selectAll(".timeline")
+        .classed("highlightedLine", false)
+        .classed("fadedLine", false)
+        .classed("regularLine", true);
 };
 
 // Helper functions for vector math and logical operators.
@@ -202,9 +203,11 @@ const perpendicularCounterClockwise = (v) => ({ x: v.y, y: -v.x });
 
 const magnitude = (v) => Math.sqrt(v.x ** 2 + v.y ** 2);
 
-const normalized = (v) => vectorScalarMult(v, 1 / magnitude(v));
+const normalized = (v) => vectorScalarMult(v, 1 / (magnitude(v) + 0.0001));
 
-const distance = (v1, v2) => Math.sqrt((v1.x - v2.x) ** 2 + (v1.y - v2.y) ** 2);
+const distance = (v1, v2) => Math.sqrt(sqDistance(sqDistance));
+
+const sqDistance = (v1, v2) => (v1.x - v2.x) ** 2 + (v1.y - v2.y) ** 2;
 
 const negatedVector = (v) => ({ x: -v.x, y: -v.y });
 
