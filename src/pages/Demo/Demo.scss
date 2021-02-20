@@ -2,3 +2,19 @@
     fill: red;
     cursor: move;
 }
+
+.highlightedLine {
+    stroke-width: 10;
+    fill: none;
+}
+
+.fadedLine {
+    stroke-width: 7;
+    stroke-opacity: 0.2;
+    fill: none;
+}
+
+.regularLine {
+    stroke-width: 7;
+    fill: none;
+}
