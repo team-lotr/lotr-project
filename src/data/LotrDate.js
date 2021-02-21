@@ -19,6 +19,9 @@ export class LotrDate {
       return Number(lotrDateString) * 10000;
     }
     const [, day, month, year] = match;
+    this.day = Number(day) || 0;
+    this.month = this.monthToNumber(month) || 0;
+    this.year = Number(year);
     return Number(day) + this.monthToNumber(month) * 100 + Number(year) * 10000;
   }
 
@@ -33,6 +36,10 @@ export class LotrDate {
     if (day > 0) values.push(day);
     if (month > 0) values.push(this.numberToMonth(month));
     if (year > 0) values.push(year);
+
+    this.day = day;
+    this.month = month;
+    this.year = year;
 
     return values.join(" ");
   }
