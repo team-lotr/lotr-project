@@ -120,4 +120,18 @@ export class DataClient {
         return null;
     }
   }
+
+  getDistinctDates() {
+    let allDates = events.map((e) => new LotrDate(e.date));
+    allDates.sort((dateA, dateB) => dateA.value - dateB.value);
+    let resultDates = [];
+    for (const date of allDates) {
+      if (resultDates.find((d) => d.value === date.value)) {
+        // Don't add to results
+      } else {
+        resultDates.push(date);
+      }
+    }
+    return resultDates;
+  }
 }

@@ -1,4 +1,5 @@
 import { DataClient } from "./DataClient";
+import { LotrDate } from "./LotrDate";
 
 jest.mock(
   "./datasets/characters.json",
@@ -30,6 +31,14 @@ jest.mock(
       date: "30 Sept 3001",
       chapter: 2,
       description: "Some Description of minor event",
+    },
+    {
+      id: 4,
+      name: "A Minor Event 2",
+      place: 2,
+      date: "30 Sept 3001",
+      chapter: 2,
+      description: "Some Description of minor event 2",
     },
     {
       id: 3,
@@ -265,6 +274,16 @@ describe("getCharacterTimelineBy()", () => {
         x: 1200,
         y: 456,
       },
+    ]);
+  });
+});
+
+describe("getDistinctDates()", () => {
+  it("returns a sorted list of distinct event dates", () => {
+    expect(dataClient.getDistinctDates()).toEqual([
+      new LotrDate("1 Jan 3001"),
+      new LotrDate("22 Sept 3001"),
+      new LotrDate("30 Sept 3001"),
     ]);
   });
 });
