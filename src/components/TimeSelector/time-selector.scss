@@ -1,0 +1,41 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+
+.time-selector {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  background-color: $white;
+  padding: 7px;
+  border-radius: 10px;
+  border: 3px solid $border-color-blue;
+  width: 400px;
+
+  .time-selector__picker {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .time-selector__axis {
+      background-color: black;
+      height: 1px;
+      width: 90%;
+    }
+
+    .time-selector__tick {
+      height: 15px;
+      width: 2px;
+      cursor: pointer;
+      background-color: black;
+
+      &:hover {
+        background-color: blue;
+        transform: scale(0, 5 2);
+      }
+    }
+  }
+}

@@ -5,8 +5,9 @@ import * as d3 from "d3";
 import { DataClient } from "../../data/DataClient";
 import { Timelines } from "../../components/Timelines";
 import { Header } from "../../components/Header";
-import "./Demo.scss";
 import { DebugDot } from "../../components/DebugDot";
+import { TimeSelector } from "../../components/TimeSelector";
+import "./Demo.scss";
 
 // Set up constants and variables for dynamic data.
 let currentTime = 30200000;
@@ -14,6 +15,7 @@ let currentTime = 30200000;
 export function Demo() {
   const [isMapRendered, setIsMapRendered] = useState(false);
   const chartRef = useRef(null);
+  const [currentTime, setCurrentTime] = useState(null);
 
   // Set up the timeline data.
   const dataClient = new DataClient();
@@ -30,6 +32,7 @@ export function Demo() {
       }, []);
     return { character, timeline };
   });
+  const distinctEventDates = dataClient.getDistinctDates();
 
   useEffect(() => {
     const svg = d3.select("svg");
@@ -53,6 +56,7 @@ export function Demo() {
         <MapSvg />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime} />
         <DebugDot isMapRendered={isMapRendered} />
+        <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
       </div>
     </>
   );
