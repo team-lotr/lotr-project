@@ -6,7 +6,7 @@ jest.mock(
     {
       id: 1,
       name: "SomeCoolCharacter",
-      events: [1, 2],
+      events: [1, 2, 3],
     },
   ],
   { virtual: true }
@@ -31,6 +31,14 @@ jest.mock(
       chapter: 2,
       description: "Some Description of minor event",
     },
+    {
+      id: 3,
+      name: "A Minor Event Out of Order",
+      place: 3,
+      date: "1 Jan 3001",
+      chapter: 3,
+      description: "This event is out of order",
+    },
   ],
   { virtual: true }
 );
@@ -49,6 +57,12 @@ jest.mock(
       name: "Mines of Moria",
       x: 1200,
       y: 456,
+    },
+    {
+      id: 3,
+      name: "Rohan",
+      x: 1400,
+      y: 765,
     },
   ],
   { virtual: true }
@@ -159,17 +173,34 @@ describe("getEventsById()", () => {
 });
 
 describe("createTimeline()", () => {
-  it("joins events with places data", () => {
-    const character = dataClient.getCharacterBy("id", 1);
-    const characterEvents = dataClient.getEventsById(character.events);
-    const timeline = dataClient.createTimeline(characterEvents);
+  let characterEvents;
 
+  beforeEach(() => {
+    const character = dataClient.getCharacterBy("id", 1);
+    characterEvents = dataClient.getEventsById(character.events);
+  });
+
+  it("joins events with places data", () => {
+    const timeline = dataClient.createTimeline(characterEvents, "lotrDateValue");
     expect(timeline).toEqual([
+      {
+        lotrDate: "1 Jan 3001",
+        lotrDateValue: 30010101,
+        description: "This event is out of order",
+        chapter: 3,
+        eventId: 3,
+        placeId: 3,
+        eventName: "A Minor Event Out of Order",
+        x: 1400,
+        y: 765,
+      },
       {
         lotrDate: "22 Sept 3001",
         lotrDateValue: 30010922,
         description: "Some Description of major event",
         eventId: 1,
+        placeId: 1,
+        chapter: 1,
         eventName: "A Major Event",
         x: 543,
         y: 123,
@@ -179,22 +210,46 @@ describe("createTimeline()", () => {
         lotrDateValue: 30010930,
         description: "Some Description of minor event",
         eventId: 2,
+        placeId: 2,
+        chapter: 2,
         eventName: "A Minor Event",
         x: 1200,
         y: 456,
       },
     ]);
   });
+
+  it("can sort timeline by chapters", () => {
+    const timeline = dataClient.createTimeline(characterEvents, "sorting");
+    expect(timeline).toEqual([
+      expect.objectContaining({ chapter: 1 }),
+      expect.objectContaining({ chapter: 2 }),
+      expect.objectContaining({ chapter: 3 }),
+    ]);
+  });
 });
 
 describe("getCharacterTimelineBy()", () => {
   it("creates a timeline of all the character events", () => {
-    expect(dataClient.getCharacterTimelineBy("id", 1)).toEqual([
+    expect(dataClient.getCharacterTimelineBy("id", 1, "lotrDateValue")).toEqual([
+      {
+        lotrDate: "1 Jan 3001",
+        lotrDateValue: 30010101,
+        description: "This event is out of order",
+        eventId: 3,
+        placeId: 3,
+        chapter: 3,
+        eventName: "A Minor Event Out of Order",
+        x: 1400,
+        y: 765,
+      },
       {
         lotrDate: "22 Sept 3001",
         lotrDateValue: 30010922,
         description: "Some Description of major event",
         eventId: 1,
+        placeId: 1,
+        chapter: 1,
         eventName: "A Major Event",
         x: 543,
         y: 123,
@@ -204,6 +259,8 @@ describe("getCharacterTimelineBy()", () => {
         lotrDateValue: 30010930,
         description: "Some Description of minor event",
         eventId: 2,
+        placeId: 2,
+        chapter: 2,
         eventName: "A Minor Event",
         x: 1200,
         y: 456,

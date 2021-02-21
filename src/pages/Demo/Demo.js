@@ -17,8 +17,7 @@ const debugDot = false;
 const dataClient = new DataClient();
 const timelineData = dataClient.getAll("character").map((character) => {
   const timeline = dataClient
-    .getCharacterTimelineBy("id", character.id)
-    .sort((first, second) => first.lotrDateValue - second.lotrDateValue) // Sort according to ascending time.
+    .getCharacterTimelineBy("id", character.id, "lotrDateValue")
     .reduce((noRedundantEvents, event, i, array) => {
       // Remove the redundant events from the timeline.
       // Only keep event if it is the first event or the previous event was not in the same place as this one.
@@ -29,6 +28,7 @@ const timelineData = dataClient.getAll("character").map((character) => {
     }, []);
   return { character, timeline };
 });
+console.log(timelineData, "%o");
 
 const updateTimelines = (selection, data) => {
   // Do data join.
