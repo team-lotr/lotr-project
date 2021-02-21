@@ -8,14 +8,12 @@ import { Header } from "../../components/Header";
 import { DebugDot } from "../../components/DebugDot";
 import { TimeSelector } from "../../components/TimeSelector";
 import "./Demo.scss";
-
-// Set up constants and variables for dynamic data.
-let currentTime = 30200000;
+import { LotrDate } from "../../data/LotrDate";
 
 export function Demo() {
   const [isMapRendered, setIsMapRendered] = useState(false);
   const chartRef = useRef(null);
-  const [currentTime, setCurrentTime] = useState(null);
+  const [currentTime, setCurrentTime] = useState(new LotrDate("12 Apr 3018"));
 
   // Set up the timeline data.
   const dataClient = new DataClient();
@@ -54,7 +52,7 @@ export function Demo() {
       <Header />
       <div ref={chartRef}>
         <MapSvg />
-        <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime} />
+        <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
       </div>

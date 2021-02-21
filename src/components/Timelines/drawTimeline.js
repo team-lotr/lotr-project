@@ -14,6 +14,8 @@ export const drawTimeline = (pathData, currentTime) => {
         (event) => event.lotrDateValue
     );
 
+    console.log(coordinates);
+
     // If there is only a single coordinate left, there is nothing to draw.
     if (coordinates.length < 1) return;
 

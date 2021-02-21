@@ -8,6 +8,8 @@ import * as d3 from "d3";
 // ensures that the useEffect callback is not called without a prepared map.
 export function Timelines({ data, time, isMapRendered }) {
   useEffect(() => {
+
+    console.log(data, time);
     // Do data join.
     const timelinesGroup = d3.select("#timelines");
     const timelineUpdate = timelinesGroup.selectAll(".timeline").data(data);
@@ -33,7 +35,7 @@ export function Timelines({ data, time, isMapRendered }) {
 
     // Remove exit selection.
     timelineUpdate.exit().remove();
-  }, [isMapRendered]);
+  }, [isMapRendered, time]);
 
   return null;
 }
