@@ -5,12 +5,11 @@ import * as d3 from "d3";
 import { DataClient } from "../../data/DataClient";
 import { Timelines } from "../../components/Timelines";
 import { Header } from "../../components/Header";
-import { renderDebugDot } from "./debugDot";
 import "./Demo.scss";
+import { DebugDot } from "../../components/DebugDot";
 
 // Set up constants and variables for dynamic data.
 let currentTime = 30200000;
-const debugDot = false;
 
 export function Demo() {
   const [isMapRendered, setIsMapRendered] = useState(false);
@@ -44,10 +43,6 @@ export function Demo() {
       })
     );
 
-    if (debugDot) {
-      renderDebugDot(zoomGroup, { xStart: 100, yStart: 100, radius: 10 });
-    }
-
     setIsMapRendered(true);
   }, []);
 
@@ -57,6 +52,7 @@ export function Demo() {
       <div ref={chartRef}>
         <MapSvg />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime} />
+        <DebugDot isMapRendered={isMapRendered} />
       </div>
     </>
   );
