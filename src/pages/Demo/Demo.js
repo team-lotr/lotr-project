@@ -5,6 +5,7 @@ import { ReactComponent as MapSvg } from "../../assets/mapome-slim.svg";
 import * as d3 from "d3";
 
 import { DataClient } from "../../data/DataClient";
+import { Header } from "../../components/Header";
 import { drawTimeline, highlight, unhighlight } from "./drawTimeline";
 import { renderDebugDot } from "./debugDot";
 import "./Demo.scss";
@@ -16,21 +17,20 @@ const debugDot = false;
 
 // Set up the timeline data.
 const dataClient = new DataClient();
-const timelineData = dataClient
-  .getAll("character")
-  .map(character => {
-    const timeline = dataClient
-      .getCharacterTimelineBy("id", character.id)
-      .sort((first, second) => first.lotrDateValue - second.lotrDateValue) // Sort according to ascending time.
-      .reduce((noRedundantEvents, event, i, array) => { // Remove the redundant events from the timeline.
-        // Only keep event if it is the first event or the previous event was not in the same place as this one.
-        if (i == 0 || (i > 0 && event.placeId !== array[i-1].placeId)) {
-          noRedundantEvents.push(event);
-        }
-        return noRedundantEvents;
-      }, []);
-    return { character, timeline };
-  });
+const timelineData = dataClient.getAll("character").map((character) => {
+  const timeline = dataClient
+    .getCharacterTimelineBy("id", character.id)
+    .sort((first, second) => first.lotrDateValue - second.lotrDateValue) // Sort according to ascending time.
+    .reduce((noRedundantEvents, event, i, array) => {
+      // Remove the redundant events from the timeline.
+      // Only keep event if it is the first event or the previous event was not in the same place as this one.
+      if (i == 0 || (i > 0 && event.placeId !== array[i - 1].placeId)) {
+        noRedundantEvents.push(event);
+      }
+      return noRedundantEvents;
+    }, []);
+  return { character, timeline };
+});
 
 const updateTimelines = (selection, data) => {
   // Do data join.
@@ -42,9 +42,9 @@ const updateTimelines = (selection, data) => {
     .append("path")
     .classed("regularLine", true)
     .classed("timeline", true)
-    .style("stroke", d => d.character.color1)
+    .style("stroke", (d) => d.character.color1)
     .on("mouseover", highlight)
-    .on("mouseout", unhighlight)
+    .on("mouseout", unhighlight);
 
   timelineEnter.append("title").text((d) => d.character.name);
 
@@ -75,16 +75,14 @@ export function Demo() {
     );
 
     if (debugDot) {
-      renderDebugDot(zoomGroup, { xStart: 100, yStart: 100, radius: 10});
+      renderDebugDot(zoomGroup, { xStart: 100, yStart: 100, radius: 10 });
     }
     updateTimelines(timelinesGroup, timelineData);
   }, []);
 
   return (
     <>
-      <Nav />
-      <h2>Demo</h2>
-      <MyFn data="hello" />
+      <Header />
       <div ref={chartRef}>
         <MapSvg />
       </div>
