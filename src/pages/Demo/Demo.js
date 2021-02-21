@@ -1,5 +1,3 @@
-import { Nav } from "../../components/Nav";
-import { MyFn } from "../../components/CharacterSelection";
 import { useEffect, useRef } from "react";
 import { ReactComponent as MapSvg } from "../../assets/mapome-slim.svg";
 import * as d3 from "d3";
