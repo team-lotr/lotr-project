@@ -1,10 +1,18 @@
 export class LotrDate {
-  constructor(lotrDateString) {
-    this.lotrDateString = lotrDateString;
-    this.value = this.parseLotrDateString(lotrDateString);
+  constructor(lotrDate) {
+    if (typeof lotrDate === "string") {
+      this.lotrDateString = lotrDate;
+      this.value = this.parseLotrDateString(lotrDate);
+    } else if (typeof lotrDate === "number") {
+      this.value = lotrDate;
+      this.lotrDateString = this.createLotrDateString(lotrDate);
+    }
   }
 
   parseLotrDateString(lotrDateString) {
+    if (!lotrDateString) {
+      console.log(lotrDateString);
+    }
     const match = lotrDateString.match(/(\d+) ([A-z]+) (\d+)/);
     if (!match) {
       // Handle case where only year given
@@ -12,6 +20,21 @@ export class LotrDate {
     }
     const [, day, month, year] = match;
     return Number(day) + this.monthToNumber(month) * 100 + Number(year) * 10000;
+  }
+
+  createLotrDateString(value) {
+    let day = value % 100;
+    value = Math.floor(value / 100);
+    let month = value % 100;
+    value = Math.floor(value / 100);
+    let year = value;
+
+    let values = [];
+    if (day > 0) values.push(day);
+    if (month > 0) values.push(this.numberToMonth(month));
+    if (year > 0) values.push(year);
+
+    return values.join(" ");
   }
 
   monthToNumber(monthStr) {
@@ -43,6 +66,10 @@ export class LotrDate {
       default:
         throw new Error(`Received invalid month string: ${monthStr}`);
     }
+  }
+
+  numberToMonth(monthNumber) {
+    return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][monthNumber - 1];
   }
 
   toString() {
