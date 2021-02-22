@@ -20,7 +20,7 @@ export function TimeSelector({ time, range, onChange }) {
       <p>{time ? time.lotrDateString : "Select a date"}</p>
       <div className="time-selector__picker">
         {range.map((d) => (
-          <Tick date={d} onClick={onChange} />
+          <Tick key={d.value} date={d} onClick={onChange} />
         ))}
         <div className="time-selector__axis" />
       </div>
