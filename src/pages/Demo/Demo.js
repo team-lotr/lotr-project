@@ -39,8 +39,10 @@ export function Demo() {
 
     // Add zooming and panning to the zoom group.
     svg.call(
-      d3.zoom().on("zoom", (event) => {
-        zoomGroup.attr("transform", event.transform);
+      d3.zoom()
+        .scaleExtent([1, 20])
+        .on("zoom", (event) => {
+          zoomGroup.attr("transform", event.transform);
       })
     );
 
