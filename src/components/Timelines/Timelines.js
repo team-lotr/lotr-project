@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { drawTimeline } from "./drawTimeline";
 import * as d3 from "d3";
 import _ from "underscore";
+import "./timelines.scss";
 
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
