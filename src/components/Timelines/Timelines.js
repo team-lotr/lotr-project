@@ -24,8 +24,9 @@ export function Timelines({ data, time, isMapRendered }) {
         // Filter out points that are beyond the current time, then sort by the time.
         data = filterData(data, time);
 
-        // Do data join.
         const timelinesGroup = d3.select("#timelines");
+
+        // Do data join.
         const timelineUpdate = timelinesGroup.selectAll(".timeline").data(data);
         const circleUpdate = timelinesGroup.selectAll(".characterCircle").data(data);
 
@@ -56,8 +57,8 @@ export function Timelines({ data, time, isMapRendered }) {
         const timelineMerge = timelineEnter.merge(timelineUpdate).attr("d", (d) => drawTimeline(d, time))
 
         const circleMerge = circleEnter.merge(circleUpdate)
-            .attr("cx", d => d.timeline.length > 0 ? d.timeline[d.timeline.length - 1].x : null)
-            .attr("cy", d => d.timeline.length > 0 ? d.timeline[d.timeline.length - 1].y : null)
+            .attr("cx", d => d.timeline.length > 0 ? d.timeline[d.timeline.length - 1].x : -1000000)
+            .attr("cy", d => d.timeline.length > 0 ? d.timeline[d.timeline.length - 1].y : -1000000)
 
         // Remove exit selection.
         timelineUpdate.exit().remove();
