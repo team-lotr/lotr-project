@@ -79,7 +79,7 @@ export class DataClient {
 
   createTimeline(events, sorting) {
     const timeline = events.map((e) => {
-      const place = this.getPlaceBy("id", e.place);
+      const place = this.getPlaceBy("id", e.placeId);
       return {
         eventId: e.id,
         eventName: e.name,
@@ -111,11 +111,11 @@ export class DataClient {
 
     switch (dataType) {
       case "event":
-        return events;
+        return [...events];
       case "place":
-        return places;
+        return [...places];
       case "character":
-        return characters;
+        return [...characters].map(e => ({...e, events: [...e.events]}));
       default:
         return null;
     }
