@@ -4,6 +4,7 @@ import * as d3 from "d3";
 
 import { DataClient } from "../../data/DataClient";
 import { Timelines } from "../../components/Timelines";
+import { Events } from "../../components/Events";
 import { Header } from "../../components/Header";
 import { DebugDot } from "../../components/DebugDot";
 import { TimeSelector } from "../../components/TimeSelector";
@@ -32,18 +33,29 @@ export function Demo() {
   });
   const distinctEventDates = dataClient.getDistinctDates();
 
+  // Set up the event data.
+  const eventData = dataClient.getAll("event").map((event) => {
+    return {
+      ...event,
+      place: dataClient.getPlaceBy("id", event.placeId),
+      lotrDateValue: new LotrDate(event.date).value
+    };
+  });
+
   useEffect(() => {
     const svg = d3.select("svg");
     const zoomGroup = d3.select("#zoomContainer");
     zoomGroup.append("g").attr("id", "timelines");
+    zoomGroup.append("g").attr("id", "events");
 
     // Add zooming and panning to the zoom group.
     svg.call(
-      d3.zoom()
+      d3
+        .zoom()
         .scaleExtent([1, 20])
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
-      })
+        })
     );
 
     setIsMapRendered(true);
@@ -55,6 +67,7 @@ export function Demo() {
       <div ref={chartRef}>
         <MapSvg />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
+        <Events isMapRendered={isMapRendered} data={eventData} time={currentTime.value} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
       </div>
