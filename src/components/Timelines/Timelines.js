@@ -1,6 +1,16 @@
 import { useEffect } from "react";
 import { drawTimeline, highlight, unhighlight } from "./drawTimeline";
 import * as d3 from "d3";
+import _ from "underscore";
+
+function filterData(data, time) {
+    data.forEach(element => {
+        element.timeline = _.sortBy(element.timeline.filter((event) => event.lotrDateValue <= time),
+            (event) => event.lotrDateValue
+        );
+    });
+    return data;
+}
 
 // Timelines
 // This function takes an array of timelines and renders timelines
@@ -38,4 +48,6 @@ export function Timelines({ data, time, isMapRendered }) {
   }, [isMapRendered, time]);
 
   return null;
+        // Filter out points that are beyond the current time, then sort by the time.
+        data = filterData(data, time);
 }

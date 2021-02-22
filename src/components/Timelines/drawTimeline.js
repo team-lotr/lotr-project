@@ -8,13 +8,7 @@ const useCurves = true;
 // Function for generating a path string from the selection of a path.
 // { character: {}, timeline: {} }
 export const drawTimeline = (pathData, currentTime) => {
-    // Filter out points that are beyond the current time, then sort by the time.
-    const coordinates = _.sortBy(
-        pathData.timeline.filter((event) => event.lotrDateValue <= currentTime),
-        (event) => event.lotrDateValue
-    );
-
-    console.log(coordinates);
+    const coordinates = pathData.timeline;
 
     // If there is only a single coordinate left, there is nothing to draw.
     if (coordinates.length < 1) return;
