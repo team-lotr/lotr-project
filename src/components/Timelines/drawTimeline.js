@@ -8,12 +8,7 @@ const useCurves = true;
 // Function for generating a path string from the selection of a path.
 // { character: {}, timeline: {} }
 export const drawTimeline = (pathData, currentTime) => {
-    // Filter out points that are beyond the current time, then sort by the time.
-    const coordinates = _.sortBy(
-        pathData.timeline.filter((event) => event.lotrDateValue <= currentTime),
-        (event) => event.lotrDateValue
-    );
-
+    const coordinates = pathData.timeline;
 
     // If there is only a single coordinate left, there is nothing to draw.
     if (coordinates.length < 1) return;
@@ -170,22 +165,6 @@ export const drawTimeline = (pathData, currentTime) => {
     }
 
     return path.toString();
-};
-
-// Function for highlighting a path and de-emphasizing the other paths.
-export const highlight = (event, d) => {
-    d3.selectAll(".timeline")
-        .classed("highlightedLine", _d => d.character.id === _d.character.id)
-        .classed("fadedLine", _d => d.character.id !== _d.character.id)
-        .classed("regularLine", false);
-};
-
-// Function for resetting the paths from the effects of the highlight function.
-export const unhighlight = () => {
-    d3.selectAll(".timeline")
-        .classed("highlightedLine", false)
-        .classed("fadedLine", false)
-        .classed("regularLine", true);
 };
 
 // Helper functions for vector math and logical operators.
