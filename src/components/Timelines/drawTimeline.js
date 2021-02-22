@@ -167,22 +167,6 @@ export const drawTimeline = (pathData, currentTime) => {
     return path.toString();
 };
 
-// Function for highlighting a path and de-emphasizing the other paths.
-export const highlight = (event, d) => {
-    d3.selectAll(".timeline")
-        .classed("highlightedLine", _d => d.character.id === _d.character.id)
-        .classed("fadedLine", _d => d.character.id !== _d.character.id)
-        .classed("regularLine", false);
-};
-
-// Function for resetting the paths from the effects of the highlight function.
-export const unhighlight = () => {
-    d3.selectAll(".timeline")
-        .classed("highlightedLine", false)
-        .classed("fadedLine", false)
-        .classed("regularLine", true);
-};
-
 // Helper functions for vector math and logical operators.
 
 const coordinateToVector = (c) => ({ x: c.x, y: c.y });
