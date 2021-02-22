@@ -8,34 +8,58 @@
   transform: translate(-50%, 0);
   text-align: center;
   background-color: $white;
-  padding: 7px;
+  padding: 8px;
   border-radius: 10px;
   border: 3px solid $border-color-blue;
-  width: 400px;
+  width: 360px;
 
-  .time-selector__picker {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-    .time-selector__axis {
-      background-color: black;
-      height: 1px;
-      width: 90%;
-    }
+  .time-selector__date {
+    width: 28%;
 
-    .time-selector__tick {
-      height: 15px;
-      width: 2px;
+    .time-selector__datevalue {
+      @extend .body-text;
+      font-size: 18px;
       cursor: pointer;
-      background-color: black;
+      line-height: 20px;
+      user-select: none;
 
       &:hover {
-        background-color: blue;
-        transform: scale(0, 5 2);
+        transform: scale(1.05);
       }
+    }
+
+    &[data-variant="secondary"] {
+      opacity: 0.5;
+
+      .time-selector__datevalue {
+        font-size: 16px;
+      }
+    }
+
+    &[data-variant="primary"]:hover {
+      .time-selector__datevalue {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .time-selector__arrow {
+    width: 20px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 20px;
+    user-select: none;
+    transform: translateY(-1px);
+    color: $body-text-color;
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
