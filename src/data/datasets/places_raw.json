@@ -1,0 +1,457 @@
+[
+  {
+    "bookId": 1,
+    "id": 1,
+    "name": "Hobbiton",
+    "x": 821,
+    "y": 661
+  },
+  {
+    "bookId": 1,
+    "id": 2,
+    "name": "Eastern Shire",
+    "x": 847,
+    "y": 716
+  },
+  {
+    "bookId": 1,
+    "id": 3,
+    "name": "Near Woodhall",
+    "x": 876,
+    "y": 715
+  },
+  {
+    "bookId": 1,
+    "id": 4,
+    "name": "Bamfurlong farm",
+    "x": 902,
+    "y": 699
+  },
+  {
+    "bookId": 1,
+    "id": 5,
+    "name": "Buckland Ferry",
+    "x": 918,
+    "y": 705
+  },
+  {
+    "bookId": 1,
+    "id": 6,
+    "name": "Buckland",
+    "x": 924,
+    "y": 700
+  },
+  {
+    "bookId": 1,
+    "id": 7,
+    "name": "Crickhollow",
+    "x": 938,
+    "y": 702
+  },
+  {
+    "bookId": 1,
+    "id": 8,
+    "name": "The Old Forest",
+    "x": 957,
+    "y": 708
+  },
+  {
+    "bookId": 1,
+    "id": 9,
+    "name": "The house of Tom Bombadil",
+    "x": 978,
+    "y": 705
+  },
+  {
+    "bookId": 1,
+    "id": 10,
+    "name": "Barrow-downs",
+    "x": 1012,
+    "y": 695
+  },
+  {
+    "bookId": 1,
+    "id": 11,
+    "name": "The Prancing Pony inn",
+    "x": 1046,
+    "y": 662
+  },
+  {
+    "bookId": 1,
+    "id": 12,
+    "name": "Sarn Ford",
+    "x": 965,
+    "y": 805
+  },
+  {
+    "bookId": 1,
+    "id": 13,
+    "name": "East Road near Staddle",
+    "x": 1073,
+    "y": 665
+  },
+  {
+    "bookId": 1,
+    "id": 14,
+    "name": "Midgewater Marshes",
+    "x": 1101,
+    "y": 639
+  },
+  {
+    "bookId": 1,
+    "id": 15,
+    "name": "Weathertop",
+    "x": 1195,
+    "y": 638
+  },
+  {
+    "bookId": 1,
+    "id": 16,
+    "name": "The Last Bridge",
+    "x": 1371,
+    "y": 630
+  },
+  {
+    "bookId": 1,
+    "id": 17,
+    "name": "Trollshaws",
+    "x": 1461,
+    "y": 621
+  },
+  {
+    "bookId": 1,
+    "id": 18,
+    "name": "East Road near Bruinen Gorges",
+    "x": 1492,
+    "y": 649
+  },
+  {
+    "bookId": 1,
+    "id": 19,
+    "name": "The Ford of Bruinen",
+    "x": 1522,
+    "y": 654
+  },
+  {
+    "bookId": 2,
+    "id": 1,
+    "name": "Rivendell",
+    "x": 1547,
+    "y": 634
+  },
+  {
+    "bookId": 2,
+    "id": 2,
+    "name": "Minas Tirith",
+    "x": 2045,
+    "y": 1693
+  },
+  {
+    "bookId": 2,
+    "id": 3,
+    "name": "Wilderland",
+    "x": 1805,
+    "y": 536
+  },
+  {
+    "bookId": 2,
+    "id": 4,
+    "name": "Mirkwood",
+    "x": 2074,
+    "y": 461
+  },
+  {
+    "bookId": 2,
+    "id": 5,
+    "name": "Bree",
+    "x": 1040,
+    "y": 677
+  },
+  {
+    "bookId": 2,
+    "id": 6,
+    "name": "Orthanc",
+    "x": 1407,
+    "y": 1294
+  },
+  {
+    "bookId": 2,
+    "id": 7,
+    "name": "Edoras",
+    "x": 1578,
+    "y": 1498
+  },
+  {
+    "bookId": 2,
+    "id": 8,
+    "name": "Hobbiton",
+    "x": 821,
+    "y": 661
+  },
+  {
+    "bookId": 2,
+    "id": 9,
+    "name": "Tharbad",
+    "x": 1116,
+    "y": 945
+  },
+  {
+    "bookId": 2,
+    "id": 10,
+    "name": "Eregion's north border",
+    "x": 1504,
+    "y": 869
+  },
+  {
+    "bookId": 2,
+    "id": 11,
+    "name": "Caradhras peak",
+    "x": 1534,
+    "y": 839
+  },
+  {
+    "bookId": 2,
+    "id": 12,
+    "name": "Foot of the Misty Mountains",
+    "x": 1484,
+    "y": 894
+  },
+  {
+    "bookId": 2,
+    "id": 13,
+    "name": "West gate of Moria",
+    "x": 1504,
+    "y": 927
+  },
+  {
+    "bookId": 2,
+    "id": 14,
+    "name": "Mines of Moria",
+    "x": 1533,
+    "y": 919
+  },
+  {
+    "bookId": 2,
+    "id": 15,
+    "name": "Dimrill Dale",
+    "x": 1558,
+    "y": 917
+  },
+  {
+    "bookId": 2,
+    "id": 16,
+    "name": "Lothlorien",
+    "x": 1639,
+    "y": 992
+  },
+  {
+    "bookId": 2,
+    "id": 17,
+    "name": "Caras Galadhon",
+    "x": 1688,
+    "y": 1007
+  },
+  {
+    "bookId": 2,
+    "id": 18,
+    "name": "Anduin river at Lorien",
+    "x": 1707,
+    "y": 1022
+  },
+  {
+    "bookId": 2,
+    "id": 19,
+    "name": "Anduin river at Brown Lands",
+    "x": 1880,
+    "y": 1197
+  },
+  {
+    "bookId": 2,
+    "id": 20,
+    "name": "West bank of Anduin",
+    "x": 1856,
+    "y": 1253
+  },
+  {
+    "bookId": 2,
+    "id": 21,
+    "name": "Anduin north of Sarn Gebir",
+    "x": 1873,
+    "y": 1386
+  },
+  {
+    "bookId": 2,
+    "id": 22,
+    "name": "Sarn Gebir",
+    "x": 1886,
+    "y": 1412
+  },
+  {
+    "bookId": 2,
+    "id": 23,
+    "name": "Argonath",
+    "x": 1893,
+    "y": 1433
+  },
+  {
+    "bookId": 2,
+    "id": 24,
+    "name": "Anduin near Amon Hen",
+    "x": 1887,
+    "y": 1449
+  },
+  {
+    "bookId": 2,
+    "id": 25,
+    "name": "Amon Hen",
+    "x": 1879,
+    "y": 1465
+  },
+  {
+    "bookId": 3,
+    "id": 1,
+    "name": "Near Parth Galen",
+    "x": 1866,
+    "y": 1435
+  },
+  {
+    "bookId": 3,
+    "id": 2,
+    "name": "Falls of Rauros",
+    "x": 1910,
+    "y": 1470
+  },
+  {
+    "bookId": 3,
+    "id": 3,
+    "name": "Anduin near Amon Hen",
+    "x": 1887,
+    "y": 1449
+  },
+  {
+    "bookId": 3,
+    "id": 4,
+    "name": "Emyn Muil",
+    "x": 1857,
+    "y": 1412
+  },
+  {
+    "bookId": 3,
+    "id": 5,
+    "name": "East Wall of Rohan",
+    "x": 1850,
+    "y": 1414
+  },
+  {
+    "bookId": 3,
+    "id": 6,
+    "name": "East ends of Rohan",
+    "x": 1808,
+    "y": 1391
+  },
+  {
+    "bookId": 3,
+    "id": 7,
+    "name": "East Emnet",
+    "x": 1759,
+    "y": 1372
+  },
+  {
+    "bookId": 3,
+    "id": 8,
+    "name": "Near the Entwash river",
+    "x": 1677,
+    "y": 1304
+  },
+  {
+    "bookId": 3,
+    "id": 9,
+    "name": "Hills west of The Wold",
+    "x": 1656,
+    "y": 1281
+  },
+  {
+    "bookId": 3,
+    "id": 10,
+    "name": "Edge of Fangorn",
+    "x": 1626,
+    "y": 1267
+  },
+  {
+    "bookId": 3,
+    "id": 11,
+    "name": "Bank of the Entwash",
+    "x": 1619,
+    "y": 1285
+  },
+  {
+    "bookId": 3,
+    "id": 12,
+    "name": "Fangorn forest",
+    "x": 1581,
+    "y": 1235
+  },
+  {
+    "bookId": 3,
+    "id": 13,
+    "name": "Wellinghall",
+    "x": 1505,
+    "y": 1237
+  },
+  {
+    "bookId": 3,
+    "id": 14,
+    "name": "Derndingle",
+    "x": 1518,
+    "y": 1267
+  },
+  {
+    "bookId": 3,
+    "id": 15,
+    "name": "Isengard",
+    "x": 1421,
+    "y": 1306
+  },
+  {
+    "bookId": 3,
+    "id": 16,
+    "name": "Zirakzigil peak",
+    "x": 1516,
+    "y": 950
+  },
+  {
+    "bookId": 3,
+    "id": 17,
+    "name": "Caras Galadhon",
+    "x": 1688,
+    "y": 1007
+  },
+  {
+    "bookId": 3,
+    "id": 18,
+    "name": "Meduseld Hall",
+    "x": 1570,
+    "y": 1493
+  },
+  {
+    "bookId": 3,
+    "id": 19,
+    "name": "Gap of Rohan",
+    "x": 1445,
+    "y": 1373
+  },
+  {
+    "bookId": 3,
+    "id": 20,
+    "name": "Helm's Deep",
+    "x": 1476,
+    "y": 1431
+  },
+  {
+    "bookId": 3,
+    "id": 21,
+    "name": "Dol Baran",
+    "x": 1395,
+    "y": 1351
+  }
+]

@@ -40,7 +40,7 @@ export function Demo() {
       .getAll("event")
       .filter((event) => event.placeId === place.id)
       .map((event) => ({ ...event, lotrDateValue: new LotrDate(event.date).value }))
-      .sort((first, second) => first.lotrDateValue - second.lotrDateValue)
+      .sort((first, second) => first.lotrDateValue - second.lotrDateValue),
   }));
 
   useEffect(() => {

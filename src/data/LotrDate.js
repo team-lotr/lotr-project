@@ -1,28 +1,40 @@
 export class LotrDate {
   constructor(lotrDate) {
     if (typeof lotrDate === "string") {
-      this.lotrDateString = lotrDate;
       this.value = this.parseLotrDateString(lotrDate);
+      this.lotrDateString = this.createLotrDateString(this.value);
     } else if (typeof lotrDate === "number") {
-      this.value = lotrDate;
       this.lotrDateString = this.createLotrDateString(lotrDate);
+      this.value = this.parseLotrDateString(this.lotrDateString);
     }
   }
 
   parseLotrDateString(lotrDateString) {
-    if (!lotrDateString) {
-      console.log(lotrDateString);
+    const matchY = lotrDateString.match(/(\d+)/);
+    const matchMY = lotrDateString.match(/([A-z]+) (\d+)/);
+    const matchDMY = lotrDateString.match(/(\d+) ([A-z]+) (\d+)/);
+
+    let year = 0;
+    let month = 0;
+    let day = 0;
+
+    if (!matchDMY && !matchMY && matchY) {
+      year = Number(lotrDateString);
     }
-    const match = lotrDateString.match(/(\d+) ([A-z]+) (\d+)/);
-    if (!match) {
-      // Handle case where only year given
-      return Number(lotrDateString) * 10000;
+    if (!matchDMY && matchMY) {
+      month = this.monthToNumber(matchMY[1]);
+      year = Number(matchMY[2]);
     }
-    const [, day, month, year] = match;
-    this.day = Number(day) || 0;
-    this.month = this.monthToNumber(month) || 0;
-    this.year = Number(year);
-    return Number(day) + this.monthToNumber(month) * 100 + Number(year) * 10000;
+    if (matchDMY) {
+      day = Number(matchDMY[1]);
+      month = this.monthToNumber(matchDMY[2]);
+      year = Number(matchDMY[3]);
+    }
+
+    this.day = day;
+    this.month = month;
+    this.year = year;
+    return day + month * 100 + year * 10000;
   }
 
   createLotrDateString(value) {

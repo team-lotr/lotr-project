@@ -2,21 +2,26 @@ import { DataClient } from "./DataClient";
 import { LotrDate } from "./LotrDate";
 
 jest.mock(
-  "./datasets/characters.json",
+  "./datasets/characters_raw.json",
   () => [
     {
       id: 1,
+      color1: "#fafafa",
+      color2: "#ffffff",
       name: "SomeCoolCharacter",
-      events: [1, 2, 3],
+      events_book1: "1,2,3",
+      events_book2: "",
+      events_book3: "",
     },
   ],
   { virtual: true }
 );
 
 jest.mock(
-  "./datasets/events.json",
+  "./datasets/events_raw.json",
   () => [
     {
+      bookId: 1,
       id: 1,
       name: "A Major Event",
       place: 1,
@@ -25,6 +30,7 @@ jest.mock(
       description: "Some Description of major event",
     },
     {
+      bookId: 1,
       id: 2,
       name: "A Minor Event",
       place: 2,
@@ -33,6 +39,7 @@ jest.mock(
       description: "Some Description of minor event",
     },
     {
+      bookId: 1,
       id: 4,
       name: "A Minor Event 2",
       place: 2,
@@ -41,6 +48,7 @@ jest.mock(
       description: "Some Description of minor event 2",
     },
     {
+      bookId: 1,
       id: 3,
       name: "A Minor Event Out of Order",
       place: 3,
@@ -53,21 +61,24 @@ jest.mock(
 );
 
 jest.mock(
-  "./datasets/places.json",
+  "./datasets/places_raw.json",
   () => [
     {
+      bookId: 1,
       id: 1,
       name: "Rivendell",
       x: 543,
       y: 123,
     },
     {
+      bookId: 1,
       id: 2,
       name: "Mines of Moria",
       x: 1200,
       y: 456,
     },
     {
+      bookId: 1,
       id: 3,
       name: "Rohan",
       x: 1400,
@@ -125,7 +136,7 @@ describe("getEventBy()", () => {
   });
 
   it("finds event objects by id", () => {
-    const event = dataClient.getEventBy("id", 1);
+    const event = dataClient.getEventBy("id", 0);
 
     expect(event.name).toEqual("A Major Event");
   });
@@ -133,7 +144,7 @@ describe("getEventBy()", () => {
   it("finds event objects by name", () => {
     const event = dataClient.getEventBy("name", "A Major Event");
 
-    expect(event.id).toEqual(1);
+    expect(event.id).toEqual(0);
   });
 });
 
@@ -151,7 +162,7 @@ describe("getPlaceBy()", () => {
   });
 
   it("finds place objects by id", () => {
-    const place = dataClient.getPlaceBy("id", 1);
+    const place = dataClient.getPlaceBy("id", 0);
 
     expect(place.name).toEqual("Rivendell");
   });
@@ -159,7 +170,7 @@ describe("getPlaceBy()", () => {
   it("finds place objects by name", () => {
     const place = dataClient.getPlaceBy("name", "Rivendell");
 
-    expect(place.id).toEqual(1);
+    expect(place.id).toEqual(0);
   });
 });
 
@@ -169,11 +180,12 @@ describe("getEventsById()", () => {
   });
 
   it("returns a list of event objects", () => {
-    const events = dataClient.getEventsById([1]);
+    const events = dataClient.getEventsById([0]);
 
     expect(events[0]).toEqual(
       expect.objectContaining({
-        id: 1,
+        bookId: 1,
+        id: 0,
         name: "A Major Event",
         date: "22 Sept 3001",
       })
@@ -198,7 +210,7 @@ describe("createTimeline()", () => {
         description: "This event is out of order",
         chapter: 3,
         eventId: 3,
-        placeId: 3,
+        placeId: 2,
         eventName: "A Minor Event Out of Order",
         x: 1400,
         y: 765,
@@ -207,8 +219,8 @@ describe("createTimeline()", () => {
         lotrDate: "22 Sept 3001",
         lotrDateValue: 30010922,
         description: "Some Description of major event",
-        eventId: 1,
-        placeId: 1,
+        eventId: 0,
+        placeId: 0,
         chapter: 1,
         eventName: "A Major Event",
         x: 543,
@@ -218,8 +230,8 @@ describe("createTimeline()", () => {
         lotrDate: "30 Sept 3001",
         lotrDateValue: 30010930,
         description: "Some Description of minor event",
-        eventId: 2,
-        placeId: 2,
+        eventId: 1,
+        placeId: 1,
         chapter: 2,
         eventName: "A Minor Event",
         x: 1200,
@@ -246,7 +258,7 @@ describe("getCharacterTimelineBy()", () => {
         lotrDateValue: 30010101,
         description: "This event is out of order",
         eventId: 3,
-        placeId: 3,
+        placeId: 2,
         chapter: 3,
         eventName: "A Minor Event Out of Order",
         x: 1400,
@@ -256,8 +268,8 @@ describe("getCharacterTimelineBy()", () => {
         lotrDate: "22 Sept 3001",
         lotrDateValue: 30010922,
         description: "Some Description of major event",
-        eventId: 1,
-        placeId: 1,
+        eventId: 0,
+        placeId: 0,
         chapter: 1,
         eventName: "A Major Event",
         x: 543,
@@ -267,8 +279,8 @@ describe("getCharacterTimelineBy()", () => {
         lotrDate: "30 Sept 3001",
         lotrDateValue: 30010930,
         description: "Some Description of minor event",
-        eventId: 2,
-        placeId: 2,
+        eventId: 1,
+        placeId: 1,
         chapter: 2,
         eventName: "A Minor Event",
         x: 1200,

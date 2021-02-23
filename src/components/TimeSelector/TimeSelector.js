@@ -1,7 +1,4 @@
-import { LotrDate } from "../../data/LotrDate";
 import "./time-selector.scss";
-
-const width = 360;
 
 export function TimeSelector({ time, range, onChange }) {
   function handleChange(value) {

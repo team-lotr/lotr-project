@@ -1,0 +1,1145 @@
+[
+  {
+    "bookId": 1,
+    "id": 1,
+    "name": "Bilbo's birthday",
+    "place": 1,
+    "date": "22 Sept 3001",
+    "chapter": 1,
+    "description": "Bilbo holds a grand birthday party and disappears at the end of it, leaving for Rivendell and bequeathing the Ring to Frodo."
+  },
+  {
+    "bookId": 1,
+    "id": 2,
+    "name": "Identifying the Ring",
+    "place": 1,
+    "date": "12 Apr 3018",
+    "chapter": 2,
+    "description": "Gandalf realises Bilbo's ring is the One Ring. Frodo decides he must leave the Shire; Sam eavesdrops and gets to join him."
+  },
+  {
+    "bookId": 1,
+    "id": 3,
+    "name": "Leaving Bag End",
+    "place": 2,
+    "date": "23 Sept 3018",
+    "chapter": 3,
+    "description": "Frodo leaves Hobbiton under the guise of moving back to where he grew up. The Black Riders search for him."
+  },
+  {
+    "bookId": 1,
+    "id": 4,
+    "name": "Meeting the Elves",
+    "place": 3,
+    "date": "24 Sept 3018",
+    "chapter": 3,
+    "description": "The hobbits encounter High Elves in the woods and spend the night at their camp. Frodo shares his fears with the elves' leader."
+  },
+  {
+    "bookId": 1,
+    "id": 5,
+    "name": "Old Maggot's farm",
+    "place": 4,
+    "date": "25 Sept 3018",
+    "chapter": 4,
+    "description": "The kindly farmer who knew Frodo and Pippin as kids treats the hobbits to ale, some news about Black Riders, and a basket of mushrooms."
+  },
+  {
+    "bookId": 1,
+    "id": 6,
+    "name": "Reaching the Ferry",
+    "place": 5,
+    "date": "25 Sept 3018",
+    "chapter": 4,
+    "description": "Old Maggot, seeing that Frodo is in trouble, drives everyone safely to the Ferry in his wagon. Merry meets them there."
+  },
+  {
+    "bookId": 1,
+    "id": 7,
+    "name": "Crossing the Brandywine",
+    "place": 6,
+    "date": "25 Sept 3018",
+    "chapter": 5,
+    "description": "Merry takes the rest of the party on the Ferry across the Brandywine river into Buckland."
+  },
+  {
+    "bookId": 1,
+    "id": 8,
+    "name": "Leaving the Shire",
+    "place": 7,
+    "date": "26 Sept 3018",
+    "chapter": 6,
+    "description": "The hobbits sneak out as the dawn breaks and head for the Old Forest under the cover of mist."
+  },
+  {
+    "bookId": 1,
+    "id": 9,
+    "name": "Tom Bombadil",
+    "place": 8,
+    "date": "26 Sept 3018",
+    "chapter": 6,
+    "description": "A mysterious singing stranger saves the hobbits from Old Man Willow, who is trying his best to swallow them whole."
+  },
+  {
+    "bookId": 1,
+    "id": 10,
+    "name": "Visiting Tom's house",
+    "place": 9,
+    "date": "26 Sept 3018",
+    "chapter": 7,
+    "description": "The hobbits stay two nights at Tom Bombadil's house. He seems aware of and unaffected by the Ring."
+  },
+  {
+    "bookId": 1,
+    "id": 11,
+    "name": "Trouble in the Barrow-downs",
+    "place": 10,
+    "date": "28 Sept 3018",
+    "chapter": 8,
+    "description": "The party gets caught in a thick fog at the ancient haunted site and trapped in a Barrow; they are rescued by Tom, summoned by Frodo singing."
+  },
+  {
+    "bookId": 1,
+    "id": 12,
+    "name": "Meeting Aragorn",
+    "place": 11,
+    "date": "29 Sept 3018",
+    "chapter": 9,
+    "description": "The hobbits meet a stranger called Strider at the Bree inn. He says he knows Gandalf - who has left Frodo a letter confirming this."
+  },
+  {
+    "bookId": 1,
+    "id": 13,
+    "name": "Gandalf left Bree",
+    "place": 11,
+    "date": "21 June 3018",
+    "chapter": 10,
+    "description": "Gandalf left the letter to Frodo in the inkeep's care, to be sent to the Shire; the inkeep promptly forgot."
+  },
+  {
+    "bookId": 1,
+    "id": 14,
+    "name": "Aragorn met with Gandalf",
+    "place": 12,
+    "date": "1 May 3018",
+    "chapter": 10,
+    "description": "Aragorn and Gandalf met and discussed that Frodo should go to Rivendell later in the year."
+  },
+  {
+    "bookId": 1,
+    "id": 15,
+    "name": "Attack on The Pony",
+    "place": 11,
+    "date": "30 Sept 3018",
+    "chapter": 11,
+    "description": "In the small hours, the Black Riders come upon the inn in search of Frodo and the Ring."
+  },
+  {
+    "bookId": 1,
+    "id": 16,
+    "name": "Starting the journey to Rivendell",
+    "place": 13,
+    "date": "30 Sept 3018",
+    "chapter": 11,
+    "description": "Aragorn and the four hobbits head for Rivendell through the Bree-land, leaving the East Road to avoid pursuit."
+  },
+  {
+    "bookId": 1,
+    "id": 17,
+    "name": "Crossing the swamp",
+    "place": 14,
+    "date": "3 Oct 3018",
+    "chapter": 11,
+    "description": "The party crosses Midgewater Marshes, hurrying to reach the end of the boggy land."
+  },
+  {
+    "bookId": 1,
+    "id": 18,
+    "name": "Encounter at Weathertop",
+    "place": 15,
+    "date": "6 Oct 3018",
+    "chapter": 11,
+    "description": "Three Black Riders surround the party's camp on the side of Weathertop and manage to wound Frodo before Aragorn chases them away."
+  },
+  {
+    "bookId": 1,
+    "id": 19,
+    "name": "Gandalf searched for the party",
+    "place": 15,
+    "date": "3 Oct 3018",
+    "chapter": 11,
+    "description": "Gandalf passed through Weathertop and left a sign for the others."
+  },
+  {
+    "bookId": 1,
+    "id": 20,
+    "name": "Crossing the Hoarwell",
+    "place": 16,
+    "date": "13 Oct 3018",
+    "chapter": 12,
+    "description": "Aragorn and the hobbits cross the Last Bridge over the river Hoarwell, heading off the Road toward Rivendell."
+  },
+  {
+    "bookId": 1,
+    "id": 21,
+    "name": "In troll-country",
+    "place": 17,
+    "date": "18 Oct 3018",
+    "chapter": 12,
+    "description": "Frodo is encouraged when they happen upon three trolls turned into stone: the same ones Bilbo tricked years ago."
+  },
+  {
+    "bookId": 1,
+    "id": 22,
+    "name": "Meeting Glorfindel",
+    "place": 18,
+    "date": "18 Oct 3018",
+    "chapter": 12,
+    "description": "Back out on the Road, the party encounters the elf Glorfindel, sent from Rivendell to look for them."
+  },
+  {
+    "bookId": 1,
+    "id": 23,
+    "name": "Escape across the Ford",
+    "place": 19,
+    "date": "20 Oct 3018",
+    "chapter": 12,
+    "description": "Pursued by all nine Riders, Frodo makes a desparate escape over the Ford to Rivendell, carried by Asfaloth, Glorfindel's awesome horse."
+  },
+  {
+    "bookId": 2,
+    "id": 1,
+    "name": "Waking up at Rivendell",
+    "place": 1,
+    "date": "24 Oct 3018",
+    "chapter": 1,
+    "description": "Frodo wakes up from a long sleep and is told by Gandalf that Elrond has healed the wound inflicted by the Ringwraiths."
+  },
+  {
+    "bookId": 2,
+    "id": 2,
+    "name": "Reunion",
+    "place": 1,
+    "date": "24 Oct 3018",
+    "chapter": 1,
+    "description": "Frodo feels much better in the evening, and is reunited with Sam, Merry and Pippin."
+  },
+  {
+    "bookId": 2,
+    "id": 3,
+    "name": "Dinner at Elrond's house",
+    "place": 1,
+    "date": "24 Oct 3018",
+    "chapter": 1,
+    "description": "As soon as Frodo is healthy, Elrond holds a feast in celebration of the victory at the Ford. After, the elves sing in the Hall of Fire, where Bilbo is waiting."
+  },
+  {
+    "bookId": 2,
+    "id": 4,
+    "name": "Boromir arrives",
+    "place": 1,
+    "date": "25 Oct 3018",
+    "chapter": 2,
+    "description": "Boromir arrives at Rivendell in the early hours of the morning, having ridden from the South at his father's command to seek counsel."
+  },
+  {
+    "bookId": 2,
+    "id": 5,
+    "name": "The Council of Elrond",
+    "place": 1,
+    "date": "25 Oct 3018",
+    "chapter": 2,
+    "description": "Elrond gathers his guests from across Middle Earth, telling the tale of the Ring, answering questions, and crafting a plan to defeat the Enemy."
+  },
+  {
+    "bookId": 2,
+    "id": 6,
+    "name": "Boromir left for Rivendell",
+    "place": 2,
+    "date": "7 July 3018",
+    "chapter": 2,
+    "description": "Boromir left Gondor to make the long journey to Rivendell."
+  },
+  {
+    "bookId": 2,
+    "id": 7,
+    "name": "Search for Gollum",
+    "place": 3,
+    "date": 3001,
+    "chapter": 2,
+    "description": "Gandalf and Aragorn unsuccessfully tried to track down Gollum and find out more about the Ring"
+  },
+  {
+    "bookId": 2,
+    "id": 8,
+    "name": "Research",
+    "place": 2,
+    "date": 3001,
+    "chapter": 2,
+    "description": "Gandalf combed through Minas Tirith's library and found a scroll written by Isildur, containing a description of the One Ring."
+  },
+  {
+    "bookId": 2,
+    "id": 9,
+    "name": "Interrogating Gollum",
+    "place": 4,
+    "date": 3017,
+    "chapter": 2,
+    "description": "Aragorn caught Gollum in the Dead Marshes and brought him into Mirkwood for Gandalf to examine."
+  },
+  {
+    "bookId": 2,
+    "id": 10,
+    "name": "News of the Nazgul",
+    "place": 5,
+    "date": "20 June 3018",
+    "chapter": 2,
+    "description": "Radagast the Brown found Gandalf near Bree and told him that the Nazgul had left Mordor and were heading west."
+  },
+  {
+    "bookId": 2,
+    "id": 11,
+    "name": "Saruman's betrayal",
+    "place": 6,
+    "date": "July 3018",
+    "chapter": 2,
+    "description": "Saruman revealed that he had forsaken the title of White; he was mustering orcs, and imprisoned Gandalf when he would not give up the Ring's location."
+  },
+  {
+    "bookId": 2,
+    "id": 12,
+    "name": "Escape from Isengard",
+    "place": 7,
+    "date": "Sept 3018",
+    "chapter": 2,
+    "description": "Gwaihir, one of the Eagles of the Mountains, aided Gandalf in escaping his imprisonment at the top of Orthanc and brought him to Edoras."
+  },
+  {
+    "bookId": 2,
+    "id": 13,
+    "name": "Gandalf left Rohan",
+    "place": 7,
+    "date": "23 Sept 3018",
+    "chapter": 2,
+    "description": "Gandalf set out from Rohan, riding the legendary swift horse Shadowfax."
+  },
+  {
+    "bookId": 2,
+    "id": 14,
+    "name": "Back to the Shire",
+    "place": 8,
+    "date": "28 Sept 3018",
+    "chapter": 2,
+    "description": "Gandalf arrived at the Shire to find that Frodo has already left, and got news of him from Sam's father, old Gamgee."
+  },
+  {
+    "bookId": 2,
+    "id": 15,
+    "name": "News of the Hobbits",
+    "place": 5,
+    "date": "30 Sept 3018",
+    "chapter": 2,
+    "description": "Gandalf learned from the innkeeper at The Pony that Frodo and the other hobbits had been there and had just left with Aragorn."
+  },
+  {
+    "bookId": 2,
+    "id": 16,
+    "name": "Gandalf gets to Rivendell",
+    "place": 1,
+    "date": "18 Oct 3018",
+    "chapter": 2,
+    "description": "Gandalf reached Rivendell after managing to divert four of the Nazgul from Weathertop."
+  },
+  {
+    "bookId": 2,
+    "id": 17,
+    "name": "Conclusion of the Council",
+    "place": 1,
+    "date": "25 Oct 3018",
+    "chapter": 2,
+    "description": "Frodo volunteers to take the Ring to Mordor and destroy it, and Elrond agrees that he should be the Ringbearer."
+  },
+  {
+    "bookId": 2,
+    "id": 18,
+    "name": "Gathering intelligence",
+    "place": 9,
+    "date": "25 Oct 3018",
+    "chapter": 3,
+    "description": "Elrond sends out scouts, aiming to find out what happened to the Black Riders and other news about the Enemy's movements. Aragorn heads south-west."
+  },
+  {
+    "bookId": 2,
+    "id": 19,
+    "name": "Getting the Fellowship together",
+    "place": 1,
+    "date": "18 Dec 3018",
+    "chapter": 3,
+    "description": "Elrond announces representatives of all the Free Peoples to go with Frodo and Sam; Merry and Pippin insist they should join the Fellowship too."
+  },
+  {
+    "bookId": 2,
+    "id": 20,
+    "name": "Bilbo's gifts",
+    "place": 1,
+    "date": "25 Dec 3018",
+    "chapter": 3,
+    "description": "Bilbo gives Frodo his sword, Sting, and a light chainmail of Mithril."
+  },
+  {
+    "bookId": 2,
+    "id": 21,
+    "name": "The Fellowship departs",
+    "place": 1,
+    "date": "25 Dec 3018",
+    "chapter": 3,
+    "description": "As night falls, the Fellowship starts on the long road ahead of them."
+  },
+  {
+    "bookId": 2,
+    "id": 22,
+    "name": "Reaching Eregion",
+    "place": 10,
+    "date": "8 Jan 3019",
+    "chapter": 3,
+    "description": "The Fellowship reaches the former lands of Eregion from the north, and looks out toward Moria."
+  },
+  {
+    "bookId": 2,
+    "id": 23,
+    "name": "Attempt to climb Caradhras",
+    "place": 11,
+    "date": "12 Jan 3019",
+    "chapter": 3,
+    "description": "The Company tries to pass over Caradhras, but the heavy snowfall and treacherous paths prove impossible to navigate."
+  },
+  {
+    "bookId": 2,
+    "id": 24,
+    "name": "Warg attack",
+    "place": 12,
+    "date": "13 Jan 3019",
+    "chapter": 4,
+    "description": "Wargs attack the travellers after they come back down from the peak, forcing them to hurry to Moria."
+  },
+  {
+    "bookId": 2,
+    "id": 25,
+    "name": "The entrance to Moria",
+    "place": 13,
+    "date": "14 Jan 3019",
+    "chapter": 4,
+    "description": "The Company finds the entrance to Moria and everyone manages to flee inside just as a lake creature at the doors stirs and attacks them."
+  },
+  {
+    "bookId": 2,
+    "id": 26,
+    "name": "Balin's tomb",
+    "place": 14,
+    "date": "16 Jan 3019",
+    "chapter": 4,
+    "description": "In the depths of Moria, the Fellowship comes across the tomb of Balin, whom Gimli was hoping to find alive, and evidence of a battle."
+  },
+  {
+    "bookId": 2,
+    "id": 27,
+    "name": "Attack from the deep",
+    "place": 14,
+    "date": "16 Jan 3019",
+    "chapter": 5,
+    "description": "The orcs attack the Chamber of Mazarbul, where Balin is buried, forcing the Company to flee on an unfamiliar route."
+  },
+  {
+    "bookId": 2,
+    "id": 28,
+    "name": "Balrog of Morgoth",
+    "place": 14,
+    "date": "16 Jan 3019",
+    "chapter": 5,
+    "description": "The fiery dark creature pursues the adventurers, eventually being halted by Gandalf, who falls into the abyss below together with it."
+  },
+  {
+    "bookId": 2,
+    "id": 29,
+    "name": "Escape from Moria",
+    "place": 15,
+    "date": "16 Jan 3019",
+    "chapter": 5,
+    "description": "After the loss of Gandalf, the rest of the Fellowship flees through the last chamber of Moria and comes out at the other end into the daylight."
+  },
+  {
+    "bookId": 2,
+    "id": 30,
+    "name": "Entering Lothlorien",
+    "place": 16,
+    "date": "16 Jan 3019",
+    "chapter": 6,
+    "description": "The Fellowship enters into the forest of Lothlorien. They encounter some of the elves who live there and spend the night at their tree-dwelling."
+  },
+  {
+    "bookId": 2,
+    "id": 31,
+    "name": "Meeting the Lady and Lord",
+    "place": 17,
+    "date": "18 Jan 3019",
+    "chapter": 7,
+    "description": "The Fellowship is brought before Galadriel and Celeborn, who listen to the tale of their journey so far and offer them refuge for a while."
+  },
+  {
+    "bookId": 2,
+    "id": 32,
+    "name": "Vision in the Mirror",
+    "place": 17,
+    "date": "14 Feb 3019",
+    "chapter": 7,
+    "description": "Galadriel allows Frodo and Sam to look into the waters of her Mirror, where they see troubling visions. Frodo offers her the Ring; she refuses."
+  },
+  {
+    "bookId": 2,
+    "id": 33,
+    "name": "Departure from Lorien",
+    "place": 18,
+    "date": "15 Feb 3019",
+    "chapter": 8,
+    "description": "The Company receives parting gifts from the Lady and, equipped with elven boats, Lorien cloaks, and provisions, sails down the river Anduin."
+  },
+  {
+    "bookId": 2,
+    "id": 34,
+    "name": "Jorney down the River",
+    "place": 19,
+    "date": "18 Feb 3019",
+    "chapter": 9,
+    "description": "The boats float with the current down the Anduin, passing through the Brown Lands."
+  },
+  {
+    "bookId": 2,
+    "id": 35,
+    "name": "Noticing Gollum",
+    "place": 20,
+    "date": "20 Feb 3019",
+    "chapter": 9,
+    "description": "Sam has also noticed what Frodo has been glimpsing occasionally since Moria: Gollum, who has been following them. He tries to creep into their camp."
+  },
+  {
+    "bookId": 2,
+    "id": 36,
+    "name": "Ambush at night",
+    "place": 21,
+    "date": "23 Feb 3019",
+    "chapter": 9,
+    "description": "As the boats pass through rapids on the Anduin, they are ambushed by orcs. A Nazgul flies overhead and Legolas takes a shot at it."
+  },
+  {
+    "bookId": 2,
+    "id": 37,
+    "name": "Avoiding the Rapids",
+    "place": 22,
+    "date": "24 Feb 3019",
+    "chapter": 9,
+    "description": "The Fellowship comes to impassable waters and take the boats on foot to the portage-way at Sarn Gebir, where they make camp."
+  },
+  {
+    "bookId": 2,
+    "id": 38,
+    "name": "Pillars of the Kings",
+    "place": 23,
+    "date": "25 Feb 3019",
+    "chapter": 9,
+    "description": "On the boats again, the Company passes though the Gates of Argonath. The time to choose their further path nears."
+  },
+  {
+    "bookId": 2,
+    "id": 39,
+    "name": "The Decision",
+    "place": 24,
+    "date": "26 Feb 3019",
+    "chapter": 10,
+    "description": "The Fellowship makes camp on the western bank, having come to the pressing decision of whether to head for Minas Tirith or Mordor."
+  },
+  {
+    "bookId": 2,
+    "id": 40,
+    "name": "Boromir's plan",
+    "place": 25,
+    "date": "26 Feb 3019",
+    "chapter": 10,
+    "description": "Boromir tries to convince, then force Frodo to give him the One Ring to fight the Enemy. Frodo refuses and runs as Boromir comes to his senses."
+  },
+  {
+    "bookId": 2,
+    "id": 41,
+    "name": "Vision on Amon Hen",
+    "place": 25,
+    "date": "26 Feb 3019",
+    "chapter": 10,
+    "description": "After using the Ring to escape Boromir, Frodo climbs to the Seat of Seeing still wearing it, and has visions of the war across Middle Earth."
+  },
+  {
+    "bookId": 2,
+    "id": 42,
+    "name": "Breaking of the Fellowship",
+    "place": 24,
+    "date": "26 Feb 3019",
+    "chapter": 10,
+    "description": "Frodo, having made the decision to head for Mordor, tries to leave, but Sam catches him and insists to come along. The two leave immediately."
+  },
+  {
+    "bookId": 3,
+    "id": 1,
+    "name": "Boromir falls",
+    "place": 1,
+    "date": "26 Feb 3019",
+    "chapter": 1,
+    "description": "Boromir fights and kills many orcs, but fails to prevent them from kidnapping Merry and Pippin. Aragorn finds him shortly before he dies of his wounds."
+  },
+  {
+    "bookId": 3,
+    "id": 2,
+    "name": "Burial",
+    "place": 2,
+    "date": "26 Feb 3019",
+    "chapter": 1,
+    "description": "What is left of the Fellowship holds a river funeral for Boromir: they place him in a boat with the weapons of those he killed and send him over the falls."
+  },
+  {
+    "bookId": 3,
+    "id": 3,
+    "name": "Regrouping",
+    "place": 3,
+    "date": "26 Feb 3019",
+    "chapter": 1,
+    "description": "After returning to the camp, the three find that Frodo and Sam have gone. They decide to look for Merry and Pippin, and leave the Bearer to his task."
+  },
+  {
+    "bookId": 3,
+    "id": 4,
+    "name": "On the trail of the orcs",
+    "place": 4,
+    "date": "27 Feb 3019",
+    "chapter": 1,
+    "description": "The Three Hunters decide to follow the trail northwards to Isengard through Rohan. They find some of the orcs, killed by other orcs, along the way."
+  },
+  {
+    "bookId": 3,
+    "id": 5,
+    "name": "Reaching Rohan",
+    "place": 5,
+    "date": "27 Feb 3019",
+    "chapter": 1,
+    "description": "Legolas, Gimli and Aragorn enter the land of Rohan in pursuit of the band of orcs."
+  },
+  {
+    "bookId": 3,
+    "id": 6,
+    "name": "Hopeful clues",
+    "place": 6,
+    "date": "27 Feb 3019",
+    "chapter": 2,
+    "description": "On the grassland, Aragorn finds traces of Pippin's attempt at escape and a brooch from Lorien, seemingly left there on purpose."
+  },
+  {
+    "bookId": 3,
+    "id": 7,
+    "name": "Strange occurrences",
+    "place": 7,
+    "date": "28 Feb 3019",
+    "chapter": 2,
+    "description": "As they run through the plains of East Emnet, Aragorn notices that the land is strangely empty and quiet and feels a dark will slowing them down."
+  },
+  {
+    "bookId": 3,
+    "id": 8,
+    "name": "First glimpse of Fangorn",
+    "place": 8,
+    "date": "29 Feb 3019",
+    "chapter": 2,
+    "description": "The travellers stop on a hill near the Entwash and see the forest in the distance, but no sign of the hobbits or their captors."
+  },
+  {
+    "bookId": 3,
+    "id": 9,
+    "name": "Meeting the Rohirrim",
+    "place": 9,
+    "date": "30 Feb 3019",
+    "chapter": 2,
+    "description": "The three meet Riders of Rohan, lead by Eomer, and learn from them that they met and killed the orcs, but saw no Halflings. Eomer lends them horses."
+  },
+  {
+    "bookId": 3,
+    "id": 10,
+    "name": "Vision by firelight",
+    "place": 10,
+    "date": "30 Feb 3019",
+    "chapter": 2,
+    "description": "Gimli, Legolas and Aragorn camp by the edge of Fangorn forest and are surprised in the dark by the cloaked figure of an old man, who then disappears."
+  },
+  {
+    "bookId": 3,
+    "id": 11,
+    "name": "In captivity",
+    "place": 4,
+    "date": "26 Feb 3019",
+    "chapter": 3,
+    "description": "Pippin wakes up next to Merry in the orcs' camp and unfastens his hand-ties while they quarrel about what to do with the hobbits and which way to head."
+  },
+  {
+    "bookId": 3,
+    "id": 12,
+    "name": "Towards Isengard",
+    "place": 5,
+    "date": "26 Feb 3019",
+    "chapter": 3,
+    "description": "Saruman's orcs, having won the altercation, head for Isengard, dragging the hobbits along with them."
+  },
+  {
+    "bookId": 3,
+    "id": 13,
+    "name": "An Elven sign",
+    "place": 6,
+    "date": "27 Feb 3019",
+    "chapter": 3,
+    "description": "Pippin escapes for a moment, long enough to leave his cloak's brooch in the mud for Aragorn to find."
+  },
+  {
+    "bookId": 3,
+    "id": 14,
+    "name": "The orcs flee",
+    "place": 11,
+    "date": "28 Feb 3019",
+    "chapter": 3,
+    "description": "The orc band picks up the speed in fear of being overtaken by the Rohirrim. Merry and Pippin are dragged towards the forest."
+  },
+  {
+    "bookId": 3,
+    "id": 15,
+    "name": "Unlikely escape",
+    "place": 10,
+    "date": "29 Feb 3019",
+    "chapter": 3,
+    "description": "One of Sauron's orcs tries to carry off the hobbits, believing they have the Ring, and is shot by a rider. The two slip off into Fangorn as the dawn breaks."
+  },
+  {
+    "bookId": 3,
+    "id": 16,
+    "name": "Meeting Treebeard",
+    "place": 12,
+    "date": "29 Feb 3019",
+    "chapter": 4,
+    "description": "Merry and Pippin climb a hill in the forest to get the lay of the land and suddenly get picked up by a large tree-like creature, who explains he is an Ent."
+  },
+  {
+    "bookId": 3,
+    "id": 17,
+    "name": "In Treebeard's home",
+    "place": 13,
+    "date": "29 Feb 3019",
+    "chapter": 4,
+    "description": "Treebeard takes the hobbits to his house and gives them a drink as they tell him their story. He resolves that something must be done about Saruman."
+  },
+  {
+    "bookId": 3,
+    "id": 18,
+    "name": "The Entmoot",
+    "place": 14,
+    "date": "30 Feb 3019",
+    "chapter": 4,
+    "description": "Treebeard takes the hobbits south to where Entmoots are held. Many Ents are there, and they begin their very slow council."
+  },
+  {
+    "bookId": 3,
+    "id": 19,
+    "name": "The Ents go to war",
+    "place": 15,
+    "date": "2 March 3019",
+    "chapter": 4,
+    "description": "The Entmoot elects that the Ents will march on Isengard. All of them and the hobbits head there immediately, having decided on stopping Saruman."
+  },
+  {
+    "bookId": 3,
+    "id": 20,
+    "name": "Traces of the hobbits",
+    "place": 10,
+    "date": "1 March 3019",
+    "chapter": 5,
+    "description": "Aragorn, Legolas and Gimli continue their search. After some detective work near the forest, they enter Fangorn in hopes of finding their friends alive."
+  },
+  {
+    "bookId": 3,
+    "id": 21,
+    "name": "An old friend returns",
+    "place": 12,
+    "date": "1 March 3019",
+    "chapter": 5,
+    "description": "The three come to Treebeard's Hill, where they see a different old man. He reveals himself to be Gandalf returned and assures them the hobbits live."
+  },
+  {
+    "bookId": 3,
+    "id": 22,
+    "name": "Gandalf's fight",
+    "place": 16,
+    "date": "23 Jan 3019",
+    "chapter": 5,
+    "description": "Gandalf fought the Balrog through the deep tunnels below Moria until they both came out at a mountain peak, where Gandalf prevailed, but then perished."
+  },
+  {
+    "bookId": 3,
+    "id": 23,
+    "name": "Unfinished business",
+    "place": 16,
+    "date": "14 Feb 3019",
+    "chapter": 5,
+    "description": "Gandalf returned to life, sent back until he manages to complete his task. He observed the world from atop the mountain until Gwaihir bore him away."
+  },
+  {
+    "bookId": 3,
+    "id": 24,
+    "name": "Gandalf reached Lorien",
+    "place": 17,
+    "date": "17 Feb 3019",
+    "chapter": 5,
+    "description": "Gwaihir, sent by the Lady Galadriel, carried Gandalf to Lothlorien where he received from her messages for the Fellowship."
+  },
+  {
+    "bookId": 3,
+    "id": 25,
+    "name": "To Edoras",
+    "place": 10,
+    "date": "1 March 3019",
+    "chapter": 5,
+    "description": "The four friends come out of the forest once again and hurry on horseback towards Edoras to meet with the troubled king."
+  },
+  {
+    "bookId": 3,
+    "id": 26,
+    "name": "Arrival at Meduseld",
+    "place": 18,
+    "date": "2 March 3019",
+    "chapter": 6,
+    "description": "The party gains entry into the darkened Hall. King Theoden is under the influence of Saruman; Gandalf brings him out into the light and to his senses."
+  },
+  {
+    "bookId": 3,
+    "id": 27,
+    "name": "March to Isengard",
+    "place": 18,
+    "date": "2 March 3019",
+    "chapter": 6,
+    "description": "The King and the Rohirrim prepare to ride out with Gandalf and his company against Saruman."
+  },
+  {
+    "bookId": 3,
+    "id": 28,
+    "name": "News from the front",
+    "place": 19,
+    "date": "3 March 3019",
+    "chapter": 7,
+    "description": "A soldier meets the Riders, bringing news of defeat at the Isen; survivors headed for Helm's Deep. Gandalf advises the King to go there too."
+  },
+  {
+    "bookId": 3,
+    "id": 29,
+    "name": "Gandalf rides to Isengard",
+    "place": 15,
+    "date": "3 March 3019",
+    "chapter": 7,
+    "description": "Gandalf races towards Isengard on his horse Shadowfax, having come up with a plan after realising what has happened there."
+  },
+  {
+    "bookId": 3,
+    "id": 30,
+    "name": "Preparing for battle",
+    "place": 20,
+    "date": "3 March 3019",
+    "chapter": 7,
+    "description": "A scout reports that Orcs and wolf-riders are ahead in the plains before Helm's Deep. Theoden and Aragorn lead the Rohirrim to Helm's Gate."
+  },
+  {
+    "bookId": 3,
+    "id": 31,
+    "name": "Battle of the Hornberg begins",
+    "place": 20,
+    "date": "3 March 3019",
+    "chapter": 7,
+    "description": "The Orcs attack in the dark and battle breaks out in Helm's Dike. Gimli and Legolas ready themselves for battle. Aragorn and Eomer defend the gate."
+  },
+  {
+    "bookId": 3,
+    "id": 32,
+    "name": "Orcs in the Deep",
+    "place": 20,
+    "date": "4 March 3019",
+    "chapter": 7,
+    "description": "In the hours before the dawn, the Orcs infiltrate beyond the walls. Aragorn and Eomer rally the men, while Gimli and Legolas race for kill counts."
+  },
+  {
+    "bookId": 3,
+    "id": 33,
+    "name": "Final assault",
+    "place": 20,
+    "date": "4 March 3019",
+    "chapter": 7,
+    "description": "The orcs penetrate the wall again, take it, and drive a portion of Rohan's forces back towards the caves of Helm's Deep."
+  },
+  {
+    "bookId": 3,
+    "id": 34,
+    "name": "The tide turns",
+    "place": 20,
+    "date": "4 March 3019",
+    "chapter": 7,
+    "description": "Theoden and Aragorn charge out of the fortress at dawn. Astounded, they see the Dike filled with new trees and Gandalf returning with reinforcements."
+  },
+  {
+    "bookId": 3,
+    "id": 35,
+    "name": "Back to Isengard",
+    "place": 20,
+    "date": "4 March 3019",
+    "chapter": 8,
+    "description": "In the evening, after burying their dead, the King, Eomer, Gandalf, Aragorn, Gimli and Legolas head to Isengard to speak to Saruman."
+  },
+  {
+    "bookId": 3,
+    "id": 36,
+    "name": "A wizard defeated",
+    "place": 15,
+    "date": "5 March 3019",
+    "chapter": 8,
+    "description": "Upon arrival, the King's company sees Merry and Pippin, sitting upon the shards of Sauron's defences. Isengard has been trampled, and Saruman hides."
+  },
+  {
+    "bookId": 3,
+    "id": 37,
+    "name": "Longbottom Leaf",
+    "place": 15,
+    "date": "5 March 3019",
+    "chapter": 9,
+    "description": "Finally reunited, the five friends sit in the sun and smoke, catching up on each other's stories, while Gandalf goes off with Theoden to see Treebeard."
+  },
+  {
+    "bookId": 3,
+    "id": 38,
+    "name": "Audience with Saruman",
+    "place": 15,
+    "date": "5 March 3019",
+    "chapter": 10,
+    "description": "The company confronts Saruman, who tries to cast a spell upon them. Theoden defies him; Gandalf breaks his staff. A heavy object falls out the tower."
+  },
+  {
+    "bookId": 3,
+    "id": 39,
+    "name": "The Palantir",
+    "place": 21,
+    "date": "5 March 3019",
+    "chapter": 11,
+    "description": "At the camp on the way back, Pippin sneaks out to look at the heavy globe that fell from Orthanc and sees the Eye of Sauron. Gandalf helps him recover."
+  },
+  {
+    "bookId": 3,
+    "id": 40,
+    "name": "Shadow overhead",
+    "place": 21,
+    "date": "5 March 3019",
+    "chapter": 11,
+    "description": "A Nazgul flies over, riding a winged beast. Gandalf urges everyone to leave at once: the King to Helm's Deep; him and Pippin to Edoras, then Minas Tirith."
+  },
+  {
+    "bookId": 4,
+    "id": 1,
+    "name": "Delay in the hills",
+    "place": 1,
+    "date": "28 Feb 3019",
+    "chapter": 1,
+    "description": "Frodo and Sam wander among the hills of Emyn Muil, unable to find a way down on the east side."
+  },
+  {
+    "bookId": 4,
+    "id": 2,
+    "name": "Perilous climb",
+    "place": 2,
+    "date": "29 Feb 3019",
+    "chapter": 1,
+    "description": "The hobbits try to scramble down a less sheer cliff side but get caught in a storm. They hear what sounds like a Nazgul cry, but press on regardless."
+  },
+  {
+    "bookId": 4,
+    "id": 3,
+    "name": "Capturing Gollum",
+    "place": 3,
+    "date": "29 Feb 3019",
+    "chapter": 1,
+    "description": "Exhausted, the hobbits stop for rest below the cliff face and notice Gollum creeping quietly along the wall. They capture him as he comes down."
+  },
+  {
+    "bookId": 4,
+    "id": 4,
+    "name": "Through the marshland",
+    "place": 4,
+    "date": "1 March 3019",
+    "chapter": 2,
+    "description": "After Frodo has made Gollum swear by the Ring that he will lead them into Mordor and not betray them, the three head across the Marshes."
+  },
+  {
+    "bookId": 4,
+    "id": 5,
+    "name": "Corpse Candles",
+    "place": 5,
+    "date": "1 March 3019",
+    "chapter": 2,
+    "description": "In the midst of the Marshes, the travellers see wandering lights; Frodo is mesmerized by them. Sam realizes there are dead bodies under the swamp."
+  },
+  {
+    "bookId": 4,
+    "id": 6,
+    "name": "Nazgul overhead",
+    "place": 6,
+    "date": "2 March 3019",
+    "chapter": 2,
+    "description": "The three travellers see a Nazgul flying out from Mordor, just as they exit the Dead Marshes. It passes over them on its mount."
+  },
+  {
+    "bookId": 4,
+    "id": 7,
+    "name": "Towards the dark",
+    "place": 7,
+    "date": "4 March 3019",
+    "chapter": 2,
+    "description": "The small party reaches the desolation before Mordor, where all vegetation ends, and bare, battered rocks stretch all the way to the dark mountains."
+  },
+  {
+    "bookId": 4,
+    "id": 8,
+    "name": "Gollum's doubt",
+    "place": 8,
+    "date": "4 March 3019",
+    "chapter": 2,
+    "description": "Sam wakes up and overhears Gollum having a debate with himself over whether he should try to steal the Ring or serve Frodo as promised."
+  },
+  {
+    "bookId": 4,
+    "id": 9,
+    "name": "The Gate is shut",
+    "place": 9,
+    "date": "5 March 3019",
+    "chapter": 3,
+    "description": "Arriving at the Black Gate, the hobbits see that there is no way to pass through. Gollum says he knows of another way into Mordor, and leads the way."
+  },
+  {
+    "bookId": 4,
+    "id": 10,
+    "name": "Captured by Gondor",
+    "place": 10,
+    "date": "7 March 3019",
+    "chapter": 4,
+    "description": "After cooking a warm meal, the smoke gives the hobbits away. They are captured by Faramir, who knows they must be the hobbits who were with Boromir."
+  },
+  {
+    "bookId": 4,
+    "id": 11,
+    "name": "Safe for the night",
+    "place": 11,
+    "date": "7 March 3019",
+    "chapter": 4,
+    "description": "Faramir questions the hobbits about their errand and Boromir's death, divining the purpose of the Fellowship somewhat. He takes them to a hideout."
+  },
+  {
+    "bookId": 4,
+    "id": 12,
+    "name": "Faramir's choice",
+    "place": 11,
+    "date": "7 March 3019",
+    "chapter": 5,
+    "description": "Faramir finds out about the Ring. Holding true to his promise to help the pair, he lets them go free and gives them food, advice, and his blessing."
+  },
+  {
+    "bookId": 4,
+    "id": 13,
+    "name": "With the good will of Men",
+    "place": 11,
+    "date": "8 March 3019",
+    "chapter": 6,
+    "description": "Faramir finds Gollum near his hideout and at Frodo's request captures him without killing him and lets all three companions go on their way."
+  },
+  {
+    "bookId": 4,
+    "id": 14,
+    "name": "Continuing the journey",
+    "place": 12,
+    "date": "8 March 3019",
+    "chapter": 7,
+    "description": "Following Faramir's suggestion, the three stick to the west side of the road, inching closer to Minas Morgul before turning east."
+  },
+  {
+    "bookId": 4,
+    "id": 15,
+    "name": "The road to Minas Morgul",
+    "place": 13,
+    "date": "9 March 3019",
+    "chapter": 7,
+    "description": "The hobbits and Gollum stop for a rest before turning east near the old road leading up to the fallen city, then continue under cover of night."
+  },
+  {
+    "bookId": 4,
+    "id": 16,
+    "name": "The Day without Dawn",
+    "place": 14,
+    "date": "10 March 3019",
+    "chapter": 7,
+    "description": "The day comes, but not the Sun: a palpable darkness is crawling out of Mordor. The hobbits hide under a hedge until Gollum urges them to go quickly."
+  },
+  {
+    "bookId": 4,
+    "id": 17,
+    "name": "An endless climb",
+    "place": 15,
+    "date": "10 March 3019",
+    "chapter": 8,
+    "description": "The trio reach Minas Morgul and, hiding in the hills, see a big army come out the gates. Terrified, they wait it out and then hurry up onto a long set of stairs."
+  },
+  {
+    "bookId": 4,
+    "id": 18,
+    "name": "At the mouth of the cave",
+    "place": 16,
+    "date": "12 March 3019",
+    "chapter": 9,
+    "description": "After climbing all the way up two long flights of stairs, they reach the entrance to a tunnel where Gollum has been leading them - Shelob's Lair."
+  },
+  {
+    "bookId": 4,
+    "id": 19,
+    "name": "Gollum's plot",
+    "place": 16,
+    "date": "13 March 3019",
+    "chapter": 9,
+    "description": "Suddenly left by Gollum in the tunnel, the hobbits realise they're being watched. They're attacked by Shelob the Spider and try to run away."
+  },
+  {
+    "bookId": 4,
+    "id": 20,
+    "name": "Frodo captured",
+    "place": 16,
+    "date": "13 March 3019",
+    "chapter": 9,
+    "description": "Shelob springs on Frodo as Sam, trying to warn him, is tackled by Gollum and fights him off. Frodo is taken by the spider and Sam runs after."
+  },
+  {
+    "bookId": 4,
+    "id": 21,
+    "name": "Sam carries on",
+    "place": 16,
+    "date": "13 March 3019",
+    "chapter": 10,
+    "description": "Sam charges at the spider, armed with Sting and the Phial, and defeats it, but Frodo is unresponsive. Thinking him dead, he resolves to finish the quest."
+  },
+  {
+    "bookId": 4,
+    "id": 22,
+    "name": "In the hands of the enemy",
+    "place": 17,
+    "date": "13 March 3019",
+    "chapter": 10,
+    "description": "Orcs appear; Sam puts on the Ring in a panic. He sees them take Frodo and tails them. From their talk he gathers Frodo's alive, but they go into the tower."
+  }
+]
