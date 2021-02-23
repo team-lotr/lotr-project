@@ -63,7 +63,7 @@ export const drawTimeline = (pathData, currentTime) => {
                 // as suggested in: https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect/565282#565282
                 const distanceAlongToCenter =
                     crossProduct2D(subtractVectors(right, inner), rightTowardsLeft) /
-                    crossProduct2D(innerTowardsCenter, rightTowardsLeft);
+                    (crossProduct2D(innerTowardsCenter, rightTowardsLeft) + 0.0001);
 
                 // Find the center point that is inner "projected" onto the right-left vector.
                 const center = addVectors(
