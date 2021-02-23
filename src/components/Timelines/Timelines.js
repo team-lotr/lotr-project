@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { drawTimeline } from "./drawTimeline";
 import * as d3 from "d3";
 import _ from "underscore";
 import "./timelines.scss";
@@ -16,6 +15,10 @@ function filterData(data, time) {
   });
   return data;
 }
+
+const makeLineData = (pathData) => pathData.timeline.map((event) => [event.x, event.y]);
+
+const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 
 // Timelines
 // This function takes an array of timelines and renders timelines
@@ -56,7 +59,9 @@ export function Timelines({ data, time, isMapRendered }) {
     circleEnter.append("title").text((d) => d.character.name);
 
     // Perform actions on merged update and enter selections.
-    const timelineMerge = timelineEnter.merge(timelineUpdate).attr("d", (d) => drawTimeline(d, time));
+    const timelineMerge = timelineEnter
+      .merge(timelineUpdate)
+      .attr("d", (d) => line(makeLineData(d)));
 
     const circleMerge = circleEnter
       .merge(circleUpdate)
