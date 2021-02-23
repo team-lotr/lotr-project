@@ -1,7 +1,7 @@
-import characters from "./datasets/characters.json";
-import events from "./datasets/events.json";
-import places from "./datasets/places.json";
 import { LotrDate } from "./LotrDate";
+import { processRawData } from './processRawData';
+
+const [characters, events, places] = processRawData();
 
 const defaultSearchFields = {
   id: "number",

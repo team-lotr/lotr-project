@@ -35,6 +35,7 @@ export function Demo() {
 
   // Set up the event data.
   const eventData = dataClient.getAll("event").map((event) => {
+    console.log(event);
     return {
       ...event,
       place: dataClient.getPlaceBy("id", event.placeId),
