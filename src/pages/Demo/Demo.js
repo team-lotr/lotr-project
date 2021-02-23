@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 import { DataClient } from "../../data/DataClient";
 import { Timelines } from "../../components/Timelines";
-import { Events } from "../../components/Events";
+import { Places } from "../../components/Places";
 import { Header } from "../../components/Header";
 import { DebugDot } from "../../components/DebugDot";
 import { TimeSelector } from "../../components/TimeSelector";
@@ -33,20 +33,21 @@ export function Demo() {
   });
   const distinctEventDates = dataClient.getDistinctDates();
 
-  // Set up the event data.
-  const eventData = dataClient.getAll("event").map((event) => {
-    return {
-      ...event,
-      place: dataClient.getPlaceBy("id", event.placeId),
-      lotrDateValue: new LotrDate(event.date).value
-    };
-  });
+  // Set up the place data.
+  const placeData = dataClient.getAll("place").map((place) => ({
+    ...place,
+    events: dataClient
+      .getAll("event")
+      .filter((event) => event.placeId === place.id)
+      .map((event) => ({ ...event, lotrDateValue: new LotrDate(event.date).value }))
+      .sort((first, second) => first.lotrDateValue - second.lotrDateValue)
+  }));
 
   useEffect(() => {
     const svg = d3.select("svg");
     const zoomGroup = d3.select("#zoomContainer");
     zoomGroup.append("g").attr("id", "timelines");
-    zoomGroup.append("g").attr("id", "events");
+    zoomGroup.append("g").attr("id", "places");
 
     // Add zooming and panning to the zoom group.
     svg.call(
@@ -67,7 +68,7 @@ export function Demo() {
       <div ref={chartRef}>
         <MapSvg />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
-        <Events isMapRendered={isMapRendered} data={eventData} time={currentTime.value} />
+        <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
       </div>

@@ -1,12 +1,13 @@
-.event {
+.place {
     fill: #d1c569;
     stroke: black;
+    cursor: pointer;
 }
 
-.regularEvent {
+.regularPlace {
     stroke-width: 1px;
 }
 
-.highlightedEvent {
+.highlightedPlace {
     stroke-width: 2px;
 }
