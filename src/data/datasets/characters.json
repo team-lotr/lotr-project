@@ -135,7 +135,6 @@
         "color1": "#6c757d",
         "color2": "#adb5bd",
         "name": "Gandalf",
-        "color": "#ff0000",
         "events": [1, 2, 13, 14, 19]
     }
 ]
