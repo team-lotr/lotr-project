@@ -49,13 +49,36 @@ export function Demo() {
     zoomGroup.append("g").attr("id", "timelines");
     zoomGroup.append("g").attr("id", "places");
 
-    // Add zooming and panning to the zoom group.
+    const minScale = 1;
+    const maxScale = 20;
+
+    // Define what elements to apply semantic zoom opacity to.
+    const semanticOpacitySelections = [
+      // Each element defines what and how to interpolate its opacity.
+      { selectionString: "#other_font", start: 0.15, end: 0.2 }
+    ].map((element) => ({ 
+      ...element,
+      // Create a d3 scale for the opacity interpolation.
+      scale: d3
+        .scaleLinear()
+        .domain([minScale, (maxScale - minScale) * element.start, (maxScale - minScale) * element.end, maxScale])
+        .range([0, 0, 1, 1]),
+      // Create a d3 selection from the selection string.
+      selection: d3.select(element.selectionString).style("opacity", 0),
+    }));
+
+    // Add zooming, panning and semantic zoom to the zoom group.
     svg.call(
       d3
         .zoom()
-        .scaleExtent([1, 20])
+        .scaleExtent([minScale, maxScale])
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
+
+          // For each selection in the array, set the opacity according to the event scale.
+          semanticOpacitySelections.forEach((element) =>
+            element.selection.style("opacity", element.scale(event.transform.k))
+          );
         })
     );
 
