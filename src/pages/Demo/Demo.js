@@ -8,8 +8,9 @@ import { Places } from "../../components/Places";
 import { Header } from "../../components/Header";
 import { DebugDot } from "../../components/DebugDot";
 import { TimeSelector } from "../../components/TimeSelector";
-import "./Demo.scss";
+import { CharacterFilter } from "../../components/CharacterFilter";
 import { LotrDate } from "../../data/LotrDate";
+import "./Demo.scss";
 
 export function Demo() {
   const [isMapRendered, setIsMapRendered] = useState(false);
@@ -55,8 +56,8 @@ export function Demo() {
     // Define what elements to apply semantic zoom opacity to.
     const semanticOpacitySelections = [
       // Each element defines what and how to interpolate its opacity.
-      { selectionString: "#other_font", start: 0.15, end: 0.2 }
-    ].map((element) => ({ 
+      { selectionString: "#other_font", start: 0.15, end: 0.2 },
+    ].map((element) => ({
       ...element,
       // Create a d3 scale for the opacity interpolation.
       scale: d3
@@ -94,6 +95,7 @@ export function Demo() {
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
+        <CharacterFilter />
       </div>
     </>
   );
