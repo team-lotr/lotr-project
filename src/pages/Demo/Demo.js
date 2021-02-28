@@ -11,8 +11,9 @@ import { TimeSelector } from "../../components/TimeSelector";
 import "./Demo.scss";
 import { LotrDate } from "../../data/LotrDate";
 
+// world bounds
 const worldTopLeft = [0, 0];
-const worldBottomRight = [3200, 3300];
+const worldBottomRight = [3200, 3300]; // extra space on bottom or it bugs out
 
 export function Demo() {
   const [isMapRendered, setIsMapRendered] = useState(false);
@@ -74,6 +75,7 @@ export function Demo() {
       d3
         .zoom()
         .scaleExtent([minScale, maxScale])
+        // limit translation i.e. get rid of out-of-map scrolling
         .translateExtent([worldTopLeft, worldBottomRight])
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
