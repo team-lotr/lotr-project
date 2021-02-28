@@ -1,6 +1,8 @@
 @import "../../styles/shared.scss";
 @import "../../styles/fonts.scss";
 
+$boxWidth: 120px;
+
 .character-filter {
   position: fixed;
   top: 20px;
@@ -10,12 +12,22 @@
   border-radius: 10px;
   border: 3px solid $border-color-blue;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: $boxWidth;
 
   .character-filter__title {
     @extend .curvy-header;
     font-weight: 300;
     font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .character-filter__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 }

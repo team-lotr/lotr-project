@@ -12,13 +12,17 @@ import { CharacterFilter } from "../../components/CharacterFilter";
 import { LotrDate } from "../../data/LotrDate";
 import "./Demo.scss";
 
+const dataClient = new DataClient();
+const characterData = dataClient.getAll("character");
+
 export function Demo() {
-  const [isMapRendered, setIsMapRendered] = useState(false);
   const chartRef = useRef(null);
+  const [isMapRendered, setIsMapRendered] = useState(false);
   const [currentTime, setCurrentTime] = useState(new LotrDate("12 Apr 3018"));
+  const [activeCharacters, setActiveCharacters] = useState(characterData.map((c) => c.id));
 
   // Set up the timeline data.
-  const dataClient = new DataClient();
+
   const timelineData = dataClient.getAll("character").map((character) => {
     const timeline = dataClient
       .getCharacterTimelineBy("id", character.id, "lotrDateValue")
@@ -95,7 +99,11 @@ export function Demo() {
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
-        <CharacterFilter />
+        <CharacterFilter
+          data={characterData}
+          activeCharacters={activeCharacters}
+          setActiveCharacters={setActiveCharacters}
+        />
       </div>
     </>
   );

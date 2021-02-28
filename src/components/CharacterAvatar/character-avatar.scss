@@ -1,0 +1,35 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+
+$avatarSize: 45px;
+
+.character-avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+
+  .character-avatar__image {
+    width: $avatarSize;
+    height: $avatarSize;
+    border: 3px solid gray;
+    border-radius: 35px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+
+  .character-avatar__name {
+    @extend .body-text;
+    font-size: 14px;
+  }
+
+  &[data-active="false"] {
+    .character-avatar__image {
+      filter: grayscale(100%);
+    }
+  }
+}

@@ -1,20 +1,21 @@
 import charactersRaw from "./datasets/characters_raw.json";
 import eventsRaw from "./datasets/events_raw.json";
 import placesRaw from "./datasets/places_raw.json";
+import theRingImage from "../assets/character-the-ring.png";
 
 const characterBookEventKeys = ["events_book1", "events_book2", "events_book3"];
 const characterImageIds = {
-  1: "character-the-ring.png",
-  2: "character-the-ring.png",
-  3: "character-the-ring.png",
-  4: "character-the-ring.png",
-  5: "character-the-ring.png",
-  6: "character-the-ring.png",
-  7: "character-the-ring.png",
-  8: "character-the-ring.png",
-  9: "character-the-ring.png",
-  10: "character-the-ring.png",
-  11: "character-the-ring.png",
+  1: theRingImage,
+  2: theRingImage,
+  3: theRingImage,
+  4: theRingImage,
+  5: theRingImage,
+  6: theRingImage,
+  7: theRingImage,
+  8: theRingImage,
+  9: theRingImage,
+  10: theRingImage,
+  11: theRingImage,
 };
 
 export function processRawData() {
@@ -64,7 +65,7 @@ export function processRawData() {
       color2: character.color2,
       name: character.name,
       events: characterEvents,
-      imageId: characterImageIds[character.id]
+      image: characterImageIds[character.id],
     });
   }
 

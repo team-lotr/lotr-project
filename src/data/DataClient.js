@@ -3,8 +3,6 @@ import { processRawData } from "./processRawData";
 
 const [characters, events, places] = processRawData();
 
-console.log(characters);
-
 const defaultSearchFields = {
   id: "number",
   name: "string",
