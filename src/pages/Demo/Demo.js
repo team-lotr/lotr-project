@@ -11,6 +11,9 @@ import { TimeSelector } from "../../components/TimeSelector";
 import "./Demo.scss";
 import { LotrDate } from "../../data/LotrDate";
 
+const worldTopLeft = [0, 0];
+const worldBottomRight = [3200, 3300];
+
 export function Demo() {
   const [isMapRendered, setIsMapRendered] = useState(false);
   const chartRef = useRef(null);
@@ -55,8 +58,8 @@ export function Demo() {
     // Define what elements to apply semantic zoom opacity to.
     const semanticOpacitySelections = [
       // Each element defines what and how to interpolate its opacity.
-      { selectionString: "#other_font", start: 0.15, end: 0.2 }
-    ].map((element) => ({ 
+      { selectionString: "#other_font", start: 0.15, end: 0.2 },
+    ].map((element) => ({
       ...element,
       // Create a d3 scale for the opacity interpolation.
       scale: d3
@@ -67,11 +70,11 @@ export function Demo() {
       selection: d3.select(element.selectionString).style("opacity", 0),
     }));
 
-    // Add zooming, panning and semantic zoom to the zoom group.
     svg.call(
       d3
         .zoom()
         .scaleExtent([minScale, maxScale])
+        .translateExtent([worldTopLeft, worldBottomRight])
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
 
