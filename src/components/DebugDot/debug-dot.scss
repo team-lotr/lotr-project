@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: $md-shadow;
 
   label {
     font-size: 12px;
@@ -21,8 +22,7 @@
   input[type="checkbox"] {
     margin: 0;
     margin-left: 5px;
-    
+
     vertical-align: middle;
   }
-
 }

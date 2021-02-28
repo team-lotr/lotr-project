@@ -16,6 +16,7 @@ $boxWidth: 120px;
   justify-content: center;
   align-items: center;
   width: $boxWidth;
+  box-shadow: $md-shadow;
 
   .character-filter__title {
     @extend .curvy-header;
