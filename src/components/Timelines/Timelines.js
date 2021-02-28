@@ -59,9 +59,7 @@ export function Timelines({ data, time, isMapRendered }) {
     circleEnter.append("title").text((d) => d.character.name);
 
     // Perform actions on merged update and enter selections.
-    const timelineMerge = timelineEnter
-      .merge(timelineUpdate)
-      .attr("d", (d) => line(makeLineData(d)));
+    const timelineMerge = timelineEnter.merge(timelineUpdate).attr("d", (d) => line(makeLineData(d)));
 
     const circleMerge = circleEnter
       .merge(circleUpdate)
@@ -71,7 +69,7 @@ export function Timelines({ data, time, isMapRendered }) {
     // Remove exit selection.
     timelineUpdate.exit().remove();
     circleUpdate.exit().remove();
-  }, [isMapRendered, time]);
+  }, [isMapRendered, time, data]);
 
   return null;
 }

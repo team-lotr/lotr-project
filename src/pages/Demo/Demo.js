@@ -22,8 +22,8 @@ export function Demo() {
   const [activeCharacters, setActiveCharacters] = useState(characterData.map((c) => c.id));
 
   // Set up the timeline data.
-
-  const timelineData = dataClient.getAll("character").map((character) => {
+  const charactersToRender = characterData.filter((c) => activeCharacters.includes(c.id));
+  const timelineData = charactersToRender.map((character) => {
     const timeline = dataClient
       .getCharacterTimelineBy("id", character.id, "lotrDateValue")
       .reduce((noRedundantEvents, event, i, array) => {
