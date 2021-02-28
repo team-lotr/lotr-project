@@ -2,20 +2,30 @@ import charactersRaw from "./datasets/characters_raw.json";
 import eventsRaw from "./datasets/events_raw.json";
 import placesRaw from "./datasets/places_raw.json";
 import theRingImage from "../assets/character-the-ring.png";
+import aragornImage from "../assets/character-aragorn.jpeg";
+import bilboImage from "../assets/character-bilbo.jpg";
+import boromirImage from "../assets/character-boromir.jpeg";
+import frodoImage from "../assets/character-frodo.png";
+import gandalfImage from "../assets/character-gandalf.jpeg";
+import gimliImage from "../assets/character-gimli.jpeg";
+import legolasImage from "../assets/character-legolas.jpeg";
+import merryImage from "../assets/character-merry.jpg";
+import pippinImage from "../assets/character-pippin.jpg";
+import samImage from "../assets/character-sam.jpeg";
 
 const characterBookEventKeys = ["events_book1", "events_book2", "events_book3"];
 const characterImageIds = {
   1: theRingImage,
-  2: theRingImage,
-  3: theRingImage,
-  4: theRingImage,
-  5: theRingImage,
-  6: theRingImage,
-  7: theRingImage,
-  8: theRingImage,
-  9: theRingImage,
-  10: theRingImage,
-  11: theRingImage,
+  2: bilboImage,
+  3: frodoImage,
+  4: samImage,
+  5: merryImage,
+  6: pippinImage,
+  7: aragornImage,
+  8: legolasImage,
+  9: gimliImage,
+  10: gandalfImage,
+  11: boromirImage,
 };
 
 export function processRawData() {
