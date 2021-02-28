@@ -1,7 +1,9 @@
 import { LotrDate } from "./LotrDate";
-import { processRawData } from './processRawData';
+import { processRawData } from "./processRawData";
 
 const [characters, events, places] = processRawData();
+
+console.log(characters);
 
 const defaultSearchFields = {
   id: "number",
@@ -115,7 +117,7 @@ export class DataClient {
       case "place":
         return [...places];
       case "character":
-        return [...characters].map(e => ({...e, events: [...e.events]}));
+        return [...characters].map((e) => ({ ...e, events: [...e.events] }));
       default:
         return null;
     }

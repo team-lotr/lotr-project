@@ -3,6 +3,19 @@ import eventsRaw from "./datasets/events_raw.json";
 import placesRaw from "./datasets/places_raw.json";
 
 const characterBookEventKeys = ["events_book1", "events_book2", "events_book3"];
+const characterImageIds = {
+  1: "character-the-ring.png",
+  2: "character-the-ring.png",
+  3: "character-the-ring.png",
+  4: "character-the-ring.png",
+  5: "character-the-ring.png",
+  6: "character-the-ring.png",
+  7: "character-the-ring.png",
+  8: "character-the-ring.png",
+  9: "character-the-ring.png",
+  10: "character-the-ring.png",
+  11: "character-the-ring.png",
+};
 
 export function processRawData() {
   let places = [];
@@ -51,12 +64,13 @@ export function processRawData() {
       color2: character.color2,
       name: character.name,
       events: characterEvents,
+      imageId: characterImageIds[character.id]
     });
   }
 
   // Filter out anything past book 3 since that data is not complete yet
-  places = places.filter(p => p.bookId <= 3);
-  events = events.filter(e => e.bookId <= 3);
+  places = places.filter((p) => p.bookId <= 3);
+  events = events.filter((e) => e.bookId <= 3);
 
   return [characters, events, places];
 }
