@@ -15,11 +15,15 @@ import "./Demo.scss";
 const dataClient = new DataClient();
 const characterData = dataClient.getAll("character");
 
+const minScale = 1;
+const maxScale = 20;
+
 export function Demo() {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
   const [currentTime, setCurrentTime] = useState(new LotrDate("12 Apr 3018"));
   const [activeCharacters, setActiveCharacters] = useState(characterData.map((c) => c.id));
+  const [currentZoom, setCurrentZoom] = useState(minScale);
 
   // Set up the timeline data.
   const charactersToRender = characterData.filter((c) => activeCharacters.includes(c.id));
@@ -54,9 +58,6 @@ export function Demo() {
     zoomGroup.append("g").attr("id", "timelines");
     zoomGroup.append("g").attr("id", "places");
 
-    const minScale = 1;
-    const maxScale = 20;
-
     // Define what elements to apply semantic zoom opacity to.
     const semanticOpacitySelections = [
       // Each element defines what and how to interpolate its opacity.
@@ -80,6 +81,8 @@ export function Demo() {
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
 
+          setCurrentZoom(event.transform.k);
+
           // For each selection in the array, set the opacity according to the event scale.
           semanticOpacitySelections.forEach((element) =>
             element.selection.style("opacity", element.scale(event.transform.k))
@@ -96,7 +99,12 @@ export function Demo() {
       <div ref={chartRef}>
         <MapSvg />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
-        <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} />
+        <Places
+          isMapRendered={isMapRendered}
+          data={placeData}
+          time={currentTime.value}
+          zoomPercent={(currentZoom - minScale) / maxScale}
+        />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
         <CharacterFilter

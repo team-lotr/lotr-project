@@ -10,14 +10,17 @@ const hightlightedPlaceRadius = 6;
 // This function takes an array of places onto an already rendered map element.
 // The boolean "isMapRendered" ensures that the useEffect callback is not
 // called without a prepared map.
-export function Places({ data, time, isMapRendered }) {
+export function Places({ data, time, isMapRendered, zoomPercent }) {
   useEffect(() => {
     if (!data) return;
 
     // Filter out events that are beyond the current time.
     data = data
       // For each place, filter out events that are beyond the current time.
-      .map((place) => ({ ...place, events: place.events.filter((event) => event.lotrDateValue <= time)}))
+      .map((place) => ({
+        ...place,
+        // filter by event type relative to zoom percentage
+        events: place.events.filter((event) => event.lotrDateValue <= time && zoomPercent >= event.evt_type * 0.2) }))
       // Then, for each place, remove the ones that now have empty events lists.
       .filter((place) => place.events.length > 0);
 
@@ -47,7 +50,7 @@ export function Places({ data, time, isMapRendered }) {
 
     // Remove exit selection.
     circleUpdate.exit().remove();
-  }, [isMapRendered, time]);
+  }, [isMapRendered, time, zoomPercent]);
 
   return null;
 }

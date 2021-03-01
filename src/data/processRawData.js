@@ -50,6 +50,7 @@ export function processRawData() {
       name: event.name,
       placeId: placeIdMap[`${event.bookId}:${event.place}`],
       description: event.description,
+      evt_type: event.evt_type,
     });
     eventIdMap[`${event.bookId}:${event.id}`] = idx;
   }
