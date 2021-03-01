@@ -9,6 +9,7 @@ import { Header } from "../../components/Header";
 import { DebugDot } from "../../components/DebugDot";
 import { TimeSelector } from "../../components/TimeSelector";
 import { CharacterFilter } from "../../components/CharacterFilter";
+import { EventPopup } from "../../components/EventPopup";
 import { LotrDate } from "../../data/LotrDate";
 import "./Demo.scss";
 
@@ -18,6 +19,7 @@ const characterData = dataClient.getAll("character");
 export function Demo() {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
+  const [popupData, setPopupData] = useState(null);
   const [currentTime, setCurrentTime] = useState(new LotrDate("12 Apr 3018"));
   const [activeCharacters, setActiveCharacters] = useState(characterData.map((c) => c.id));
 
@@ -47,6 +49,14 @@ export function Demo() {
       .map((event) => ({ ...event, lotrDateValue: new LotrDate(event.date).value }))
       .sort((first, second) => first.lotrDateValue - second.lotrDateValue),
   }));
+
+  function handlePlaceClick(mouseEvent, place) {
+    setPopupData({
+      ...place,
+      screenX: mouseEvent.x,
+      screenY: mouseEvent.y,
+    });
+  }
 
   useEffect(() => {
     const svg = d3.select("svg");
@@ -96,7 +106,7 @@ export function Demo() {
       <div ref={chartRef}>
         <MapSvg />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
-        <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} />
+        <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
         <CharacterFilter
@@ -104,6 +114,7 @@ export function Demo() {
           activeCharacters={activeCharacters}
           setActiveCharacters={setActiveCharacters}
         />
+        <EventPopup data={popupData} />
       </div>
     </>
   );

@@ -10,7 +10,7 @@ const hightlightedPlaceRadius = 6;
 // This function takes an array of places onto an already rendered map element.
 // The boolean "isMapRendered" ensures that the useEffect callback is not
 // called without a prepared map.
-export function Places({ data, time, isMapRendered }) {
+export function Places({ data, time, isMapRendered, onClick }) {
   useEffect(() => {
     if (!data) return;
 
@@ -33,7 +33,8 @@ export function Places({ data, time, isMapRendered }) {
       .classed("place", true)
       .attr("r", regularPlaceRadius)
       .on("mouseover", highlight)
-      .on("mouseout", unhighlight);
+      .on("mouseout", unhighlight)
+      .on("click", onClick);
 
     circleEnter.append("title");
 
