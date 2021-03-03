@@ -16,6 +16,10 @@ import "./Demo.scss";
 const dataClient = new DataClient();
 const characterData = dataClient.getAll("character");
 
+// world bounds
+const worldTopLeft = [0, 0];
+const worldBottomRight = [3200, 3300]; // extra space on bottom or it bugs out
+
 export function Demo() {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
@@ -82,11 +86,12 @@ export function Demo() {
       selection: d3.select(element.selectionString).style("opacity", 0),
     }));
 
-    // Add zooming, panning and semantic zoom to the zoom group.
     svg.call(
       d3
         .zoom()
         .scaleExtent([minScale, maxScale])
+        // limit translation i.e. get rid of out-of-map scrolling
+        .translateExtent([worldTopLeft, worldBottomRight])
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
 
