@@ -56,10 +56,13 @@ export function Demo() {
 
   // show event popup details
   function handlePlaceClick(mouseEvent, place) {
+    // place.events
+    const characterIds = dataClient.getCharactersForEvents(place.events.map(e => e.id));
     setPopupData({
       ...place,
       screenX: mouseEvent.x,
       screenY: mouseEvent.y,
+      characterIds
     });
   }
 

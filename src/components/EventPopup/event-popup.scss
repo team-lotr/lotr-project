@@ -2,9 +2,54 @@
 @import "../../styles/fonts.scss";
 
 .event-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
   background-color: $white;
   padding: 7px;
   border-radius: 10px;
   border: 3px solid $border-color-blue;
   box-shadow: $md-shadow;
+  width: 200px;
+
+  .event-popup__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .event-popup__arrow {
+      font-weight: 600;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .event-popup__title {
+      @extend .curvy-header;
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+
+  .event-popup__content {
+    display: flex;
+    flex-direction: column;
+    @extend .body-text;
+
+    .event-popup__date {
+      color: $body-text-color;
+      text-align: center;
+    }
+
+    .event-popup__description {
+      color: black;
+      font-size: 14px;
+    }
+  }
+
+  & > * {
+    padding-bottom: 5px;
+  }
 }
