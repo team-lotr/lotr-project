@@ -54,6 +54,7 @@ export function Demo() {
       .sort((first, second) => first.lotrDateValue - second.lotrDateValue),
   }));
 
+  // show event popup details
   function handlePlaceClick(mouseEvent, place) {
     setPopupData({
       ...place,
@@ -67,6 +68,7 @@ export function Demo() {
     const zoomGroup = d3.select("#zoomContainer");
     zoomGroup.append("g").attr("id", "timelines");
     zoomGroup.append("g").attr("id", "places");
+    zoomGroup.append("g").attr("id", "event-popup");
 
     const minScale = 1;
     const maxScale = 20;
