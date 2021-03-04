@@ -79,7 +79,8 @@ export function Demo() {
     // Define what elements to apply semantic zoom opacity to.
     const semanticOpacitySelections = [
       // Each element defines what and how to interpolate its opacity.
-      { selectionString: "#other_font", start: 0.15, end: 0.2 },
+      { selectionString: "#misc_font", start: 0.15, end: 0.2 },
+      { selectionString: "#outline_font", start: 0.1, end: 0.15 },
     ].map((element) => ({
       ...element,
       // Create a d3 scale for the opacity interpolation.
