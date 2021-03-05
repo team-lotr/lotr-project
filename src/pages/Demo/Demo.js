@@ -12,6 +12,7 @@ import { CharacterFilter } from "../../components/CharacterFilter";
 import { EventPopup } from "../../components/EventPopup";
 import { LotrDate } from "../../data/LotrDate";
 import "./Demo.scss";
+import "../../styles/map.scss";
 
 const dataClient = new DataClient();
 const characterData = dataClient.getAll("character");
@@ -24,7 +25,7 @@ export function Demo() {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
   const [popupData, setPopupData] = useState(null);
-  const [currentTime, setCurrentTime] = useState(new LotrDate("12 Apr 3018"));
+  const [currentTime, setCurrentTime] = useState(new LotrDate("5 Mar 3019"));
   const [activeCharacters, setActiveCharacters] = useState(characterData.map((c) => c.id));
 
   // Set up the timeline data.
