@@ -1,3 +1,4 @@
+import { first } from "underscore";
 import "./time-selector.scss";
 
 export function TimeSelector({ time, range, onChange }) {
@@ -8,25 +9,31 @@ export function TimeSelector({ time, range, onChange }) {
     onChange(value);
   }
 
-  const currentDateIndex = range.findIndex((d) => d.value === time.value);
-  const prevDateIndex = currentDateIndex === 0 ? null : currentDateIndex - 1;
-  const nextDateIndex = currentDateIndex === range.length - 1 ? null : currentDateIndex + 1;
-  const prevDate = range[prevDateIndex];
-  const nextDate = range[nextDateIndex];
+  const firstIdx = 0;
+  const lastIdx = range.length - 1;
+  const currentIdx = range.findIndex((d) => d.value === time.value);
+  const prevIdx = currentIdx === firstIdx ? null : currentIdx - 1;
+  const nextIdx = currentIdx === lastIdx ? null : currentIdx + 1;
+
+  const prevDate = range[prevIdx];
+  const firstDate = range[firstIdx];
+  const nextDate = range[nextIdx];
+  const lastDate = range[lastIdx];
 
   return (
     <div className="time-selector">
-      <DateDisplay date={range[prevDateIndex]} onClick={() => handleChange(prevDate)} variant="secondary" />
-      <Arrow direction={-1} onClick={prevDate ? () => handleChange(prevDate) : null} />
+      <DateDisplay date={prevDate} onClick={() => handleChange(prevDate)} variant="secondary" />
+      <Arrow symbol="<<" onClick={prevDate ? () => handleChange(firstDate) : null} />
+      <Arrow symbol="<" onClick={prevDate ? () => handleChange(prevDate) : null} />
       <DateDisplay date={time} onClick={() => {}} variant="primary" />
-      <Arrow direction={1} onClick={nextDate ? () => handleChange(nextDate) : null} />
-      <DateDisplay date={range[nextDateIndex]} onClick={() => handleChange(nextDate)} variant="secondary" />
+      <Arrow symbol=">" onClick={nextDate ? () => handleChange(nextDate) : null} />
+      <Arrow symbol=">>" onClick={nextDate ? () => handleChange(lastDate) : null} />
+      <DateDisplay date={nextDate} onClick={() => handleChange(nextDate)} variant="secondary" />
     </div>
   );
 }
 
-function Arrow({ direction, onClick }) {
-  const symbol = direction > 0 ? ">" : "<";
+function Arrow({ symbol, onClick }) {
   return (
     <div className="time-selector__arrow" onClick={onClick}>
       {onClick ? symbol : null}
