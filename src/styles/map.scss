@@ -1,0 +1,35 @@
+$mapBackgroundColor: #f9f9f9;
+$primaryMapColor: #4b4a4a;
+
+#frame,
+#coastline,
+#bridges,
+#legend,
+#lakes,
+#cities,
+#arrows,
+#rivers,
+#streets,
+#mountains_and_forests,
+#display_font,
+#other_font {
+  & > * {
+    // fill: $defaultFill;
+    // stroke: $defaultStroke;
+  }
+}
+
+svg.svg-map {
+  background-color: $mapBackgroundColor;
+}
+
+// Frame outline, surrounding map
+#frame, #frame * {
+  stroke: $primaryMapColor;
+}
+
+#coastline, #coastline * {
+  fill: none;
+  stroke: $primaryMapColor;
+}
+
