@@ -80,7 +80,8 @@ export function Demo() {
     const semanticOpacitySelections = [
       // Each element defines what and how to interpolate its opacity.
       { selectionString: "#misc_font", start: 0.15, end: 0.2 },
-      { selectionString: "#outline_font", start: 0.1, end: 0.15 },
+      { selectionString: "#uppercase_font", start: 0.1, end: 0.15 },
+      { selectionString: "#outline_font", start: 0.05, end: 0.1 },
     ].map((element) => ({
       ...element,
       // Create a d3 scale for the opacity interpolation.
