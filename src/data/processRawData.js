@@ -13,7 +13,8 @@ import merryImage from "../assets/character-merry.jpg";
 import pippinImage from "../assets/character-pippin.jpg";
 import samImage from "../assets/character-sam.jpeg";
 
-const characterBookEventKeys = ["events_book1", "events_book2", "events_book3"];
+const ACTIVE_BOOK_IDS = [1, 2, 3, 4];
+const characterBookEventKeys = ACTIVE_BOOK_IDS.map((i) => `events_book${i}`);
 const characterImageIds = {
   1: theRingImage,
   2: bilboImage,
@@ -80,8 +81,8 @@ export function processRawData() {
   }
 
   // Filter out anything past book 3 since that data is not complete yet
-  places = places.filter((p) => p.bookId <= 3);
-  events = events.filter((e) => e.bookId <= 3);
+  places = places.filter((p) => ACTIVE_BOOK_IDS.includes(p.bookId));
+  events = events.filter((e) => ACTIVE_BOOK_IDS.includes(e.bookId));
 
   return [characters, events, places];
 }

@@ -149,7 +149,7 @@
   {
     "bookId": 2,
     "id": 3,
-    "name": "Wilderland",
+    "name": "Wilderlands",
     "x": 1805,
     "y": 536
   },
@@ -453,5 +453,278 @@
     "name": "Dol Baran",
     "x": 1395,
     "y": 1351
+  },
+  {
+    "bookId": 4,
+    "id": 1,
+    "name": "East Emyn Muil",
+    "x": 1947,
+    "y": 1394
+  },
+  {
+    "bookId": 4,
+    "id": 2,
+    "name": "Northwest edge of Emyn Muil",
+    "x": 1990,
+    "y": 1336
+  },
+  {
+    "bookId": 4,
+    "id": 3,
+    "name": "Eastern foot of Emyn Muil",
+    "x": 1996,
+    "y": 1384
+  },
+  {
+    "bookId": 4,
+    "id": 4,
+    "name": "North end of the Dead Marshes",
+    "x": 2033,
+    "y": 1420
+  },
+  {
+    "bookId": 4,
+    "id": 5,
+    "name": "Dead Marshes",
+    "x": 2053,
+    "y": 1457
+  },
+  {
+    "bookId": 4,
+    "id": 6,
+    "name": "South end of the Dead Marshes",
+    "x": 2076,
+    "y": 1479
+  },
+  {
+    "bookId": 4,
+    "id": 7,
+    "name": "Plains northwest of Mordor",
+    "x": 2101,
+    "y": 1473
+  },
+  {
+    "bookId": 4,
+    "id": 8,
+    "name": "Near Morannon",
+    "x": 2126,
+    "y": 1462
+  },
+  {
+    "bookId": 4,
+    "id": 9,
+    "name": "Morannon",
+    "x": 2160,
+    "y": 1467
+  },
+  {
+    "bookId": 4,
+    "id": 10,
+    "name": "North Ithilien",
+    "x": 2083,
+    "y": 1536
+  },
+  {
+    "bookId": 4,
+    "id": 11,
+    "name": "Henneth Annun",
+    "x": 2071,
+    "y": 1586
+  },
+  {
+    "bookId": 4,
+    "id": 12,
+    "name": "Ithilien",
+    "x": 2088,
+    "y": 1627
+  },
+  {
+    "bookId": 4,
+    "id": 13,
+    "name": "Near the road to Minas Morgul",
+    "x": 2098,
+    "y": 1654
+  },
+  {
+    "bookId": 4,
+    "id": 14,
+    "name": "Near the Minas Morgul crossroad",
+    "x": 2099,
+    "y": 1670
+  },
+  {
+    "bookId": 4,
+    "id": 15,
+    "name": "Minas Morgul",
+    "x": 2123,
+    "y": 1668
+  },
+  {
+    "bookId": 4,
+    "id": 16,
+    "name": "Torech Ungol",
+    "x": 2161,
+    "y": 1633
+  },
+  {
+    "bookId": 4,
+    "id": 17,
+    "name": "Tower of Cirith Ungol",
+    "x": 2172,
+    "y": 1644
+  },
+  {
+    "bookId": 5,
+    "id": 1,
+    "name": "Edoras",
+    "x": 1578,
+    "y": 1498
+  },
+  {
+    "bookId": 5,
+    "id": 2,
+    "name": "Anorien",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 3,
+    "name": "Minas Tirith",
+    "x": 2045,
+    "y": 1693
+  },
+  {
+    "bookId": 5,
+    "id": 4,
+    "name": "Fords of Isen",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 5,
+    "name": "Hornburg",
+    "x": "(use Helm's Deep?)",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 6,
+    "name": "Dunharrow",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 7,
+    "name": "Paths of the Dead",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 8,
+    "name": "Stone of Erech",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 9,
+    "name": "Calembel upon Ciril",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 10,
+    "name": "Osgiliath",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 11,
+    "name": "Eilenach Beacon",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 12,
+    "name": "Druadan Forest",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 13,
+    "name": "Pelennor Fields",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 14,
+    "name": "Pelargir on Anduin",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 15,
+    "name": "Linhir above Gilrain",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 16,
+    "name": "Near Minas Tirith",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 17,
+    "name": "Crossroads to Minas Morgul",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 18,
+    "name": "Minas Morgul",
+    "x": 2123,
+    "y": 1668
+  },
+  {
+    "bookId": 5,
+    "id": 19,
+    "name": "Road toward Morannon",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 20,
+    "name": "Near Morannon",
+    "x": 2126,
+    "y": 1462
+  },
+  {
+    "bookId": 5,
+    "id": 21,
+    "name": "In front of the Black Gate",
+    "x": "",
+    "y": ""
+  },
+  {
+    "bookId": 5,
+    "id": 22,
+    "name": "Morannon",
+    "x": 2160,
+    "y": 1467
   }
 ]

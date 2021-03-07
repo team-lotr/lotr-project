@@ -2,6 +2,7 @@
   {
     "bookId": 1,
     "id": 1,
+    "evt_type": "",
     "name": "Bilbo's birthday",
     "place": 1,
     "date": "22 Sept 3001",
@@ -11,6 +12,7 @@
   {
     "bookId": 1,
     "id": 2,
+    "evt_type": "",
     "name": "Identifying the Ring",
     "place": 1,
     "date": "12 Apr 3018",
@@ -20,6 +22,7 @@
   {
     "bookId": 1,
     "id": 3,
+    "evt_type": "",
     "name": "Leaving Bag End",
     "place": 2,
     "date": "23 Sept 3018",
@@ -29,6 +32,7 @@
   {
     "bookId": 1,
     "id": 4,
+    "evt_type": "",
     "name": "Meeting the Elves",
     "place": 3,
     "date": "24 Sept 3018",
@@ -38,6 +42,7 @@
   {
     "bookId": 1,
     "id": 5,
+    "evt_type": "",
     "name": "Old Maggot's farm",
     "place": 4,
     "date": "25 Sept 3018",
@@ -47,6 +52,7 @@
   {
     "bookId": 1,
     "id": 6,
+    "evt_type": "",
     "name": "Reaching the Ferry",
     "place": 5,
     "date": "25 Sept 3018",
@@ -56,6 +62,7 @@
   {
     "bookId": 1,
     "id": 7,
+    "evt_type": "",
     "name": "Crossing the Brandywine",
     "place": 6,
     "date": "25 Sept 3018",
@@ -65,6 +72,7 @@
   {
     "bookId": 1,
     "id": 8,
+    "evt_type": "",
     "name": "Leaving the Shire",
     "place": 7,
     "date": "26 Sept 3018",
@@ -74,6 +82,7 @@
   {
     "bookId": 1,
     "id": 9,
+    "evt_type": "",
     "name": "Tom Bombadil",
     "place": 8,
     "date": "26 Sept 3018",
@@ -83,6 +92,7 @@
   {
     "bookId": 1,
     "id": 10,
+    "evt_type": "",
     "name": "Visiting Tom's house",
     "place": 9,
     "date": "26 Sept 3018",
@@ -92,6 +102,7 @@
   {
     "bookId": 1,
     "id": 11,
+    "evt_type": "",
     "name": "Trouble in the Barrow-downs",
     "place": 10,
     "date": "28 Sept 3018",
@@ -101,6 +112,7 @@
   {
     "bookId": 1,
     "id": 12,
+    "evt_type": "",
     "name": "Meeting Aragorn",
     "place": 11,
     "date": "29 Sept 3018",
@@ -110,15 +122,17 @@
   {
     "bookId": 1,
     "id": 13,
+    "evt_type": "",
     "name": "Gandalf left Bree",
     "place": 11,
-    "date": "21 June 3018",
+    "date": "30 June 3018",
     "chapter": 10,
     "description": "Gandalf left the letter to Frodo in the inkeep's care, to be sent to the Shire; the inkeep promptly forgot."
   },
   {
     "bookId": 1,
     "id": 14,
+    "evt_type": "",
     "name": "Aragorn met with Gandalf",
     "place": 12,
     "date": "1 May 3018",
@@ -128,6 +142,7 @@
   {
     "bookId": 1,
     "id": 15,
+    "evt_type": "",
     "name": "Attack on The Pony",
     "place": 11,
     "date": "30 Sept 3018",
@@ -137,6 +152,7 @@
   {
     "bookId": 1,
     "id": 16,
+    "evt_type": "",
     "name": "Starting the journey to Rivendell",
     "place": 13,
     "date": "30 Sept 3018",
@@ -146,6 +162,7 @@
   {
     "bookId": 1,
     "id": 17,
+    "evt_type": "",
     "name": "Crossing the swamp",
     "place": 14,
     "date": "3 Oct 3018",
@@ -155,6 +172,7 @@
   {
     "bookId": 1,
     "id": 18,
+    "evt_type": "",
     "name": "Encounter at Weathertop",
     "place": 15,
     "date": "6 Oct 3018",
@@ -164,6 +182,7 @@
   {
     "bookId": 1,
     "id": 19,
+    "evt_type": "",
     "name": "Gandalf searched for the party",
     "place": 15,
     "date": "3 Oct 3018",
@@ -173,6 +192,7 @@
   {
     "bookId": 1,
     "id": 20,
+    "evt_type": "",
     "name": "Crossing the Hoarwell",
     "place": 16,
     "date": "13 Oct 3018",
@@ -182,6 +202,7 @@
   {
     "bookId": 1,
     "id": 21,
+    "evt_type": "",
     "name": "In troll-country",
     "place": 17,
     "date": "18 Oct 3018",
@@ -191,6 +212,7 @@
   {
     "bookId": 1,
     "id": 22,
+    "evt_type": "",
     "name": "Meeting Glorfindel",
     "place": 18,
     "date": "18 Oct 3018",
@@ -200,6 +222,7 @@
   {
     "bookId": 1,
     "id": 23,
+    "evt_type": "",
     "name": "Escape across the Ford",
     "place": 19,
     "date": "20 Oct 3018",
@@ -209,6 +232,7 @@
   {
     "bookId": 2,
     "id": 1,
+    "evt_type": "",
     "name": "Waking up at Rivendell",
     "place": 1,
     "date": "24 Oct 3018",
@@ -218,6 +242,7 @@
   {
     "bookId": 2,
     "id": 2,
+    "evt_type": "",
     "name": "Reunion",
     "place": 1,
     "date": "24 Oct 3018",
@@ -227,6 +252,7 @@
   {
     "bookId": 2,
     "id": 3,
+    "evt_type": "",
     "name": "Dinner at Elrond's house",
     "place": 1,
     "date": "24 Oct 3018",
@@ -236,6 +262,7 @@
   {
     "bookId": 2,
     "id": 4,
+    "evt_type": "",
     "name": "Boromir arrives",
     "place": 1,
     "date": "25 Oct 3018",
@@ -245,6 +272,7 @@
   {
     "bookId": 2,
     "id": 5,
+    "evt_type": "",
     "name": "The Council of Elrond",
     "place": 1,
     "date": "25 Oct 3018",
@@ -254,6 +282,7 @@
   {
     "bookId": 2,
     "id": 6,
+    "evt_type": "",
     "name": "Boromir left for Rivendell",
     "place": 2,
     "date": "7 July 3018",
@@ -263,6 +292,7 @@
   {
     "bookId": 2,
     "id": 7,
+    "evt_type": "",
     "name": "Search for Gollum",
     "place": 3,
     "date": 3001,
@@ -272,6 +302,7 @@
   {
     "bookId": 2,
     "id": 8,
+    "evt_type": "",
     "name": "Research",
     "place": 2,
     "date": 3001,
@@ -281,6 +312,7 @@
   {
     "bookId": 2,
     "id": 9,
+    "evt_type": "",
     "name": "Interrogating Gollum",
     "place": 4,
     "date": 3017,
@@ -290,6 +322,7 @@
   {
     "bookId": 2,
     "id": 10,
+    "evt_type": "",
     "name": "News of the Nazgul",
     "place": 5,
     "date": "20 June 3018",
@@ -299,6 +332,7 @@
   {
     "bookId": 2,
     "id": 11,
+    "evt_type": "",
     "name": "Saruman's betrayal",
     "place": 6,
     "date": "July 3018",
@@ -308,6 +342,7 @@
   {
     "bookId": 2,
     "id": 12,
+    "evt_type": "",
     "name": "Escape from Isengard",
     "place": 7,
     "date": "Sept 3018",
@@ -317,6 +352,7 @@
   {
     "bookId": 2,
     "id": 13,
+    "evt_type": "",
     "name": "Gandalf left Rohan",
     "place": 7,
     "date": "23 Sept 3018",
@@ -326,6 +362,7 @@
   {
     "bookId": 2,
     "id": 14,
+    "evt_type": "",
     "name": "Back to the Shire",
     "place": 8,
     "date": "28 Sept 3018",
@@ -335,6 +372,7 @@
   {
     "bookId": 2,
     "id": 15,
+    "evt_type": "",
     "name": "News of the Hobbits",
     "place": 5,
     "date": "30 Sept 3018",
@@ -344,6 +382,7 @@
   {
     "bookId": 2,
     "id": 16,
+    "evt_type": "",
     "name": "Gandalf gets to Rivendell",
     "place": 1,
     "date": "18 Oct 3018",
@@ -353,6 +392,7 @@
   {
     "bookId": 2,
     "id": 17,
+    "evt_type": "",
     "name": "Conclusion of the Council",
     "place": 1,
     "date": "25 Oct 3018",
@@ -362,6 +402,7 @@
   {
     "bookId": 2,
     "id": 18,
+    "evt_type": "",
     "name": "Gathering intelligence",
     "place": 9,
     "date": "25 Oct 3018",
@@ -371,6 +412,7 @@
   {
     "bookId": 2,
     "id": 19,
+    "evt_type": "",
     "name": "Getting the Fellowship together",
     "place": 1,
     "date": "18 Dec 3018",
@@ -380,6 +422,7 @@
   {
     "bookId": 2,
     "id": 20,
+    "evt_type": "",
     "name": "Bilbo's gifts",
     "place": 1,
     "date": "25 Dec 3018",
@@ -389,6 +432,7 @@
   {
     "bookId": 2,
     "id": 21,
+    "evt_type": "",
     "name": "The Fellowship departs",
     "place": 1,
     "date": "25 Dec 3018",
@@ -398,6 +442,7 @@
   {
     "bookId": 2,
     "id": 22,
+    "evt_type": "",
     "name": "Reaching Eregion",
     "place": 10,
     "date": "8 Jan 3019",
@@ -407,6 +452,7 @@
   {
     "bookId": 2,
     "id": 23,
+    "evt_type": "",
     "name": "Attempt to climb Caradhras",
     "place": 11,
     "date": "12 Jan 3019",
@@ -416,6 +462,7 @@
   {
     "bookId": 2,
     "id": 24,
+    "evt_type": "",
     "name": "Warg attack",
     "place": 12,
     "date": "13 Jan 3019",
@@ -425,6 +472,7 @@
   {
     "bookId": 2,
     "id": 25,
+    "evt_type": "",
     "name": "The entrance to Moria",
     "place": 13,
     "date": "14 Jan 3019",
@@ -434,6 +482,7 @@
   {
     "bookId": 2,
     "id": 26,
+    "evt_type": "",
     "name": "Balin's tomb",
     "place": 14,
     "date": "16 Jan 3019",
@@ -443,6 +492,7 @@
   {
     "bookId": 2,
     "id": 27,
+    "evt_type": "",
     "name": "Attack from the deep",
     "place": 14,
     "date": "16 Jan 3019",
@@ -452,6 +502,7 @@
   {
     "bookId": 2,
     "id": 28,
+    "evt_type": "",
     "name": "Balrog of Morgoth",
     "place": 14,
     "date": "16 Jan 3019",
@@ -461,6 +512,7 @@
   {
     "bookId": 2,
     "id": 29,
+    "evt_type": "",
     "name": "Escape from Moria",
     "place": 15,
     "date": "16 Jan 3019",
@@ -470,6 +522,7 @@
   {
     "bookId": 2,
     "id": 30,
+    "evt_type": "",
     "name": "Entering Lothlorien",
     "place": 16,
     "date": "16 Jan 3019",
@@ -479,6 +532,7 @@
   {
     "bookId": 2,
     "id": 31,
+    "evt_type": "",
     "name": "Meeting the Lady and Lord",
     "place": 17,
     "date": "18 Jan 3019",
@@ -488,6 +542,7 @@
   {
     "bookId": 2,
     "id": 32,
+    "evt_type": "",
     "name": "Vision in the Mirror",
     "place": 17,
     "date": "14 Feb 3019",
@@ -497,6 +552,7 @@
   {
     "bookId": 2,
     "id": 33,
+    "evt_type": "",
     "name": "Departure from Lorien",
     "place": 18,
     "date": "15 Feb 3019",
@@ -506,6 +562,7 @@
   {
     "bookId": 2,
     "id": 34,
+    "evt_type": "",
     "name": "Jorney down the River",
     "place": 19,
     "date": "18 Feb 3019",
@@ -515,6 +572,7 @@
   {
     "bookId": 2,
     "id": 35,
+    "evt_type": "",
     "name": "Noticing Gollum",
     "place": 20,
     "date": "20 Feb 3019",
@@ -524,6 +582,7 @@
   {
     "bookId": 2,
     "id": 36,
+    "evt_type": "",
     "name": "Ambush at night",
     "place": 21,
     "date": "23 Feb 3019",
@@ -533,6 +592,7 @@
   {
     "bookId": 2,
     "id": 37,
+    "evt_type": "",
     "name": "Avoiding the Rapids",
     "place": 22,
     "date": "24 Feb 3019",
@@ -542,6 +602,7 @@
   {
     "bookId": 2,
     "id": 38,
+    "evt_type": "",
     "name": "Pillars of the Kings",
     "place": 23,
     "date": "25 Feb 3019",
@@ -551,6 +612,7 @@
   {
     "bookId": 2,
     "id": 39,
+    "evt_type": "",
     "name": "The Decision",
     "place": 24,
     "date": "26 Feb 3019",
@@ -560,6 +622,7 @@
   {
     "bookId": 2,
     "id": 40,
+    "evt_type": "",
     "name": "Boromir's plan",
     "place": 25,
     "date": "26 Feb 3019",
@@ -569,6 +632,7 @@
   {
     "bookId": 2,
     "id": 41,
+    "evt_type": "",
     "name": "Vision on Amon Hen",
     "place": 25,
     "date": "26 Feb 3019",
@@ -578,6 +642,7 @@
   {
     "bookId": 2,
     "id": 42,
+    "evt_type": "",
     "name": "Breaking of the Fellowship",
     "place": 24,
     "date": "26 Feb 3019",
@@ -587,6 +652,7 @@
   {
     "bookId": 3,
     "id": 1,
+    "evt_type": "",
     "name": "Boromir falls",
     "place": 1,
     "date": "26 Feb 3019",
@@ -596,6 +662,7 @@
   {
     "bookId": 3,
     "id": 2,
+    "evt_type": "",
     "name": "Burial",
     "place": 2,
     "date": "26 Feb 3019",
@@ -605,6 +672,7 @@
   {
     "bookId": 3,
     "id": 3,
+    "evt_type": "",
     "name": "Regrouping",
     "place": 3,
     "date": "26 Feb 3019",
@@ -614,6 +682,7 @@
   {
     "bookId": 3,
     "id": 4,
+    "evt_type": "",
     "name": "On the trail of the orcs",
     "place": 4,
     "date": "27 Feb 3019",
@@ -623,6 +692,7 @@
   {
     "bookId": 3,
     "id": 5,
+    "evt_type": "",
     "name": "Reaching Rohan",
     "place": 5,
     "date": "27 Feb 3019",
@@ -632,6 +702,7 @@
   {
     "bookId": 3,
     "id": 6,
+    "evt_type": "",
     "name": "Hopeful clues",
     "place": 6,
     "date": "27 Feb 3019",
@@ -641,6 +712,7 @@
   {
     "bookId": 3,
     "id": 7,
+    "evt_type": "",
     "name": "Strange occurrences",
     "place": 7,
     "date": "28 Feb 3019",
@@ -650,6 +722,7 @@
   {
     "bookId": 3,
     "id": 8,
+    "evt_type": "",
     "name": "First glimpse of Fangorn",
     "place": 8,
     "date": "29 Feb 3019",
@@ -659,6 +732,7 @@
   {
     "bookId": 3,
     "id": 9,
+    "evt_type": "",
     "name": "Meeting the Rohirrim",
     "place": 9,
     "date": "30 Feb 3019",
@@ -668,6 +742,7 @@
   {
     "bookId": 3,
     "id": 10,
+    "evt_type": "",
     "name": "Vision by firelight",
     "place": 10,
     "date": "30 Feb 3019",
@@ -677,6 +752,7 @@
   {
     "bookId": 3,
     "id": 11,
+    "evt_type": "",
     "name": "In captivity",
     "place": 4,
     "date": "26 Feb 3019",
@@ -686,6 +762,7 @@
   {
     "bookId": 3,
     "id": 12,
+    "evt_type": "",
     "name": "Towards Isengard",
     "place": 5,
     "date": "26 Feb 3019",
@@ -695,6 +772,7 @@
   {
     "bookId": 3,
     "id": 13,
+    "evt_type": "",
     "name": "An Elven sign",
     "place": 6,
     "date": "27 Feb 3019",
@@ -704,6 +782,7 @@
   {
     "bookId": 3,
     "id": 14,
+    "evt_type": "",
     "name": "The orcs flee",
     "place": 11,
     "date": "28 Feb 3019",
@@ -713,6 +792,7 @@
   {
     "bookId": 3,
     "id": 15,
+    "evt_type": "",
     "name": "Unlikely escape",
     "place": 10,
     "date": "29 Feb 3019",
@@ -722,6 +802,7 @@
   {
     "bookId": 3,
     "id": 16,
+    "evt_type": "",
     "name": "Meeting Treebeard",
     "place": 12,
     "date": "29 Feb 3019",
@@ -731,6 +812,7 @@
   {
     "bookId": 3,
     "id": 17,
+    "evt_type": "",
     "name": "In Treebeard's home",
     "place": 13,
     "date": "29 Feb 3019",
@@ -740,6 +822,7 @@
   {
     "bookId": 3,
     "id": 18,
+    "evt_type": "",
     "name": "The Entmoot",
     "place": 14,
     "date": "30 Feb 3019",
@@ -749,6 +832,7 @@
   {
     "bookId": 3,
     "id": 19,
+    "evt_type": "",
     "name": "The Ents go to war",
     "place": 15,
     "date": "2 March 3019",
@@ -758,6 +842,7 @@
   {
     "bookId": 3,
     "id": 20,
+    "evt_type": "",
     "name": "Traces of the hobbits",
     "place": 10,
     "date": "1 March 3019",
@@ -767,6 +852,7 @@
   {
     "bookId": 3,
     "id": 21,
+    "evt_type": "",
     "name": "An old friend returns",
     "place": 12,
     "date": "1 March 3019",
@@ -776,6 +862,7 @@
   {
     "bookId": 3,
     "id": 22,
+    "evt_type": "",
     "name": "Gandalf's fight",
     "place": 16,
     "date": "23 Jan 3019",
@@ -785,6 +872,7 @@
   {
     "bookId": 3,
     "id": 23,
+    "evt_type": "",
     "name": "Unfinished business",
     "place": 16,
     "date": "14 Feb 3019",
@@ -794,6 +882,7 @@
   {
     "bookId": 3,
     "id": 24,
+    "evt_type": "",
     "name": "Gandalf reached Lorien",
     "place": 17,
     "date": "17 Feb 3019",
@@ -803,6 +892,7 @@
   {
     "bookId": 3,
     "id": 25,
+    "evt_type": "",
     "name": "To Edoras",
     "place": 10,
     "date": "1 March 3019",
@@ -812,6 +902,7 @@
   {
     "bookId": 3,
     "id": 26,
+    "evt_type": "",
     "name": "Arrival at Meduseld",
     "place": 18,
     "date": "2 March 3019",
@@ -821,6 +912,7 @@
   {
     "bookId": 3,
     "id": 27,
+    "evt_type": "",
     "name": "March to Isengard",
     "place": 18,
     "date": "2 March 3019",
@@ -830,6 +922,7 @@
   {
     "bookId": 3,
     "id": 28,
+    "evt_type": "",
     "name": "News from the front",
     "place": 19,
     "date": "3 March 3019",
@@ -839,6 +932,7 @@
   {
     "bookId": 3,
     "id": 29,
+    "evt_type": "",
     "name": "Gandalf rides to Isengard",
     "place": 15,
     "date": "3 March 3019",
@@ -848,6 +942,7 @@
   {
     "bookId": 3,
     "id": 30,
+    "evt_type": "",
     "name": "Preparing for battle",
     "place": 20,
     "date": "3 March 3019",
@@ -857,6 +952,7 @@
   {
     "bookId": 3,
     "id": 31,
+    "evt_type": "",
     "name": "Battle of the Hornberg begins",
     "place": 20,
     "date": "3 March 3019",
@@ -866,6 +962,7 @@
   {
     "bookId": 3,
     "id": 32,
+    "evt_type": "",
     "name": "Orcs in the Deep",
     "place": 20,
     "date": "4 March 3019",
@@ -875,6 +972,7 @@
   {
     "bookId": 3,
     "id": 33,
+    "evt_type": "",
     "name": "Final assault",
     "place": 20,
     "date": "4 March 3019",
@@ -884,6 +982,7 @@
   {
     "bookId": 3,
     "id": 34,
+    "evt_type": "",
     "name": "The tide turns",
     "place": 20,
     "date": "4 March 3019",
@@ -893,6 +992,7 @@
   {
     "bookId": 3,
     "id": 35,
+    "evt_type": "",
     "name": "Back to Isengard",
     "place": 20,
     "date": "4 March 3019",
@@ -902,6 +1002,7 @@
   {
     "bookId": 3,
     "id": 36,
+    "evt_type": "",
     "name": "A wizard defeated",
     "place": 15,
     "date": "5 March 3019",
@@ -911,6 +1012,7 @@
   {
     "bookId": 3,
     "id": 37,
+    "evt_type": "",
     "name": "Longbottom Leaf",
     "place": 15,
     "date": "5 March 3019",
@@ -920,6 +1022,7 @@
   {
     "bookId": 3,
     "id": 38,
+    "evt_type": "",
     "name": "Audience with Saruman",
     "place": 15,
     "date": "5 March 3019",
@@ -929,6 +1032,7 @@
   {
     "bookId": 3,
     "id": 39,
+    "evt_type": "",
     "name": "The Palantir",
     "place": 21,
     "date": "5 March 3019",
@@ -938,6 +1042,7 @@
   {
     "bookId": 3,
     "id": 40,
+    "evt_type": "",
     "name": "Shadow overhead",
     "place": 21,
     "date": "5 March 3019",
@@ -947,6 +1052,7 @@
   {
     "bookId": 4,
     "id": 1,
+    "evt_type": "",
     "name": "Delay in the hills",
     "place": 1,
     "date": "28 Feb 3019",
@@ -956,6 +1062,7 @@
   {
     "bookId": 4,
     "id": 2,
+    "evt_type": "",
     "name": "Perilous climb",
     "place": 2,
     "date": "29 Feb 3019",
@@ -965,6 +1072,7 @@
   {
     "bookId": 4,
     "id": 3,
+    "evt_type": "",
     "name": "Capturing Gollum",
     "place": 3,
     "date": "29 Feb 3019",
@@ -974,6 +1082,7 @@
   {
     "bookId": 4,
     "id": 4,
+    "evt_type": "",
     "name": "Through the marshland",
     "place": 4,
     "date": "1 March 3019",
@@ -983,6 +1092,7 @@
   {
     "bookId": 4,
     "id": 5,
+    "evt_type": "",
     "name": "Corpse Candles",
     "place": 5,
     "date": "1 March 3019",
@@ -992,6 +1102,7 @@
   {
     "bookId": 4,
     "id": 6,
+    "evt_type": "",
     "name": "Nazgul overhead",
     "place": 6,
     "date": "2 March 3019",
@@ -1001,6 +1112,7 @@
   {
     "bookId": 4,
     "id": 7,
+    "evt_type": "",
     "name": "Towards the dark",
     "place": 7,
     "date": "4 March 3019",
@@ -1010,6 +1122,7 @@
   {
     "bookId": 4,
     "id": 8,
+    "evt_type": "",
     "name": "Gollum's doubt",
     "place": 8,
     "date": "4 March 3019",
@@ -1019,6 +1132,7 @@
   {
     "bookId": 4,
     "id": 9,
+    "evt_type": "",
     "name": "The Gate is shut",
     "place": 9,
     "date": "5 March 3019",
@@ -1028,6 +1142,7 @@
   {
     "bookId": 4,
     "id": 10,
+    "evt_type": "",
     "name": "Captured by Gondor",
     "place": 10,
     "date": "7 March 3019",
@@ -1037,6 +1152,7 @@
   {
     "bookId": 4,
     "id": 11,
+    "evt_type": "",
     "name": "Safe for the night",
     "place": 11,
     "date": "7 March 3019",
@@ -1046,6 +1162,7 @@
   {
     "bookId": 4,
     "id": 12,
+    "evt_type": "",
     "name": "Faramir's choice",
     "place": 11,
     "date": "7 March 3019",
@@ -1055,6 +1172,7 @@
   {
     "bookId": 4,
     "id": 13,
+    "evt_type": "",
     "name": "With the good will of Men",
     "place": 11,
     "date": "8 March 3019",
@@ -1064,6 +1182,7 @@
   {
     "bookId": 4,
     "id": 14,
+    "evt_type": "",
     "name": "Continuing the journey",
     "place": 12,
     "date": "8 March 3019",
@@ -1073,6 +1192,7 @@
   {
     "bookId": 4,
     "id": 15,
+    "evt_type": "",
     "name": "The road to Minas Morgul",
     "place": 13,
     "date": "9 March 3019",
@@ -1082,6 +1202,7 @@
   {
     "bookId": 4,
     "id": 16,
+    "evt_type": "",
     "name": "The Day without Dawn",
     "place": 14,
     "date": "10 March 3019",
@@ -1091,6 +1212,7 @@
   {
     "bookId": 4,
     "id": 17,
+    "evt_type": "",
     "name": "An endless climb",
     "place": 15,
     "date": "10 March 3019",
@@ -1100,6 +1222,7 @@
   {
     "bookId": 4,
     "id": 18,
+    "evt_type": "",
     "name": "At the mouth of the cave",
     "place": 16,
     "date": "12 March 3019",
@@ -1109,6 +1232,7 @@
   {
     "bookId": 4,
     "id": 19,
+    "evt_type": "",
     "name": "Gollum's plot",
     "place": 16,
     "date": "13 March 3019",
@@ -1118,6 +1242,7 @@
   {
     "bookId": 4,
     "id": 20,
+    "evt_type": "",
     "name": "Frodo captured",
     "place": 16,
     "date": "13 March 3019",
@@ -1127,6 +1252,7 @@
   {
     "bookId": 4,
     "id": 21,
+    "evt_type": "",
     "name": "Sam carries on",
     "place": 16,
     "date": "13 March 3019",
@@ -1136,10 +1262,521 @@
   {
     "bookId": 4,
     "id": 22,
+    "evt_type": "",
     "name": "In the hands of the enemy",
     "place": 17,
     "date": "13 March 3019",
     "chapter": 10,
     "description": "Orcs appear; Sam puts on the Ring in a panic. He sees them take Frodo and tails them. From their talk he gathers Frodo's alive, but they go into the tower."
+  },
+  {
+    "bookId": 5,
+    "id": 1,
+    "evt_type": "",
+    "name": "Stop at Edoras",
+    "place": 1,
+    "date": "6 March 3019",
+    "chapter": 1,
+    "description": "Gandalf and Pippin arrive at Edoras. Pippin sleeps in a corner while Gandalf gives orders before their departure."
+  },
+  {
+    "bookId": 5,
+    "id": 2,
+    "evt_type": "",
+    "name": "Beacons alight",
+    "place": 2,
+    "date": "7 March 3019",
+    "chapter": 1,
+    "description": "Gandalf and Pippin see the beacons on the mountains surrounding Gondor are lit, calling for aid in the time of war."
+  },
+  {
+    "bookId": 5,
+    "id": 3,
+    "evt_type": "",
+    "name": "Minas Tirith",
+    "place": 3,
+    "date": "9 March 3019",
+    "chapter": 1,
+    "description": "Gandalf and Pippin arrive at the gate of Minas Tirith as the dawn breaks."
+  },
+  {
+    "bookId": 5,
+    "id": 4,
+    "evt_type": "",
+    "name": "A debt to repay",
+    "place": 3,
+    "date": "9 March 3019",
+    "chapter": 1,
+    "description": "Denethor questions Pippin about Boromir's death. Pippin tells the Steward that his son died to save him and Merry, and offers his services in return."
+  },
+  {
+    "bookId": 5,
+    "id": 5,
+    "evt_type": "",
+    "name": "Pippin gets shown the ropes",
+    "place": 3,
+    "date": "9 March 3019",
+    "chapter": 1,
+    "description": "While Gandalf is off learning the news, Pippin spends some time with a guard of Denethor's and learns about Gondor."
+  },
+  {
+    "bookId": 5,
+    "id": 6,
+    "evt_type": "",
+    "name": "Gathering forces",
+    "place": 3,
+    "date": "9 March 3019",
+    "chapter": 1,
+    "description": "Pippin watches as lords from different ends of Gondor come through the Gate with their soldiers, getting ready for an assault on the city."
+  },
+  {
+    "bookId": 5,
+    "id": 7,
+    "evt_type": "",
+    "name": "There will be no dawn",
+    "place": 3,
+    "date": "10 March 3019",
+    "chapter": 1,
+    "description": "Pippin wakes to see Gandalf is back at their lodging room. The wizard tells him they'll be summoned by Denethor, and that the Darkness has begun."
+  },
+  {
+    "bookId": 5,
+    "id": 8,
+    "evt_type": "",
+    "name": "The Gray Company",
+    "place": 4,
+    "date": "5 March 3019",
+    "chapter": 2,
+    "description": "Riding back towards Edoras, the King's company is stopped by riders, who turn out to be Rangers looking for Aragorn, coming to help him."
+  },
+  {
+    "bookId": 5,
+    "id": 9,
+    "evt_type": "",
+    "name": "A parting of ways",
+    "place": 5,
+    "date": "6 March 3019",
+    "chapter": 2,
+    "description": "After a night at Hornburg, the King continues to Edoras; Aragorn decides he will ride through the Paths of the Dead with the Rangers, Legolas, and Gimli."
+  },
+  {
+    "bookId": 5,
+    "id": 10,
+    "evt_type": "",
+    "name": "Eowyn's duty",
+    "place": 6,
+    "date": "7 March 3019",
+    "chapter": 2,
+    "description": "Aragorn's party passes Edoras and makes an overnight stop at Dunharrow, where Eowyn awaits news. She asks to join his quest but he declines."
+  },
+  {
+    "bookId": 5,
+    "id": 11,
+    "evt_type": "",
+    "name": "Summoning the Dead",
+    "place": 7,
+    "date": "8 March 3019",
+    "chapter": 2,
+    "description": "Aragorn leads the Rangers and his friends into the passage, where he summons the vow-breaking Dead. They let him pass and follow close behind."
+  },
+  {
+    "bookId": 5,
+    "id": 12,
+    "evt_type": "",
+    "name": "An oath fulfilled",
+    "place": 8,
+    "date": "8 March 3019",
+    "chapter": 2,
+    "description": "Legolas and Gimli see the ghostly army following behind them, heading to battle with Isildur's heir so they may finally find rest after."
+  },
+  {
+    "bookId": 5,
+    "id": 13,
+    "evt_type": "",
+    "name": "Into the Storm",
+    "place": 9,
+    "date": "10 March 3019",
+    "chapter": 2,
+    "description": "The Day without Dawn comes, and Aragorn, followed by the Dead army, rides into the Storm of Mordor."
+  },
+  {
+    "bookId": 5,
+    "id": 14,
+    "evt_type": "",
+    "name": "Gondor calls",
+    "place": 6,
+    "date": "9 March 3019",
+    "chapter": 3,
+    "description": "Theoden and his entourage are met by Eowyn at Dunharrow. A messenger from Gondor arrives and asks the King to come to Denethor's aid."
+  },
+  {
+    "bookId": 5,
+    "id": 15,
+    "evt_type": "",
+    "name": "The Muster of Rohan",
+    "place": 6,
+    "date": "10 March 3019",
+    "chapter": 3,
+    "description": "Merry wakes up to no sun and goes to the King, who sees the war is on and gathers his forces to leave for Edoras at once. Eowyn gives Merry battle gear."
+  },
+  {
+    "bookId": 5,
+    "id": 16,
+    "evt_type": "",
+    "name": "Leaving for battle",
+    "place": 1,
+    "date": "10 March 3019",
+    "chapter": 3,
+    "description": "After a short stop at Edoras, the King rides for Gondor. He wants to leave Merry in the relative safety of Rohan, but a masked Rider offers the hobbit a ride."
+  },
+  {
+    "bookId": 5,
+    "id": 17,
+    "evt_type": "",
+    "name": "Black Riders of the air",
+    "place": 3,
+    "date": "10 March 3019",
+    "chapter": 4,
+    "description": "Five of the Nazgul circle over the fields of Pelennor, chasing the returning Faramir, as Pippin watches from an embrasure; Gandalf chases them off."
+  },
+  {
+    "bookId": 5,
+    "id": 18,
+    "evt_type": "",
+    "name": "News of Frodo",
+    "place": 3,
+    "date": "10 March 3019",
+    "chapter": 4,
+    "description": "Faramir tells Denethor of events in Ithilien and of meeting Frodo and Sam. Pippin notices that even Gandalf seems afraid when he hears where they went."
+  },
+  {
+    "bookId": 5,
+    "id": 19,
+    "evt_type": "",
+    "name": "Faramir makes a stand",
+    "place": 10,
+    "date": "12 March 3019",
+    "chapter": 4,
+    "description": "Gandalf rides out to Osgiliath to meet Faramir, who went out on Denethor's orders to prevent the enemy forces from crossing, but has had to retreat."
+  },
+  {
+    "bookId": 5,
+    "id": 20,
+    "evt_type": "",
+    "name": "Captain of Despair",
+    "place": 3,
+    "date": "13 March 3019",
+    "chapter": 4,
+    "description": "Gandalf returns with some wounded men and brings news that the enemy forces are being led by the King of Angmar; the Siege of Gondor has started."
+  },
+  {
+    "bookId": 5,
+    "id": 21,
+    "evt_type": "",
+    "name": "Siege of Minas Tirith",
+    "place": 3,
+    "date": "13 March 3019",
+    "chapter": 4,
+    "description": "Faramir is gravely wounded, saved only by Gandalf chasing away the Nazgul once again. The city is besieged."
+  },
+  {
+    "bookId": 5,
+    "id": 22,
+    "evt_type": "",
+    "name": "Gandalf leads the defence",
+    "place": 3,
+    "date": "14 March 3019",
+    "chapter": 4,
+    "description": "The city is firebombed; morale is low. Pippin is with Denethor as he sits at Faramir's bed, convinced his son is dying. Gandalf takes command instead."
+  },
+  {
+    "bookId": 5,
+    "id": 23,
+    "evt_type": "",
+    "name": "Breach of the City",
+    "place": 3,
+    "date": "15 March 3019",
+    "chapter": 4,
+    "description": "Denethor releases Pippin from his service and decides to go out in flames together with his last remaining son. The Gate is breached before dawn."
+  },
+  {
+    "bookId": 5,
+    "id": 24,
+    "evt_type": "",
+    "name": "Help on the way",
+    "place": 3,
+    "date": "15 March 3019",
+    "chapter": 4,
+    "description": "Pippin runs to find Gandalf and sees him as he faces the Nazgul King. The horns of Rohan are heard in the distance as the rooster crows."
+  },
+  {
+    "bookId": 5,
+    "id": 25,
+    "evt_type": "",
+    "name": "Unexpected aid",
+    "place": 11,
+    "date": "14 March 3019",
+    "chapter": 5,
+    "description": "The Rohirrim camp out near Druadan Forest. Merry eavesdrops on Theoden's audience with one of the Wild Men living there, who offers aid to the King."
+  },
+  {
+    "bookId": 5,
+    "id": 26,
+    "evt_type": "",
+    "name": "A secret road",
+    "place": 12,
+    "date": "14 March 3019",
+    "chapter": 5,
+    "description": "Ghan-buri-Ghan of the woods leads the host of Rohan through a forgotten route past the orcs who await them."
+  },
+  {
+    "bookId": 5,
+    "id": 27,
+    "evt_type": "",
+    "name": "Theoden leads the charge",
+    "place": 13,
+    "date": "15 March 3019",
+    "chapter": 5,
+    "description": "Theoden reaches the plains below Minas Tirith and charges ahead, and so Merry rides into battle with his masked friend."
+  },
+  {
+    "bookId": 5,
+    "id": 28,
+    "evt_type": "",
+    "name": "Theoden falls",
+    "place": 13,
+    "date": "15 March 3019",
+    "chapter": 6,
+    "description": "After significant damage to the enemy, the charge is stopped by a Nazgul cry, which terrifies the horses. Theoden's horse stumbles and falls on top of him."
+  },
+  {
+    "bookId": 5,
+    "id": 29,
+    "evt_type": "",
+    "name": "The Ringwraith is killed",
+    "place": 13,
+    "date": "15 March 3019",
+    "chapter": 6,
+    "description": "Merry realises his Rider is Eowyn, who faces the King of Angmar. She kills his beast in one hit. Merry stabs the Wraith and gives her a chance to finish it."
+  },
+  {
+    "bookId": 5,
+    "id": 30,
+    "evt_type": "",
+    "name": "Death of a King",
+    "place": 13,
+    "date": "15 March 3019",
+    "chapter": 6,
+    "description": "Theoden dies, passing his title to Eomer, who sees his sister, seemingly dead as well, and rides into battle with his men in a blind rage. Merry is left behind."
+  },
+  {
+    "bookId": 5,
+    "id": 31,
+    "evt_type": "",
+    "name": "The Return of the King",
+    "place": 13,
+    "date": "15 March 3019",
+    "chapter": 6,
+    "description": "Black ships come up the river and the soldiers lose hope, thinking it's the Corsairs of Umbar, but soon realise the ships carry Aragorn, who has taken them."
+  },
+  {
+    "bookId": 5,
+    "id": 32,
+    "evt_type": "",
+    "name": "Victory at Pelennor",
+    "place": 16,
+    "date": "15 March 3019",
+    "chapter": 6,
+    "description": "After Aragorn turns the tide of the battle, by sunset every foe is either dead or routed; none return to Mordor. The survivors return to the city."
+  },
+  {
+    "bookId": 5,
+    "id": 33,
+    "evt_type": "",
+    "name": "Gandalf leaves the battle",
+    "place": 3,
+    "date": "15 March 3019",
+    "chapter": 7,
+    "description": "After the Black Rider withdraws towards the battle, Pippin manages to tell Gandalf about the Steward's madness, and the two rush back up to stop him."
+  },
+  {
+    "bookId": 5,
+    "id": 34,
+    "evt_type": "",
+    "name": "The pyre of Denethor",
+    "place": 3,
+    "date": "15 March 3019",
+    "chapter": 7,
+    "description": "Gandalf takes Faramir away, but Denethor reveals a Palantir and claims to have seen defeat in it; he then sets himself aflame in the royal tomb chambers."
+  },
+  {
+    "bookId": 5,
+    "id": 35,
+    "evt_type": "",
+    "name": "Houses of Healing",
+    "place": 3,
+    "date": "15 March 3019",
+    "chapter": 8,
+    "description": "Merry and Pippin are reunited, and Pippin takes his friend to the Houses of Healing to be treated. Gandalf tends to Faramir, Eowyn and Merry."
+  },
+  {
+    "bookId": 5,
+    "id": 36,
+    "evt_type": "",
+    "name": "Hands of a healer",
+    "place": 3,
+    "date": "15 March 3019",
+    "chapter": 8,
+    "description": "Aragorn uses his healing knowledge to help the wounded, fulfilling an old prophecy that the hands of the rightful king are the hands of a healer."
+  },
+  {
+    "bookId": 5,
+    "id": 37,
+    "evt_type": "",
+    "name": "Respite with friends",
+    "place": 3,
+    "date": "16 March 3019",
+    "chapter": 9,
+    "description": "Legolas and Gimli climb up to the Houses of Healing and reunite with their hobbit friends. They recount their adventures with Aragorn and the ghost army."
+  },
+  {
+    "bookId": 5,
+    "id": 38,
+    "evt_type": "",
+    "name": "Commandeering the fleet",
+    "place": 14,
+    "date": "13 March 3019",
+    "chapter": 9,
+    "description": "Aragorn, Legolas, Gimli, the Rangers, and the Dead army arrive at Anduin, where they overtake the Corsairs' ships and head to Minas Tirith."
+  },
+  {
+    "bookId": 5,
+    "id": 39,
+    "evt_type": "",
+    "name": "An army of terror",
+    "place": 15,
+    "date": "11 March 3019",
+    "chapter": 9,
+    "description": "With the help of the Dead, Aragorn scatters the soldiers of Umbar and Harad and recruits the local Lamedon folk to help him commandeer the ships."
+  },
+  {
+    "bookId": 5,
+    "id": 40,
+    "evt_type": "",
+    "name": "Last council",
+    "place": 16,
+    "date": "16 March 3019",
+    "chapter": 9,
+    "description": "Aragorn and Gandalf take counsel with Prince Imrahil, Eomer, and the sons of Elrond in a tent in front of the gate: Aragorn doesn't want to claim his title yet."
+  },
+  {
+    "bookId": 5,
+    "id": 41,
+    "evt_type": "",
+    "name": "Nothing to lose",
+    "place": 16,
+    "date": "16 March 3019",
+    "chapter": 9,
+    "description": "Gandalf advises the lords that the only way to have a chance is to keep the Eye distracted until the Ring is destroyed, and so they agree to attack Mordor."
+  },
+  {
+    "bookId": 5,
+    "id": 42,
+    "evt_type": "",
+    "name": "The last throw",
+    "place": 13,
+    "date": "18 March 3019",
+    "chapter": 10,
+    "description": "The army of the West assembles in the fields of Pelennor and leaves for the Black Gate."
+  },
+  {
+    "bookId": 5,
+    "id": 43,
+    "evt_type": "",
+    "name": "Through Old Gondor",
+    "place": 10,
+    "date": "18 March 3019",
+    "chapter": 10,
+    "description": "The army passes through Osgiliath, where workers and craftsmen salvage materials and strengthen defences."
+  },
+  {
+    "bookId": 5,
+    "id": 44,
+    "evt_type": "",
+    "name": "On the old road",
+    "place": 17,
+    "date": "19 March 3019",
+    "chapter": 10,
+    "description": "Defences are set up at the Crossroads in case the Enemy might send forces from Morgul Vale or the South."
+  },
+  {
+    "bookId": 5,
+    "id": 45,
+    "evt_type": "",
+    "name": "Burning the Nazgul city",
+    "place": 18,
+    "date": "19 March 3019",
+    "chapter": 10,
+    "description": "Aragorn and Gandalf ride to Minas Morgul and, seeing it empty after the big battle, burn down the bridge and set fire to the surrounding field."
+  },
+  {
+    "bookId": 5,
+    "id": 46,
+    "evt_type": "",
+    "name": "Reclaiming the lands",
+    "place": 19,
+    "date": "20 March 3019",
+    "chapter": 10,
+    "description": "Walking up the road to the Morannon, the heralds of the army announce the coming of the King and claim the surrounding land for Gondor."
+  },
+  {
+    "bookId": 5,
+    "id": 47,
+    "evt_type": "",
+    "name": "Mercy over honour",
+    "place": 20,
+    "date": "23 March 3019",
+    "chapter": 10,
+    "description": "Aragorn sees that many of the farmers from Rohan and Lossarnach are too afraid and untrained, and sends them away from Mordor to retake Cair Andros."
+  },
+  {
+    "bookId": 5,
+    "id": 48,
+    "evt_type": "",
+    "name": "Night before the battle",
+    "place": 21,
+    "date": "24 March 3019",
+    "chapter": 10,
+    "description": "The army camps at the Black Gate. They hear wolves and other creatures of Mordor prowl about, and no one sleeps."
+  },
+  {
+    "bookId": 5,
+    "id": 49,
+    "evt_type": "",
+    "name": "The Mouth of Sauron",
+    "place": 22,
+    "date": "25 March 3019",
+    "chapter": 10,
+    "description": "Representatives of all the free peoples of Middle Earth march up to challenge Sauron, and the Black Gate opens. His messenger has Frodo's armour."
+  },
+  {
+    "bookId": 5,
+    "id": 50,
+    "evt_type": "",
+    "name": "Battle of the Morannon",
+    "place": 22,
+    "date": "25 March 3019",
+    "chapter": 10,
+    "description": "Gandalf rejects Mordor's terms and takes back Frodo's things. Sauron pours out armies from the Gate and the battle begins."
+  },
+  {
+    "bookId": 5,
+    "id": 51,
+    "evt_type": "",
+    "name": "The Eagles are coming",
+    "place": 22,
+    "date": "25 March 3019",
+    "chapter": 10,
+    "description": "Pippin is stunned by a mountain troll as he kills it, and as he loses consciousness he hears cries around him that the Eagles are coming."
   }
 ]
