@@ -1,6 +1,7 @@
 @import "../../styles/shared.scss";
 @import "../../styles/fonts.scss";
 
+
 .header {
   position: fixed;
   top: 20px;
@@ -10,11 +11,11 @@
   background-color: $white;
   padding: 7px;
   border-radius: 10px;
-  border: 3px solid $border-color-blue;
+  border: 3px solid $border-color-green;
   box-shadow: $md-shadow;
 
   .header__title {
-    @extend .curvy-header;
+    font-family:'Ringbearer';
     font-size: 24px;
     font-weight: 400;
     color: black;
@@ -33,6 +34,7 @@
   }
 
   .header__subtitle {
-    font-size: 12px;
+    font-family:'Aniron'; 
+    font-size: 9px;
   }
 }
