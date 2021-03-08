@@ -1,21 +1,19 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Demo } from "./pages/Demo";
-import { Home } from "./pages/Home";
-import { Data } from "./pages/Data";
-import "./styles/App.scss";
+import { LotrVisualisation, Home, Data } from "./pages";
+import "./styles/app.scss";
 
 function App() {
   return (
     <Router>
       <div className="container">
         <Switch>
-          <Route path="/demo">
-            <Demo />
+          <Route path="/">
+            <LotrVisualisation />
           </Route>
           <Route path="/data">
             <Data />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
           </Route>
         </Switch>

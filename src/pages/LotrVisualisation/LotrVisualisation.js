@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import { ReactComponent as MapSvg } from "../../assets/mapome-slim.svg";
 import * as d3 from "d3";
-
 import { DataClient } from "../../data/DataClient";
-import { Timelines } from "../../components/Timelines";
-import { Places } from "../../components/Places";
-import { Header } from "../../components/Header";
-import { DebugDot } from "../../components/DebugDot";
-import { TimeSelector } from "../../components/TimeSelector";
-import { CharacterFilter } from "../../components/CharacterFilter";
-import { EventPopup } from "../../components/EventPopup";
 import { LotrDate } from "../../data/LotrDate";
-import "./Demo.scss";
-import "../../styles/map.scss";
+import {
+  Timelines,
+  Places,
+  Header,
+  DebugDot,
+  TimeSelector,
+  CharacterFilter,
+  EventPopup,
+  LotrMap,
+} from "../../components";
+import "./lotr-visualisation.scss";
 
 const dataClient = new DataClient();
 const characterData = dataClient.getAll("character");
@@ -21,7 +21,7 @@ const characterData = dataClient.getAll("character");
 const worldTopLeft = [0, 0];
 const worldBottomRight = [3200, 3300]; // extra space on bottom or it bugs out
 
-export function Demo() {
+export function LotrVisualisation() {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
   const [popupData, setPopupData] = useState(null);
@@ -58,12 +58,12 @@ export function Demo() {
   // show event popup details
   function handlePlaceClick(mouseEvent, place) {
     // place.events
-    const characterIds = dataClient.getCharactersForEvents(place.events.map(e => e.id));
+    const characterIds = dataClient.getCharactersForEvents(place.events.map((e) => e.id));
     setPopupData({
       ...place,
       screenX: mouseEvent.x,
       screenY: mouseEvent.y,
-      characterIds
+      characterIds,
     });
   }
 
@@ -117,7 +117,7 @@ export function Demo() {
     <>
       <Header />
       <div ref={chartRef}>
-        <MapSvg />
+        <LotrMap />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
         <DebugDot isMapRendered={isMapRendered} />
