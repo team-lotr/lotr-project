@@ -32,8 +32,8 @@ export function Timelines({ data, time, isMapRendered }) {
     const timelinesGroup = d3.select("#timelines");
 
     // Do data join.
-    const timelineUpdate = timelinesGroup.selectAll(".timeline").data(data, (d) => d);
-    const circleUpdate = timelinesGroup.selectAll(".characterCircle").data(data, (d) => d);
+    const timelineUpdate = timelinesGroup.selectAll(".timeline").data(data, (d) => d.character.id);
+    const circleUpdate = timelinesGroup.selectAll(".characterCircle").data(data, (d) => d.character.id);
 
     // Perform actions on enter selection.
     const timelineEnter = timelineUpdate

@@ -31,4 +31,26 @@ $boxWidth: 120px;
     justify-content: center;
     align-items: center;
   }
+
+  .character-filter__buttons {
+    text-align: center;
+    margin-top: 10px;
+
+    .character-filter__button {
+      @extend .body-text; 
+      padding: 3px 8px;
+      border: 1px solid gray;
+      border-radius: 5px;
+
+      &:hover {
+        cursor: pointer;
+        background: #8fa3db;
+        color: white;
+      }
+    }
+
+    & > * {
+      margin-bottom: 5px;
+    }
+  }
 }

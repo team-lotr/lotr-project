@@ -9,16 +9,23 @@ import { Header } from "../../components/Header";
 import { DebugDot } from "../../components/DebugDot";
 import { TimeSelector } from "../../components/TimeSelector";
 import { CharacterFilter } from "../../components/CharacterFilter";
+import { EventPopup } from "../../components/EventPopup";
 import { LotrDate } from "../../data/LotrDate";
 import "./Demo.scss";
+import "../../styles/map.scss";
 
 const dataClient = new DataClient();
 const characterData = dataClient.getAll("character");
 
+// world bounds
+const worldTopLeft = [0, 0];
+const worldBottomRight = [3200, 3300]; // extra space on bottom or it bugs out
+
 export function Demo() {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
-  const [currentTime, setCurrentTime] = useState(new LotrDate("12 Apr 3018"));
+  const [popupData, setPopupData] = useState(null);
+  const [currentTime, setCurrentTime] = useState(new LotrDate("5 Mar 3019"));
   const [activeCharacters, setActiveCharacters] = useState(characterData.map((c) => c.id));
 
   // Set up the timeline data.
@@ -48,11 +55,24 @@ export function Demo() {
       .sort((first, second) => first.lotrDateValue - second.lotrDateValue),
   }));
 
+  // show event popup details
+  function handlePlaceClick(mouseEvent, place) {
+    // place.events
+    const characterIds = dataClient.getCharactersForEvents(place.events.map(e => e.id));
+    setPopupData({
+      ...place,
+      screenX: mouseEvent.x,
+      screenY: mouseEvent.y,
+      characterIds
+    });
+  }
+
   useEffect(() => {
     const svg = d3.select("svg");
     const zoomGroup = d3.select("#zoomContainer");
     zoomGroup.append("g").attr("id", "timelines");
     zoomGroup.append("g").attr("id", "places");
+    zoomGroup.append("g").attr("id", "event-popup");
 
     const minScale = 1;
     const maxScale = 20;
@@ -60,7 +80,9 @@ export function Demo() {
     // Define what elements to apply semantic zoom opacity to.
     const semanticOpacitySelections = [
       // Each element defines what and how to interpolate its opacity.
-      { selectionString: "#other_font", start: 0.15, end: 0.2 },
+      { selectionString: "#misc_font", start: 0.225, end: 0.25 },
+      { selectionString: "#uppercase_font", start: 0.125, end: 0.175 },
+      { selectionString: "#outline_font", start: 0.075, end: 0.1 },
     ].map((element) => ({
       ...element,
       // Create a d3 scale for the opacity interpolation.
@@ -72,11 +94,12 @@ export function Demo() {
       selection: d3.select(element.selectionString).style("opacity", 0),
     }));
 
-    // Add zooming, panning and semantic zoom to the zoom group.
     svg.call(
       d3
         .zoom()
         .scaleExtent([minScale, maxScale])
+        // limit translation i.e. get rid of out-of-map scrolling
+        .translateExtent([worldTopLeft, worldBottomRight])
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
 
@@ -96,7 +119,7 @@ export function Demo() {
       <div ref={chartRef}>
         <MapSvg />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
-        <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} />
+        <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
         <CharacterFilter
@@ -104,6 +127,7 @@ export function Demo() {
           activeCharacters={activeCharacters}
           setActiveCharacters={setActiveCharacters}
         />
+        <EventPopup data={popupData} />
       </div>
     </>
   );

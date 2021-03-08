@@ -134,4 +134,15 @@ export class DataClient {
     }
     return resultDates;
   }
+
+  getCharactersForEvents(eventIds) {
+    const characters = this.getAll("character");
+    let matchingCharacterIds = []
+    for (const eventId in eventIds) {
+      const matchingCharacters = characters.filter(c => c.events.includes(eventId));
+      const temp = matchingCharacters.map(c => c.id);
+      matchingCharacterIds.push(...temp)
+    }
+    return Array.from(new Set(matchingCharacterIds));
+  }
 }
