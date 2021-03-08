@@ -43,18 +43,16 @@ export function DebugDot({ isMapRendered }) {
   useEffect(() => {
     const zoomGroup = d3.select("#zoomContainer");
     if (showDot) {
-      renderDebugDot(zoomGroup, { xStart: 100, yStart: 100, radius: 10 });
+      renderDebugDot(zoomGroup, { xStart: 1000, yStart: 1000, radius: 10 });
     } else {
       d3.select("#debugDot").remove();
     }
   }, [isMapRendered, showDot]);
 
   return (
-    <div className="debugDot">
-      <label>
-        DebugDot
-        <input type="checkbox" checked={showDot} onChange={() => setShowDot(!showDot)} />
-      </label>
-    </div>
+    <label className="debugDot">
+      Toggle Debug Dot
+      <input type="checkbox" checked={showDot} onChange={() => setShowDot(!showDot)} />
+    </label>
   );
 }

@@ -2,22 +2,10 @@
 @import "../../styles/fonts.scss";
 
 .debugDot {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: white;
-  padding: 7px;
-  border-radius: 10px;
-  border: 3px solid $border-color-green;
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: $md-shadow;
-
-  label {
-    font-size: 12px;
-    line-height: 20px;
-  }
+  @extend .body-text-1;
+  line-height: 20px;
 
   input[type="checkbox"] {
     margin: 0;
