@@ -5,3 +5,21 @@
 .body-text {
   font-family: "Source Sans Pro", sans-serif;
 }
+
+@font-face {
+  font-family: 'Aniron';
+  src: local('Aniron'), url(../assets/fonts/anirm.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Morris Roman Black';
+  src: local('Morris'), url(../assets/fonts/MorrisRomanAlternate-Black.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ringbearer';
+  src: local('Ringbearer'), url(../assets/fonts/RINGM.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Elvish Ring';
+  src: local('Elvish'), url(../assets/fonts/elvish-ring-nfi.ttf) format('truetype');
+}
+
