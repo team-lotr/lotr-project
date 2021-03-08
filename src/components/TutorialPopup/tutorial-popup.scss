@@ -13,11 +13,57 @@
   z-index: 2;
 
   .tutorial-popup__container {
-    width: 400px;
-    height: 400px;
+    width: 40%;
+    min-width: 300px;
     background-color: $bg-color;
     border: 3px solid $border-color-green;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    .tutorial-popup__title {
+      font-family: "Ringbearer";
+    }
+
+    .tutorial-popup__divider {
+      width: 80%;
+      border-bottom: 1px solid $border-color-green;
+      opacity: 0.7;
+    }
+
+    .tutorial-popup__content {
+      @extend .body-text;
+      & > * {
+        margin-bottom: 5px;
+      }
+    }
+
+    .tutorial-popup__quote {
+      font-style: italic;
+      margin: 10px auto;
+      width: 60%;
+      text-align: center;
+    }
+
+    .tutorial-popup__button {
+      background-color: $bg-color;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 16px;
+
+      &:hover {
+        background-color: #7c8f7b;
+        color: white;
+        cursor: pointer;
+        border-color: #7c8f7b;
+      }
+    }
+
+    & > * {
+      margin-bottom: 10px;
+    }
   }
 }
 
