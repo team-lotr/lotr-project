@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LotrVisualisation, Home, Data } from "./pages";
 import { DataClient } from "./data/DataClient";
-import "./styles/app.scss";
+import "./styles/main.scss";
 
 function App() {
   const dataClient = new DataClient();
