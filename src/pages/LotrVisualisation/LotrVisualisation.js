@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
-import { DataClient } from "../../data/DataClient";
 import { LotrDate } from "../../data/LotrDate";
 import {
   Timelines,
@@ -14,24 +13,20 @@ import {
 } from "../../components";
 import "./lotr-visualisation.scss";
 
-const dataClient = new DataClient();
-const characterData = dataClient.getAll("character");
-
 // world bounds
 const worldTopLeft = [0, 0];
 const worldBottomRight = [3200, 3300]; // extra space on bottom or it bugs out
 
-export function LotrVisualisation() {
+export function LotrVisualisation({ client }) {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
   const [popupData, setPopupData] = useState(null);
   const [currentTime, setCurrentTime] = useState(new LotrDate("5 Mar 3019"));
-  const [activeCharacters, setActiveCharacters] = useState(characterData.map((c) => c.id));
+  const [activeCharacters, setActiveCharacters] = useState(client.getAll("character", "id"));
 
-  // Set up the timeline data.
-  const charactersToRender = characterData.filter((c) => activeCharacters.includes(c.id));
-  const timelineData = charactersToRender.map((character) => {
-    const timeline = dataClient
+  // Set up the timeline data
+  const timelineData = client.getCharactersById(activeCharacters).map((character) => {
+    const timeline = client
       .getCharacterTimelineBy("id", character.id, "lotrDateValue")
       .reduce((noRedundantEvents, event, i, array) => {
         // Remove the redundant events from the timeline.
@@ -43,12 +38,12 @@ export function LotrVisualisation() {
       }, []);
     return { character, timeline };
   });
-  const distinctEventDates = dataClient.getDistinctDates();
+  const distinctEventDates = client.getDistinctDates();
 
   // Set up the place data.
-  const placeData = dataClient.getAll("place").map((place) => ({
+  const placeData = client.getAll("place").map((place) => ({
     ...place,
-    events: dataClient
+    events: client
       .getAll("event")
       .filter((event) => event.placeId === place.id)
       .map((event) => ({ ...event, lotrDateValue: new LotrDate(event.date).value }))
@@ -58,7 +53,7 @@ export function LotrVisualisation() {
   // show event popup details
   function handlePlaceClick(mouseEvent, place) {
     // place.events
-    const characterIds = dataClient.getCharactersForEvents(place.events.map((e) => e.id));
+    const characterIds = client.getCharactersForEvents(place.events.map((e) => e.id));
     setPopupData({
       ...place,
       screenX: mouseEvent.x,
@@ -123,7 +118,7 @@ export function LotrVisualisation() {
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
         <CharacterFilter
-          data={characterData}
+          data={client.getAll("character")}
           activeCharacters={activeCharacters}
           setActiveCharacters={setActiveCharacters}
         />
