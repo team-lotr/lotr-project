@@ -6,6 +6,7 @@ export * from "./Header";
 export * from "./Nav";
 export * from "./LotrMap";
 export * from "./Places";
+export * from "./Settings";
 export * from "./Timelines";
 export * from "./TimeSelector";
 export * from "./TutorialPopup";

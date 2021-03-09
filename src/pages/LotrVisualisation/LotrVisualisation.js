@@ -11,6 +11,7 @@ import {
   EventPopup,
   LotrMap,
   TutorialPopup,
+  Settings,
 } from "../../components";
 import "./lotr-visualisation.scss";
 
@@ -116,7 +117,7 @@ export function LotrVisualisation({ client }) {
         <LotrMap />
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
-        <DebugDot isMapRendered={isMapRendered} />
+
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
         <CharacterFilter
           data={client.getAll("character")}
@@ -125,6 +126,9 @@ export function LotrVisualisation({ client }) {
         />
         <EventPopup data={popupData} />
         <TutorialPopup />
+        <Settings>
+          <DebugDot isMapRendered={isMapRendered} />
+        </Settings>
       </div>
     </>
   );

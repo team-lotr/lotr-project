@@ -1,0 +1,49 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+
+.settings {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: $white;
+  padding: 7px;
+  border-radius: 10px;
+  border: 3px solid $border-color-green;
+  box-shadow: $md-shadow;
+  width: 200px;
+
+  .settings__header {
+    @extend .header-3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+  }
+
+  .settings__caret {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    color: $body-text-color;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 0;
+    transition: 0.35s all ease-in-out;
+    transform-origin: center;
+
+    &[data-open="false"] {
+      transform: rotate(180deg);
+    }
+
+    &[data-open="true"] {
+      transform: rotate(0deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
