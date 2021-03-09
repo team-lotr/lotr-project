@@ -528,8 +528,8 @@
     "bookId": 4,
     "id": 11,
     "name": "Henneth Annun",
-    "x": 2071,
-    "y": 1586
+    "x": 2081,
+    "y": 1592
   },
   {
     "bookId": 4,
@@ -584,8 +584,8 @@
     "bookId": 5,
     "id": 2,
     "name": "Anorien",
-    "x": "",
-    "y": ""
+    "x": 1849,
+    "y": 1619
   },
   {
     "bookId": 5,
@@ -598,99 +598,99 @@
     "bookId": 5,
     "id": 4,
     "name": "Fords of Isen",
-    "x": "",
-    "y": ""
+    "x": 1409,
+    "y": 1373
   },
   {
     "bookId": 5,
     "id": 5,
-    "name": "Hornburg",
-    "x": "(use Helm's Deep?)",
-    "y": ""
+    "name": "Helm's Deep",
+    "x": 1476,
+    "y": 1431
   },
   {
     "bookId": 5,
     "id": 6,
     "name": "Dunharrow",
-    "x": "",
-    "y": ""
+    "x": 1555,
+    "y": 1529
   },
   {
     "bookId": 5,
     "id": 7,
     "name": "Paths of the Dead",
-    "x": "",
-    "y": ""
+    "x": 1580,
+    "y": 1553
   },
   {
     "bookId": 5,
     "id": 8,
     "name": "Stone of Erech",
-    "x": "",
-    "y": ""
+    "x": 1579,
+    "y": 1609
   },
   {
     "bookId": 5,
     "id": 9,
     "name": "Calembel upon Ciril",
-    "x": "",
-    "y": ""
+    "x": 1676,
+    "y": 1691
   },
   {
     "bookId": 5,
     "id": 10,
     "name": "Osgiliath",
-    "x": "",
-    "y": ""
+    "x": 2070,
+    "y": 1679
   },
   {
     "bookId": 5,
     "id": 11,
     "name": "Eilenach Beacon",
-    "x": "",
-    "y": ""
+    "x": 1987,
+    "y": 1651
   },
   {
     "bookId": 5,
     "id": 12,
     "name": "Druadan Forest",
-    "x": "",
-    "y": ""
+    "x": 1972,
+    "y": 1669
   },
   {
     "bookId": 5,
     "id": 13,
     "name": "Pelennor Fields",
-    "x": "",
-    "y": ""
+    "x": 2049,
+    "y": 1679
   },
   {
     "bookId": 5,
     "id": 14,
     "name": "Pelargir on Anduin",
-    "x": "",
-    "y": ""
+    "x": 1984,
+    "y": 1894
   },
   {
     "bookId": 5,
     "id": 15,
     "name": "Linhir above Gilrain",
-    "x": "",
-    "y": ""
+    "x": 1773,
+    "y": 1878
   },
   {
     "bookId": 5,
     "id": 16,
     "name": "Near Minas Tirith",
-    "x": "",
-    "y": ""
+    "x": 2054,
+    "y": 1688
   },
   {
     "bookId": 5,
     "id": 17,
     "name": "Crossroads to Minas Morgul",
-    "x": "",
-    "y": ""
+    "x": 2105,
+    "y": 1677
   },
   {
     "bookId": 5,
@@ -703,22 +703,22 @@
     "bookId": 5,
     "id": 19,
     "name": "Road toward Morannon",
-    "x": "",
-    "y": ""
+    "x": 2097,
+    "y": 1521
   },
   {
     "bookId": 5,
     "id": 20,
     "name": "Near Morannon",
-    "x": 2126,
-    "y": 1462
+    "x": 2117,
+    "y": 1463
   },
   {
     "bookId": 5,
     "id": 21,
     "name": "In front of the Black Gate",
-    "x": "",
-    "y": ""
+    "x": 2151,
+    "y": 1458
   },
   {
     "bookId": 5,
@@ -726,5 +726,341 @@
     "name": "Morannon",
     "x": 2160,
     "y": 1467
+  },
+  {
+    "bookId": 6,
+    "id": 1,
+    "name": "Tower of Cirith Ungol",
+    "x": 2172,
+    "y": 1644
+  },
+  {
+    "bookId": 6,
+    "id": 2,
+    "name": "Below Cirith Ungol",
+    "x": 2184,
+    "y": 1644
+  },
+  {
+    "bookId": 6,
+    "id": 3,
+    "name": "Western Mordor",
+    "x": 2181,
+    "y": 1634
+  },
+  {
+    "bookId": 6,
+    "id": 4,
+    "name": "Orc patrol path",
+    "x": 2175,
+    "y": 1624
+  },
+  {
+    "bookId": 6,
+    "id": 5,
+    "name": "Fortification in the northwest",
+    "x": 2170,
+    "y": 1616
+  },
+  {
+    "bookId": 6,
+    "id": 6,
+    "name": "Glens of Morgai",
+    "x": 2158,
+    "y": 1608
+  },
+  {
+    "bookId": 6,
+    "id": 7,
+    "name": "Tops of the Morgai",
+    "x": 2150,
+    "y": 1593
+  },
+  {
+    "bookId": 6,
+    "id": 8,
+    "name": "Valley below Morgai",
+    "x": 2159,
+    "y": 1588
+  },
+  {
+    "bookId": 6,
+    "id": 9,
+    "name": "North Morgai valley",
+    "x": 2160,
+    "y": 1568
+  },
+  {
+    "bookId": 6,
+    "id": 10,
+    "name": "Morgai inner ridge",
+    "x": 2152,
+    "y": 1563
+  },
+  {
+    "bookId": 6,
+    "id": 11,
+    "name": "Road to Udun",
+    "x": 2161,
+    "y": 1550
+  },
+  {
+    "bookId": 6,
+    "id": 12,
+    "name": "Carach Angren",
+    "x": 2185,
+    "y": 1533
+  },
+  {
+    "bookId": 6,
+    "id": 13,
+    "name": "Near Carach Angren",
+    "x": 2197,
+    "y": 1542
+  },
+  {
+    "bookId": 6,
+    "id": 14,
+    "name": "Road to Barad Dur",
+    "x": 2228,
+    "y": 1566
+  },
+  {
+    "bookId": 6,
+    "id": 15,
+    "name": "Plain of Gorgoroth",
+    "x": 2238,
+    "y": 1593
+  },
+  {
+    "bookId": 6,
+    "id": 16,
+    "name": "Foot of Mount Doom",
+    "x": 2245,
+    "y": 1610
+  },
+  {
+    "bookId": 6,
+    "id": 17,
+    "name": "North face of Mount Doom",
+    "x": 2257,
+    "y": 1603
+  },
+  {
+    "bookId": 6,
+    "id": 18,
+    "name": "Road to Sammath Naur",
+    "x": 2260,
+    "y": 1603
+  },
+  {
+    "bookId": 6,
+    "id": 19,
+    "name": "Near Sammath Naur",
+    "x": 2264,
+    "y": 1601
+  },
+  {
+    "bookId": 6,
+    "id": 20,
+    "name": "Crack of Doom",
+    "x": 2268,
+    "y": 1597
+  },
+  {
+    "bookId": 6,
+    "id": 21,
+    "name": "Morannon",
+    "x": 2160,
+    "y": 1467
+  },
+  {
+    "bookId": 6,
+    "id": 22,
+    "name": "Field of Cormallen",
+    "x": 2068,
+    "y": 1610
+  },
+  {
+    "bookId": 6,
+    "id": 23,
+    "name": "Osgiliath",
+    "x": 2070,
+    "y": 1679
+  },
+  {
+    "bookId": 6,
+    "id": 24,
+    "name": "Pelennor Fields",
+    "x": 2049,
+    "y": 1679
+  },
+  {
+    "bookId": 6,
+    "id": 25,
+    "name": "Minas Tirith",
+    "x": 2045,
+    "y": 1693
+  },
+  {
+    "bookId": 6,
+    "id": 26,
+    "name": "Mount Mindolluin",
+    "x": 2036,
+    "y": 1684
+  },
+  {
+    "bookId": 6,
+    "id": 27,
+    "name": "Anorien near Druadan",
+    "x": 1979,
+    "y": 1654
+  },
+  {
+    "bookId": 6,
+    "id": 28,
+    "name": "Edoras",
+    "x": 1578,
+    "y": 1498
+  },
+  {
+    "bookId": 6,
+    "id": 29,
+    "name": "Helm's Deep",
+    "x": 1476,
+    "y": 1431
+  },
+  {
+    "bookId": 6,
+    "id": 30,
+    "name": "Isengard",
+    "x": 1421,
+    "y": 1306
+  },
+  {
+    "bookId": 6,
+    "id": 31,
+    "name": "Entwood",
+    "x": 1585,
+    "y": 1199
+  },
+  {
+    "bookId": 6,
+    "id": 32,
+    "name": "Gap of Rohan",
+    "x": 1445,
+    "y": 1373
+  },
+  {
+    "bookId": 6,
+    "id": 33,
+    "name": "Misty Mountains near Dunland",
+    "x": 1353,
+    "y": 1142
+  },
+  {
+    "bookId": 6,
+    "id": 34,
+    "name": "Swanfleet river",
+    "x": 1432,
+    "y": 960
+  },
+  {
+    "bookId": 6,
+    "id": 35,
+    "name": "Rivendell",
+    "x": 1547,
+    "y": 634
+  },
+  {
+    "bookId": 6,
+    "id": 36,
+    "name": "The Prancing Pony inn",
+    "x": 1046,
+    "y": 662
+  },
+  {
+    "bookId": 6,
+    "id": 37,
+    "name": "The house of Tom Bombadil",
+    "x": 978,
+    "y": 705
+  },
+  {
+    "bookId": 6,
+    "id": 38,
+    "name": "Brandywine Bridge",
+    "x": 906,
+    "y": 645
+  },
+  {
+    "bookId": 6,
+    "id": 39,
+    "name": "Frogmorton",
+    "x": 864,
+    "y": 647
+  },
+  {
+    "bookId": 6,
+    "id": 40,
+    "name": "Three-Farthing Stone",
+    "x": 832,
+    "y": 689
+  },
+  {
+    "bookId": 6,
+    "id": 41,
+    "name": "Bywater",
+    "x": 832,
+    "y": 681
+  },
+  {
+    "bookId": 6,
+    "id": 42,
+    "name": "Great Smials",
+    "x": 804,
+    "y": 705
+  },
+  {
+    "bookId": 6,
+    "id": 43,
+    "name": "Hobbiton",
+    "x": 821,
+    "y": 661
+  },
+  {
+    "bookId": 6,
+    "id": 44,
+    "name": "Crickhollow",
+    "x": 938,
+    "y": 702
+  },
+  {
+    "bookId": 6,
+    "id": 45,
+    "name": "Green Hills",
+    "x": 855,
+    "y": 706
+  },
+  {
+    "bookId": 6,
+    "id": 46,
+    "name": "Near Woodhall",
+    "x": 876,
+    "y": 715
+  },
+  {
+    "bookId": 6,
+    "id": 47,
+    "name": "Mithlond",
+    "x": 575,
+    "y": 624
+  },
+  {
+    "bookId": 6,
+    "id": 48,
+    "name": "East Road",
+    "x": 781,
+    "y": 675
   }
 ]

@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import "./event-popup.scss";
 
 export function EventPopup({ data }) {
+  console.log(data)
   const initialIndex = data ? data.events.length - 1 : 0;
   const [eventIndex, setEventIndex] = useState(initialIndex);
 
@@ -65,6 +66,9 @@ export function EventPopup({ data }) {
       <div className="event-popup__content">
         <p className="event-popup__date">{event.date}</p>
         <p className="event-popup__description">{event.description}</p>
+        {event.evt_wiki ? (
+          <a className="event-popup__wiki" href={event.evt_wiki} target="_blank">Read More &gt;</a>
+        ) : null}
       </div>
     </div>
   );

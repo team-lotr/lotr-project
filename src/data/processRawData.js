@@ -52,6 +52,7 @@ export function processRawData() {
       placeId: placeIdMap[`${event.bookId}:${event.place}`],
       description: event.description,
       evt_type: event.evt_type,
+      evt_wiki: event.evt_wiki,
     });
     eventIdMap[`${event.bookId}:${event.id}`] = idx;
   }
@@ -80,10 +81,6 @@ export function processRawData() {
       image: characterImageIds[character.id],
     });
   }
-
-  // Filter out anything past book 3 since that data is not complete yet
-  places = places.filter((p) => ACTIVE_BOOK_IDS.includes(p.bookId));
-  events = events.filter((e) => ACTIVE_BOOK_IDS.includes(e.bookId));
 
   return [characters, events, places];
 }

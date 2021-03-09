@@ -20,7 +20,7 @@ export function Places({ data, time, isMapRendered, onClick, zoomPercent }) {
       .map((place) => ({
         ...place,
         // filter by event type relative to zoom percentage
-        events: place.events.filter((event) => event.lotrDateValue <= time && zoomPercent >= event.evt_type * 0.2) }))
+        events: place.events.filter((event) => event.lotrDateValue <= time && zoomPercent >= event.evt_type * 0.1) }))
       // Then, for each place, remove the ones that now have empty events lists.
       .filter((place) => place.events.length > 0);
 
