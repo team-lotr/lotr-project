@@ -10,6 +10,7 @@ import {
   CharacterFilter,
   EventPopup,
   LotrMap,
+  TutorialPopup,
 } from "../../components";
 import "./lotr-visualisation.scss";
 
@@ -123,6 +124,7 @@ export function LotrVisualisation({ client }) {
           setActiveCharacters={setActiveCharacters}
         />
         <EventPopup data={popupData} />
+        <TutorialPopup />
       </div>
     </>
   );

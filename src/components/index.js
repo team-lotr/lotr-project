@@ -8,3 +8,4 @@ export * from "./LotrMap";
 export * from "./Places";
 export * from "./Timelines";
 export * from "./TimeSelector";
+export * from "./TutorialPopup";
