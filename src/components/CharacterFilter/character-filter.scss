@@ -10,7 +10,7 @@ $boxWidth: 120px;
   background-color: white;
   padding: 7px;
   border-radius: 10px;
-  border: 3px solid $border-color-blue;
+  border: 3px solid $border-color-green;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,9 +19,9 @@ $boxWidth: 120px;
   box-shadow: $md-shadow;
 
   .character-filter__title {
-    @extend .curvy-header;
-    font-weight: 300;
-    font-size: 20px;
+    font-family: 'Aniron';
+    font-weight: 50;
+    font-size: 17px;
     padding-bottom: 10px;
   }
 
@@ -30,5 +30,27 @@ $boxWidth: 120px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+  }
+
+  .character-filter__buttons {
+    text-align: center;
+    margin-top: 10px;
+
+    .character-filter__button {
+      @extend .body-text; 
+      padding: 3px 8px;
+      border: 1px solid gray;
+      border-radius: 5px;
+
+      &:hover {
+        cursor: pointer;
+        background: #8fa3db;
+        color: white;
+      }
+    }
+
+    & > * {
+      margin-bottom: 5px;
+    }
   }
 }

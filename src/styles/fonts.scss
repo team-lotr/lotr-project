@@ -1,7 +1,47 @@
+@font-face {
+  font-family: "Aniron";
+  src: local("Aniron"), url(../assets/fonts/anirm.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Morris Roman Black";
+  src: local("Morris"), url(../assets/fonts/MorrisRomanAlternate-Black.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Ringbearer";
+  src: local("Ringbearer"), url(../assets/fonts/RINGM.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Elvish Ring";
+  src: local("Elvish"), url(../assets/fonts/elvish-ring-nfi.ttf) format("truetype");
+}
+
 .curvy-header {
   font-family: "Dancing Script", cursive;
 }
 
 .body-text {
   font-family: "Source Sans Pro", sans-serif;
+}
+
+.header-1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.header-2 {
+  font-family: "Aniron", sans-serif;
+  font-size: 17px;
+  font-weight: 100;
+}
+
+.header-3 {
+  font-family: "Aniron", sans-serif;
+  font-size: 14px;
+  font-weight: 100; 
+}
+
+.body-text-1 {
+  font-family: "Source Sans Pro", sans-serif; 
+  font-size: 14px;
 }

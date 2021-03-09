@@ -1,21 +1,23 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Demo } from "./pages/Demo";
-import { Home } from "./pages/Home";
-import { Data } from "./pages/Data";
-import "./styles/App.scss";
+import { LotrVisualisation, Home, Data } from "./pages";
+import { DataClient } from "./data/DataClient";
+import "./styles/main.scss";
 
 function App() {
+  const dataClient = new DataClient();
+  window.dataClient = dataClient;
+
   return (
     <Router>
       <div className="container">
         <Switch>
-          <Route path="/demo">
-            <Demo />
+          <Route path="/">
+            <LotrVisualisation client={dataClient} />
           </Route>
           <Route path="/data">
             <Data />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
           </Route>
         </Switch>

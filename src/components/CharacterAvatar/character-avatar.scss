@@ -13,7 +13,7 @@ $avatarSize: 45px;
   .character-avatar__image {
     width: $avatarSize;
     height: $avatarSize;
-    border: 3px solid gray;
+    border: 4px solid gray;
     border-radius: 35px;
 
     &:hover {
@@ -23,8 +23,8 @@ $avatarSize: 45px;
   }
 
   .character-avatar__name {
-    @extend .body-text;
-    font-size: 14px;
+    font-family: 'Aniron';
+    font-size: 9px;
   }
 
   &[data-active="false"] {

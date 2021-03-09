@@ -47,6 +47,14 @@ export class DataClient {
     return character;
   }
 
+  getCharactersById(characterIds) {
+    if (!characterIds.every(Number.isInteger)) {
+      throw new Error(`Received some invalid characterIds: (${characterIds})`);
+    }
+
+    return characters.filter((c) => characterIds.includes(c.id));
+  }
+
   getEventBy(field, value) {
     this.validateEventField(field, value);
     const event = events.find((e) => e[field] === value);
@@ -104,21 +112,26 @@ export class DataClient {
     return timeline;
   }
 
-  getAll(dataType) {
+  getAll(dataType, field = null) {
     if (!["event", "place", "character"].includes(dataType)) {
       throw new Error("Not a valid data type");
     }
 
+    let result;
     switch (dataType) {
       case "event":
-        return [...events];
+        result = field ? events.map((e) => e[field]) : [...events];
+        break;
       case "place":
-        return [...places];
+        result = field ? places.map((p) => p[field]) : [...places];
+        break;
       case "character":
-        return [...characters].map((e) => ({ ...e, events: [...e.events] }));
+        result = field ? characters.map((c) => c[field]) : characters.map((e) => ({ ...e, events: [...e.events] }));
+        break;
       default:
-        return null;
+        result = [];
     }
+    return result;
   }
 
   getDistinctDates() {
@@ -133,5 +146,16 @@ export class DataClient {
       }
     }
     return resultDates;
+  }
+
+  getCharactersForEvents(eventIds) {
+    const characters = this.getAll("character");
+    let matchingCharacterIds = [];
+    for (const eventId in eventIds) {
+      const matchingCharacters = characters.filter((c) => c.events.includes(eventId));
+      const temp = matchingCharacters.map((c) => c.id);
+      matchingCharacterIds.push(...temp);
+    }
+    return Array.from(new Set(matchingCharacterIds));
   }
 }

@@ -1,0 +1,72 @@
+$mapBackgroundColor: #fcfbf4f5;
+
+$mapColor1: #c5c5c5; // weak gray (coastline)
+$mapColor2: rgb(61, 60, 60); // strong black (frame)
+$mapColor3: rgb(104, 103, 103); // medium gray (bridges)
+
+#frame,
+#coastline,
+#bridges,
+#legend,
+#lakes,
+#cities,
+#arrows,
+#rivers,
+#streets,
+#mountains_and_forests,
+#display_font,
+#other_font {
+  & > * {
+    // fill: $defaultFill;
+    // stroke: $defaultStroke;
+  }
+}
+
+svg.svg-map {
+  background-color: $mapBackgroundColor;
+}
+
+// Frame outline, surrounding map
+#frame, #frame * {
+  stroke: $mapColor2;
+}
+
+// lines on coast, west of map
+// fill is the inside of rivers
+#coastline, #coastline * {
+  stroke: $mapColor1;
+}
+#coastline-main {
+  stroke: $mapColor2;
+}
+
+// lines accross rivers on map
+#bridges, #bridges * {
+  stroke: $mapColor3;
+}
+
+// compass at bottom, other stuff?
+// #legend, #legend * {}
+
+// lines in lakes, one in mordor for reference
+#lakes, #lakes * {
+  stroke: $mapColor3;
+}
+
+// squares indicating location of cities
+#cities, #cities * {
+  stroke: $mapColor2;
+  fill: $mapColor2;
+}
+
+// arrows pointing to stuff
+#arrows, #arrows * {
+  stroke: $mapColor2;
+  fill: $mapColor2;
+}
+
+#mountains_and_forests, #mountains_and_forests *, #mountains_and_forests #Berge * {
+  stroke: $mapColor1;
+  // fill: $mapColor2;
+}
+
