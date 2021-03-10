@@ -6,15 +6,92 @@
   bottom: 15px;
   left: 50%;
   transform: translate(-50%, 0);
-  text-align: center;
+
+  .time-navigator__books {
+    display: flex;
+
+    & > * {
+      margin-left: 5px;
+    }
+  }
+
+  .time-navigator__container {
+    text-align: center;
+    background-color: $white;
+    padding: 8px;
+    border-radius: 10px;
+    border: 3px solid $border-color-green;
+    // width: 360px;
+    box-shadow: $md-shadow;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .time-navigator__state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .time-navigator__state-field {
+      padding: 3px 4px;
+      border: 1px solid $border-color-green;
+      border-radius: 5px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+
+      &[data-active="true"] {
+        color: $white; 
+        background-color: $active-color;
+      }
+    }
+
+    & > * {
+      margin-right: 5px;
+    }
+  }
+}
+
+$bookButtonSize: 30px;
+.book-button {
+  position: relative;
+  height: $bookButtonSize;
+  width: $bookButtonSize;
   background-color: $white;
-  padding: 8px;
-  border-radius: 10px;
-  border: 3px solid $border-color-green;
-  width: 360px;
-  box-shadow: $md-shadow;
+  border: 2px solid $border-color-green;
+  border-radius: 30px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  place-items: center;
+
+  .book-button__icon {
+    height: 25px;
+    width: 25px;
+    margin-left: 2px;
+  }
+
+  .book-button__id {
+    @extend .body-text;
+    font-size: 13px;
+    font-weight: 700;
+    position: absolute;
+    left: 38%;
+    top: 13%;
+  }
+
+  &:hover {
+    background-color: $hover-bg-color;
+    cursor: pointer;
+  }
+
+  &[data-active="true"] {
+    color: $active-color;
+  }
+
+  &[data-active="false"] {
+    color: gray;
+  }
 }
