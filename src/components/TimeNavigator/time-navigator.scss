@@ -6,7 +6,7 @@
   bottom: 15px;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 535px;
+  width: 560px;
 
   .time-navigator__books {
     display: flex;
@@ -56,6 +56,15 @@
         color: $white; 
         background-color: $active-color;
       }
+    }
+
+    .time-navigator__state-field--book {
+      width: 110px;
+    }
+
+
+    .time-navigator__state-field--date {
+      width: 100px;
     }
 
     & > * {

@@ -1,7 +1,7 @@
 import { first } from "underscore";
 import "./time-selector.scss";
 
-export function TimeSelector({ time, range, onChange }) {
+export function TimeSelector({ time, range, onChange, selectedDateField }) {
   function handleChange(value) {
     if (!value) {
       return;
@@ -9,23 +9,33 @@ export function TimeSelector({ time, range, onChange }) {
     onChange(value);
   }
 
+  let currentRange;
+  if (selectedDateField === "start") {
+    currentRange = range.filter(d => d.value < time.end.value);
+  } else if (selectedDateField === "end") {
+    currentRange = range.filter(d => d.value > time.start.value);
+  }
+
+
+
   const firstIdx = 0;
-  const lastIdx = range.length - 1;
-  const currentIdx = range.findIndex((d) => d.value === time.value);
+  const lastIdx = currentRange.length - 1;
+  const currentIdx = currentRange.findIndex((d) => d.value === time[selectedDateField].value);
   const prevIdx = currentIdx === firstIdx ? null : currentIdx - 1;
   const nextIdx = currentIdx === lastIdx ? null : currentIdx + 1;
 
-  const prevDate = range[prevIdx];
-  const firstDate = range[firstIdx];
-  const nextDate = range[nextIdx];
-  const lastDate = range[lastIdx];
+  const prevDate = currentRange[prevIdx];
+  const firstDate = currentRange[firstIdx];
+  const nextDate = currentRange[nextIdx];
+  const lastDate = currentRange[lastIdx];
+
 
   return (
     <div className="time-selector">
       <DateDisplay date={prevDate} onClick={() => handleChange(prevDate)} variant="secondary" />
       <Arrow symbol="<<" onClick={prevDate ? () => handleChange(firstDate) : null} />
       <Arrow symbol="<" onClick={prevDate ? () => handleChange(prevDate) : null} />
-      <DateDisplay date={time} onClick={() => {}} variant="primary" />
+      <DateDisplay date={time[selectedDateField]} onClick={() => {}} variant="primary" />
       <Arrow symbol=">" onClick={nextDate ? () => handleChange(nextDate) : null} />
       <Arrow symbol=">>" onClick={nextDate ? () => handleChange(lastDate) : null} />
       <DateDisplay date={nextDate} onClick={() => handleChange(nextDate)} variant="secondary" />

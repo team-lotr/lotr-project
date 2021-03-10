@@ -19,11 +19,18 @@ import "./lotr-visualisation.scss";
 // world bounds
 const worldTopLeft = [0, 0];
 const worldBottomRight = [3200, 3300]; // extra space on bottom or it bugs out
+const DEFAULT_START_TIME = new LotrDate("23 Sept 3018"); // Leaving Bag End
+const DEFAULT_END_TIME = new LotrDate("25 Mar 3019"); // The Ring is destroyed
+const DEFAULT_DATE_RANGE = {
+  start: DEFAULT_START_TIME,
+  end: DEFAULT_END_TIME,
+};
 
 export function LotrVisualisation({ client }) {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
   const [popupData, setPopupData] = useState(null);
+  const [dateRange, setDateRange] = useState(DEFAULT_DATE_RANGE);
   const [currentTime, setCurrentTime] = useState(new LotrDate("5 Mar 3019"));
   const [activeCharacters, setActiveCharacters] = useState(client.getAll("character", "id"));
   const [activeBookIds, setActiveBookIds] = useState(client.getDistinctBookIds());
@@ -121,7 +128,13 @@ export function LotrVisualisation({ client }) {
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
 
         {/* <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} /> */}
-        <TimeNavigator activeBookIds={activeBookIds} setActiveBookIds={setActiveBookIds} />
+        <TimeNavigator
+          activeBookIds={activeBookIds}
+          setActiveBookIds={setActiveBookIds}
+          dateRange={dateRange}
+          setDateRange={setDateRange}
+          fullDateRange={distinctEventDates}
+        />
         <CharacterFilter
           data={client.getAll("character")}
           activeCharacters={activeCharacters}
