@@ -135,8 +135,9 @@ export class DataClient {
     return result;
   }
 
-  getDistinctDates() {
-    let allDates = events.map((e) => new LotrDate(e.date));
+  getDistinctDates(activeBookIds) {
+    let eventsForActiveBooks = events.filter((e) => activeBookIds.includes(e.bookId));
+    let allDates = eventsForActiveBooks.map((e) => new LotrDate(e.date));
     allDates.sort((dateA, dateB) => dateA.value - dateB.value);
     let resultDates = [];
     for (const date of allDates) {
@@ -161,7 +162,7 @@ export class DataClient {
   }
 
   getDistinctBookIds() {
-    const bookIds = events.map(e => e.bookId);
+    const bookIds = events.map((e) => e.bookId);
     return Array.from(new Set(bookIds));
   }
 }

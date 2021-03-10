@@ -1,4 +1,3 @@
-import { first } from "underscore";
 import "./time-selector.scss";
 
 export function TimeSelector({ time, range, onChange, selectedDateField }) {
@@ -11,12 +10,10 @@ export function TimeSelector({ time, range, onChange, selectedDateField }) {
 
   let currentRange;
   if (selectedDateField === "start") {
-    currentRange = range.filter(d => d.value < time.end.value);
+    currentRange = range.filter((d) => d.value < time.end.value);
   } else if (selectedDateField === "end") {
-    currentRange = range.filter(d => d.value > time.start.value);
+    currentRange = range.filter((d) => d.value > time.start.value);
   }
-
-
 
   const firstIdx = 0;
   const lastIdx = currentRange.length - 1;
@@ -28,7 +25,6 @@ export function TimeSelector({ time, range, onChange, selectedDateField }) {
   const firstDate = currentRange[firstIdx];
   const nextDate = currentRange[nextIdx];
   const lastDate = currentRange[lastIdx];
-
 
   return (
     <div className="time-selector">

@@ -47,7 +47,7 @@ export function LotrVisualisation({ client }) {
       }, []);
     return { character, timeline };
   });
-  const distinctEventDates = client.getDistinctDates();
+  const distinctEventDates = client.getDistinctDates(activeBookIds);
 
   // Set up the place data.
   const placeData = client.getAll("place").map((place) => ({
