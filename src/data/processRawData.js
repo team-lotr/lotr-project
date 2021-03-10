@@ -1,6 +1,7 @@
 import charactersRaw from "./datasets/characters_raw.json";
 import eventsRaw from "./datasets/events_raw.json";
 import placesRaw from "./datasets/places_raw.json";
+import controlPointsRaw from "./datasets/control_points_raw.json";
 import theRingImage from "../assets/character-the-ring.png";
 import aragornImage from "../assets/character-aragorn.jpeg";
 import bilboImage from "../assets/character-bilbo.jpg";
@@ -53,6 +54,7 @@ export function processRawData() {
       description: event.description,
       evt_type: event.evt_type,
       evt_wiki: event.evt_wiki,
+      full_id: `${event.bookId}:${event.id}`,
     });
     eventIdMap[`${event.bookId}:${event.id}`] = idx;
   }
@@ -82,5 +84,5 @@ export function processRawData() {
     });
   }
 
-  return [characters, events, places];
+  return [characters, events, places, controlPointsRaw];
 }

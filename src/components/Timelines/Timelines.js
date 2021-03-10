@@ -2,9 +2,14 @@ import { useEffect } from "react";
 import * as d3 from "d3";
 import _ from "underscore";
 import "./timelines.scss";
+import { path } from "d3";
 
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
+
+// needed info:
+//  char name
+// for the points -> end date
 
 function filterData(data, dateRange, bookIds) {
   const result = [];
@@ -23,7 +28,19 @@ function filterData(data, dateRange, bookIds) {
   return result;
 }
 
-const makeLineData = (pathData) => pathData.timeline.map((event) => [event.x, event.y]);
+const makeLineData = (pathData) =>
+  pathData.timeline.reduce(
+    (acc, event, i, events) => [
+      ...acc,
+      // add control points for up to current event if there are any
+      // control point ids are made by combining fullIds of the preceding and the current event
+      ...(i > 0 && pathData.controlPoints[`${events[i - 1].fullId},${event.fullId}`]
+        ? pathData.controlPoints[`${events[i - 1].fullId},${event.fullId}`].map(({ x, y }) => [x, y])
+        : []),
+      [event.x, event.y],
+    ],
+    []
+  );
 
 const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 

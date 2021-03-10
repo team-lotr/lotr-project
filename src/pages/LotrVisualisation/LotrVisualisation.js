@@ -49,7 +49,10 @@ export function LotrVisualisation({ client }) {
         }
         return noRedundantEvents;
       }, []);
-    return { character, timeline };
+
+    // add control points to timeline
+    const controlPoints = client.getControlPoints(character.name);
+    return { character, timeline, controlPoints };
   });
   const distinctEventDates = client.getDistinctDates(activeBookIds);
 

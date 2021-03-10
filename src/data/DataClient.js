@@ -1,7 +1,7 @@
 import { LotrDate } from "./LotrDate";
 import { processRawData } from "./processRawData";
 
-const [characters, events, places] = processRawData();
+const [characters, events, places, controlPointsRaw] = processRawData();
 
 const defaultSearchFields = {
   id: "number",
@@ -34,6 +34,10 @@ export class DataClient {
     this.validateCharacterField = fieldValidationFactory(characterSearchFields);
     this.validateEventField = fieldValidationFactory(eventSearchFields);
     this.validatePlaceField = fieldValidationFactory(placeSearchFields);
+  }
+
+  getControlPoints(character) {
+    return controlPointsRaw[character] || {};
   }
 
   getCharacterBy(field, value) {
@@ -99,6 +103,7 @@ export class DataClient {
         placeId: place.id,
         x: place.x,
         y: place.y,
+        fullId: e.full_id,
       };
     });
     const sortedTimeline = timeline.sort((eventA, eventB) => eventA[sorting] - eventB[sorting]);

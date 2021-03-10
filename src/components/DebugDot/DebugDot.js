@@ -35,6 +35,7 @@ const dragged = (event, d) => {
 
 const dragended = (event, d) => {
   d3.selectAll("#debugDot").attr("stroke", null);
+  console.log(`{ "x": ${Number(d.x.toFixed(0))}, "y": ${Number(d.y.toFixed(0))} }`)
 };
 
 export function DebugDot({ isMapRendered }) {
