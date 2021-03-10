@@ -10,14 +10,22 @@ const hightlightedPlaceRadius = 6;
 // This function takes an array of places onto an already rendered map element.
 // The boolean "isMapRendered" ensures that the useEffect callback is not
 // called without a prepared map.
-export function Places({ data, time, isMapRendered, onClick }) {
+export function Places({ data, dateRange, bookIds, isMapRendered, onClick }) {
   useEffect(() => {
     if (!data) return;
 
-    // Filter out events that are beyond the current time.
+    // Filter out events that are beyond the current time or not in the active books.
     data = data
-      // For each place, filter out events that are beyond the current time.
-      .map((place) => ({ ...place, events: place.events.filter((event) => event.lotrDateValue <= time)}))
+      // For each place, filter out events that are in the current time range.
+      .map((place) => ({
+        ...place,
+        events: place.events.filter(
+          (event) =>
+            event.lotrDateValue <= dateRange.end.value &&
+            event.lotrDateValue >= dateRange.start.value &&
+            bookIds.includes(event.bookId)
+        ),
+      }))
       // Then, for each place, remove the ones that now have empty events lists.
       .filter((place) => place.events.length > 0);
 
@@ -48,7 +56,7 @@ export function Places({ data, time, isMapRendered, onClick }) {
 
     // Remove exit selection.
     circleUpdate.exit().remove();
-  }, [isMapRendered, time]);
+  }, [isMapRendered, dateRange, bookIds]);
 
   return null;
 }

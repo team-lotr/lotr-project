@@ -91,6 +91,7 @@ export class DataClient {
       return {
         eventId: e.id,
         eventName: e.name,
+        bookId: e.bookId,
         description: e.description,
         chapter: e.chapter,
         lotrDate: e.date,

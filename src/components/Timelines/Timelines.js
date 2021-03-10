@@ -6,14 +6,21 @@ import "./timelines.scss";
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
 
-function filterData(data, time) {
-  data.forEach((element) => {
-    element.timeline = _.sortBy(
-      element.timeline.filter((event) => event.lotrDateValue <= time),
-      (event) => event.lotrDateValue
-    );
-  });
-  return data;
+function filterData(data, dateRange, bookIds) {
+  const result = [];
+  for (const element of data) {
+    const filteredTimeline = element.timeline.filter((e) => {
+      return (
+        e.lotrDateValue >= dateRange.start.value && e.lotrDateValue <= dateRange.end.value && bookIds.includes(e.bookId)
+      );
+    });
+    const sortedTimeline = _.sortBy(filteredTimeline, (e) => e.lotrDateValue);
+    result.push({
+      ...element,
+      timeline: sortedTimeline,
+    });
+  }
+  return result;
 }
 
 const makeLineData = (pathData) => pathData.timeline.map((event) => [event.x, event.y]);
@@ -24,11 +31,11 @@ const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 // This function takes an array of timelines and renders timelines
 // onto an already rendered map element. The boolean "isMapRendered"
 // ensures that the useEffect callback is not called without a prepared map.
-export function Timelines({ data, time, isMapRendered }) {
+export function Timelines({ timelineData, dateRange, bookIds, isMapRendered }) {
   useEffect(() => {
-    // Filter out points that are beyond the current time, then sort by the time.
-    data = filterData(data, time);
-
+    // Filter out points that are beyond the current time or not in current books, then sort by the time.
+    const data = filterData(timelineData, dateRange, bookIds);
+    console.log(data);
     const timelinesGroup = d3.select("#timelines");
 
     // Do data join.
@@ -69,7 +76,7 @@ export function Timelines({ data, time, isMapRendered }) {
     // Remove exit selection.
     timelineUpdate.exit().remove();
     circleUpdate.exit().remove();
-  }, [isMapRendered, time, data]);
+  }, [isMapRendered, dateRange, bookIds, timelineData]);
 
   return null;
 }

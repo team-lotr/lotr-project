@@ -6,7 +6,6 @@ import {
   Places,
   Header,
   DebugDot,
-  TimeSelector,
   CharacterFilter,
   EventPopup,
   LotrMap,
@@ -31,7 +30,6 @@ export function LotrVisualisation({ client }) {
   const [isMapRendered, setIsMapRendered] = useState(false);
   const [popupData, setPopupData] = useState(null);
   const [dateRange, setDateRange] = useState(DEFAULT_DATE_RANGE);
-  const [currentTime, setCurrentTime] = useState(new LotrDate("5 Mar 3019"));
   const [activeCharacters, setActiveCharacters] = useState(client.getAll("character", "id"));
   const [activeBookIds, setActiveBookIds] = useState(client.getDistinctBookIds());
 
@@ -124,8 +122,19 @@ export function LotrVisualisation({ client }) {
       <Header />
       <div ref={chartRef}>
         <LotrMap />
-        <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
-        <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
+        <Timelines
+          isMapRendered={isMapRendered}
+          timelineData={timelineData}
+          dateRange={dateRange}
+          bookIds={activeBookIds}
+        />
+        <Places
+          isMapRendered={isMapRendered}
+          data={placeData}
+          dateRange={dateRange}
+          bookIds={activeBookIds}
+          onClick={handlePlaceClick}
+        />
 
         {/* <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} /> */}
         <TimeNavigator
