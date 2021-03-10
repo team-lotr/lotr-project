@@ -13,7 +13,7 @@ import merryImage from "../assets/character-merry.jpg";
 import pippinImage from "../assets/character-pippin.jpg";
 import samImage from "../assets/character-sam.jpeg";
 
-const ACTIVE_BOOK_IDS = [1, 2, 3, 4];
+const ACTIVE_BOOK_IDS = [1, 2, 3, 4, 5, 6];
 const characterBookEventKeys = ACTIVE_BOOK_IDS.map((i) => `events_book${i}`);
 const characterImageIds = {
   1: theRingImage,
