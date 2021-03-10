@@ -12,6 +12,7 @@ import {
   LotrMap,
   TutorialPopup,
   Settings,
+  TimeNavigator,
 } from "../../components";
 import "./lotr-visualisation.scss";
 
@@ -118,7 +119,8 @@ export function LotrVisualisation({ client }) {
         <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
 
-        <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
+        {/* <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} /> */}
+        <TimeNavigator />
         <CharacterFilter
           data={client.getAll("character")}
           activeCharacters={activeCharacters}

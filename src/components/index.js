@@ -9,4 +9,5 @@ export * from "./Places";
 export * from "./Settings";
 export * from "./Timelines";
 export * from "./TimeSelector";
+export * from "./TimeNavigator";
 export * from "./TutorialPopup";
