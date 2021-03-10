@@ -26,6 +26,7 @@ export function LotrVisualisation({ client }) {
   const [popupData, setPopupData] = useState(null);
   const [currentTime, setCurrentTime] = useState(new LotrDate("5 Mar 3019"));
   const [activeCharacters, setActiveCharacters] = useState(client.getAll("character", "id"));
+  const [activeBookIds, setActiveBookIds] = useState(client.getDistinctBookIds());
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -120,7 +121,7 @@ export function LotrVisualisation({ client }) {
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
 
         {/* <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} /> */}
-        <TimeNavigator />
+        <TimeNavigator activeBookIds={activeBookIds} setActiveBookIds={setActiveBookIds} />
         <CharacterFilter
           data={client.getAll("character")}
           activeCharacters={activeCharacters}

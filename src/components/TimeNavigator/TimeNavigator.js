@@ -10,8 +10,7 @@ const TOTAL_BOOKS = 6;
 const startDate = new LotrDate("30 Oct 3018");
 const endDate = new LotrDate("20 Nov 3020");
 
-export function TimeNavigator() {
-  const [activeBookIds, setActiveBookIds] = useState(bookIds);
+export function TimeNavigator({ activeBookIds, setActiveBookIds }) {
   const [selectedDateField, setSelectedDateField] = useState("end"); // "start" | "end"
 
   function handleBookClick(id) {
@@ -20,10 +19,14 @@ export function TimeNavigator() {
       : setActiveBookIds([...activeBookIds, id]);
   }
 
+  if (!activeBookIds) {
+    return null;
+  }
+
   return (
     <div className="time-navigator">
       <div className="time-navigator__books">
-        {bookIds.map((id) => (
+        {activeBookIds && bookIds.map((id) => (
           <BookButton key={id} id={id} onClick={handleBookClick} active={activeBookIds.includes(id)} />
         ))}
       </div>

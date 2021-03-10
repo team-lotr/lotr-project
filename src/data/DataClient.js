@@ -158,4 +158,9 @@ export class DataClient {
     }
     return Array.from(new Set(matchingCharacterIds));
   }
+
+  getDistinctBookIds() {
+    const bookIds = events.map(e => e.bookId);
+    return Array.from(new Set(bookIds));
+  }
 }
