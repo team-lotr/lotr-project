@@ -130,6 +130,7 @@ export function LotrVisualisation({ client }) {
           timelineData={timelineData}
           dateRange={dateRange}
           bookIds={activeBookIds}
+          parallelLines={true}
         />
         <Places
           isMapRendered={isMapRendered}
