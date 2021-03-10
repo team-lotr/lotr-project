@@ -36,6 +36,7 @@ export function LotrVisualisation({ client }) {
   const [activeCharacters, setActiveCharacters] = useState(client.getAll("character", "id"));
   const [activeBookIds, setActiveBookIds] = useState(client.getDistinctBookIds());
   const [currentZoom, setCurrentZoom] = useState(minScale);
+  const [parallelLines, setParallelLines] = useState(false);
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -130,7 +131,7 @@ export function LotrVisualisation({ client }) {
           timelineData={timelineData}
           dateRange={dateRange}
           bookIds={activeBookIds}
-          parallelLines={true}
+          parallelLines={parallelLines}
         />
         <Places
           isMapRendered={isMapRendered}
@@ -158,6 +159,10 @@ export function LotrVisualisation({ client }) {
         <TutorialPopup />
         <Settings>
           <DebugDot isMapRendered={isMapRendered} />
+          <label>
+            Toggle Parallel Lines
+            <input type="checkbox" checked={parallelLines} onChange={() => setParallelLines(!parallelLines)} />
+          </label>
         </Settings>
       </div>
     </>
