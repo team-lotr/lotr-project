@@ -2,17 +2,7 @@
 @import "../../styles/fonts.scss";
 
 .time-selector {
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  text-align: center;
-  background-color: $white;
-  padding: 8px;
-  border-radius: 10px;
-  border: 3px solid $border-color-green;
-  width: 360px;
-  box-shadow: $md-shadow;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,7 +16,7 @@
 
     .time-selector__datevalue {
       font-family: 'Aniron';
-      font-size: 18px;
+      font-size: 14px;
       cursor: pointer;
       line-height: 20px;
       user-select: none;
@@ -38,10 +28,6 @@
 
     &[data-variant="secondary"] {
       opacity: 0.5;
-
-      .time-selector__datevalue {
-        font-size: 16px;
-      }
     }
 
     &[data-variant="primary"]:hover {

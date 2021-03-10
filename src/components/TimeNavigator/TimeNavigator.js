@@ -2,6 +2,7 @@ import "./time-navigator.scss";
 import { ReactComponent as BookIcon } from "../../assets/book.svg";
 import { useState } from "react";
 import { LotrDate } from "../../data/LotrDate";
+import { TimeSelector } from "../TimeSelector/TimeSelector";
 
 const bookIds = [1, 2, 3, 4, 5, 6];
 const TOTAL_BOOKS = 6;
@@ -47,7 +48,7 @@ export function TimeNavigator() {
             {endDate.lotrDateString}
           </span>
         </div>
-        <div className="time-navigator__selector"></div>
+        <TimeSelector time={startDate} range={[startDate, endDate]} onChange={() => {}} />
       </div>
     </div>
   );
