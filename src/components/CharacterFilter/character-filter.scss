@@ -23,6 +23,7 @@ $boxWidth: 120px;
     font-weight: 50;
     font-size: 17px;
     padding-bottom: 10px;
+    user-select: none;
   }
 
   .character-filter__items {
@@ -30,6 +31,7 @@ $boxWidth: 120px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    user-select: none;
   }
 
   .character-filter__buttons {
