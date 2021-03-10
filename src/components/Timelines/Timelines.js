@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import * as d3 from "d3";
 import _ from "underscore";
 import "./timelines.scss";
+import { addVectors, normalize, objectToVector, perpendicularCounterClockwise, subtractVectors, vectorScalarMult } from "../../utils/VectorMath";
 
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
+const characterIdOffsetMultiplier = 5;
 
 function filterData(data, time) {
   data.forEach((element) => {
@@ -16,6 +18,38 @@ function filterData(data, time) {
   return data;
 }
 
+// Offset each point on all lines depending on the line's character's id.
+function parallelOffset(data) {
+  // For each character's line.
+  data.forEach((element, i) => {
+    // The new points that are offset.
+    const offsetPoints = [];
+
+    // For each timeline.
+    element.timeline
+      .map((event) => objectToVector(event)) // Convert coordinates to position vectors and iterate to make control points.
+      .forEach(function (point, j, array) {
+        if (j == 0 || j == array.length - 1) { // First endpoint or last endpoint.
+          offsetPoints.push(point);
+        } else { // Any inner point.
+          const left = array[j - 1];
+          const right = array[j + 1];
+
+          // Find vector describing offset direction.
+          const offsetUnitVector = normalize(perpendicularCounterClockwise(subtractVectors(right, left)));
+
+          // Offset the inner point depending on character id.
+          offsetPoints.push(addVectors(point, vectorScalarMult(offsetUnitVector, (element.character.id - 5) * characterIdOffsetMultiplier)));
+        }
+      });
+
+    // Replace the old event coordinates with the offset ones.
+    element.timeline = element.timeline.map((event, i) => ({ ...event, x: offsetPoints[i].x, y: offsetPoints[i].y }));
+  });
+
+  return data;
+}
+
 const makeLineData = (pathData) => pathData.timeline.map((event) => [event.x, event.y]);
 
 const line = d3.line().curve(d3.curveCardinal.tension(0.6));
@@ -24,10 +58,14 @@ const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 // This function takes an array of timelines and renders timelines
 // onto an already rendered map element. The boolean "isMapRendered"
 // ensures that the useEffect callback is not called without a prepared map.
-export function Timelines({ data, time, isMapRendered }) {
+export function Timelines({ data, time, isMapRendered, parallelLines }) {
   useEffect(() => {
     // Filter out points that are beyond the current time, then sort by the time.
     data = filterData(data, time);
+
+    if (parallelLines) {
+      data = parallelOffset(data);
+    }
 
     const timelinesGroup = d3.select("#timelines");
 

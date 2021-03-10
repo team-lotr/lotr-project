@@ -113,7 +113,7 @@ export function LotrVisualisation({ client }) {
       <Header />
       <div ref={chartRef}>
         <LotrMap />
-        <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} />
+        <Timelines isMapRendered={isMapRendered} data={timelineData} time={currentTime.value} parallelLines={true} />
         <Places isMapRendered={isMapRendered} data={placeData} time={currentTime.value} onClick={handlePlaceClick} />
         <DebugDot isMapRendered={isMapRendered} />
         <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} />
