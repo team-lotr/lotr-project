@@ -61,6 +61,12 @@
       color: black;
       font-size: 14px;
     }
+
+    .event-popup__wiki {
+      color: $body-text-color;
+      text-align: right;
+      cursor: pointer;
+    }
   }
 
   & > * {

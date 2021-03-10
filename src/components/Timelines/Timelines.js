@@ -35,7 +35,6 @@ export function Timelines({ timelineData, dateRange, bookIds, isMapRendered }) {
   useEffect(() => {
     // Filter out points that are beyond the current time or not in current books, then sort by the time.
     const data = filterData(timelineData, dateRange, bookIds);
-    console.log(data);
     const timelinesGroup = d3.select("#timelines");
 
     // Do data join.

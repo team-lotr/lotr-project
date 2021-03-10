@@ -25,6 +25,9 @@ const DEFAULT_DATE_RANGE = {
   end: DEFAULT_END_TIME,
 };
 
+const minScale = 1;
+const maxScale = 20;
+
 export function LotrVisualisation({ client }) {
   const chartRef = useRef(null);
   const [isMapRendered, setIsMapRendered] = useState(false);
@@ -32,6 +35,7 @@ export function LotrVisualisation({ client }) {
   const [dateRange, setDateRange] = useState(DEFAULT_DATE_RANGE);
   const [activeCharacters, setActiveCharacters] = useState(client.getAll("character", "id"));
   const [activeBookIds, setActiveBookIds] = useState(client.getDistinctBookIds());
+  const [currentZoom, setCurrentZoom] = useState(minScale);
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -78,9 +82,6 @@ export function LotrVisualisation({ client }) {
     zoomGroup.append("g").attr("id", "places");
     zoomGroup.append("g").attr("id", "event-popup");
 
-    const minScale = 1;
-    const maxScale = 20;
-
     // Define what elements to apply semantic zoom opacity to.
     const semanticOpacitySelections = [
       // Each element defines what and how to interpolate its opacity.
@@ -106,6 +107,8 @@ export function LotrVisualisation({ client }) {
         .translateExtent([worldTopLeft, worldBottomRight])
         .on("zoom", (event) => {
           zoomGroup.attr("transform", event.transform);
+
+          setCurrentZoom(event.transform.k);
 
           // For each selection in the array, set the opacity according to the event scale.
           semanticOpacitySelections.forEach((element) =>
@@ -134,6 +137,7 @@ export function LotrVisualisation({ client }) {
           dateRange={dateRange}
           bookIds={activeBookIds}
           onClick={handlePlaceClick}
+          zoomPercent={(currentZoom - minScale) / maxScale}
         />
 
         {/* <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} /> */}
