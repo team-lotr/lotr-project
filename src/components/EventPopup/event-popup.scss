@@ -67,9 +67,23 @@
       text-align: right;
       cursor: pointer;
     }
+
+    .event-popup__characters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    & > * {
+      padding-bottom: 8px;
+    }
   }
 
   & > * {
     padding-bottom: 5px;
+  }
+
+  & > *:last-child {
+    padding-bottom: 0;
   }
 }

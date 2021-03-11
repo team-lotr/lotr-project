@@ -167,6 +167,7 @@ export class DataClient {
   }
 
   getPlacesWithEventData(characterIds, bookIds, dateRange) {
+    const allCharacters = this.getAll("character");
 
     let allCharacterEventIds = [];
     for (const characterId of characterIds) {
@@ -176,21 +177,30 @@ export class DataClient {
     allCharacterEventIds = Array.from(new Set(allCharacterEventIds));
 
     let allPlaces = this.getAll("place");
-    allPlaces = allPlaces.filter(p => bookIds.includes(p.bookId));
+    allPlaces = allPlaces.filter((p) => bookIds.includes(p.bookId));
 
     let allEvents = this.getAll("event");
-    allEvents = allEvents.map((e) => ({ ...e, lotrDateValue: new LotrDate(e.date).value })); 
+    allEvents = allEvents.map((e) => {
+      return {
+        ...e,
+        characters: allCharacters.filter(c => c.events.includes(e.id)),
+        lotrDateValue: new LotrDate(e.date).value,
+      };
+    });
+
     const results = [];
     for (const place of allPlaces) {
       let placeEvents = allEvents.filter((e) => e.placeId === place.id);
-      placeEvents = placeEvents.filter(e => e.lotrDateValue >= dateRange.start.value && e.lotrDateValue <= dateRange.end.value);
-      placeEvents = placeEvents.filter(e => allCharacterEventIds.includes(e.id));
+      placeEvents = placeEvents.filter(
+        (e) => e.lotrDateValue >= dateRange.start.value && e.lotrDateValue <= dateRange.end.value
+      );
+      placeEvents = placeEvents.filter((e) => allCharacterEventIds.includes(e.id));
 
       placeEvents.sort((firstEvt, secondEvt) => firstEvt.lotrDateValue - secondEvt.lotrDateValue);
       results.push({
         ...place,
-        events: placeEvents
-      })
+        events: placeEvents,
+      });
     }
 
     return results;

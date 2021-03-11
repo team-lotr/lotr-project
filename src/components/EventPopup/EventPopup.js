@@ -1,6 +1,6 @@
 import { useState } from "react";
-import * as d3 from "d3";
 import "./event-popup.scss";
+import { CharacterAvatar } from "../CharacterAvatar";
 
 export function EventPopup({ data }) {
   const initialIndex = data ? data.events.length - 1 : 0;
@@ -20,6 +20,8 @@ export function EventPopup({ data }) {
 
   const event = data.events[eventIndex];
 
+  console.log(event);
+
   return (
     <div className="event-popup">
       <div className="event-popup__place">{data.name}</div>
@@ -37,8 +39,15 @@ export function EventPopup({ data }) {
         <p className="event-popup__date">{event.date}</p>
         <p className="event-popup__description">{event.description}</p>
         {event.evt_wiki ? (
-          <a className="event-popup__wiki" href={event.evt_wiki} target="_blank">Read More &gt;</a>
+          <a className="event-popup__wiki" href={event.evt_wiki} target="_blank">
+            Read More &gt;
+          </a>
         ) : null}
+        <div className="event-popup__characters">
+          {event.characters.map((c) => (
+            <CharacterAvatar key={c.id} character={c} active={true} onClick={() => {}} />
+          ))}
+        </div>
       </div>
     </div>
   );
