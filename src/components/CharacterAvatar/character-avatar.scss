@@ -23,8 +23,7 @@ $avatarSize: 45px;
   }
 
   .character-avatar__name {
-    font-family: 'Aniron';
-    font-size: 9px;
+    @extend .label-1;
   }
 
   &[data-active="false"] {

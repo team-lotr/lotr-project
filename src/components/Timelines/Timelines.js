@@ -4,6 +4,15 @@ import _ from "underscore";
 import "./timelines.scss";
 import { path } from "d3";
 import { getFID } from "web-vitals";
+import {
+  addVectors,
+  magnitude,
+  normalize,
+  objectToVector,
+  perpendicularCounterClockwise,
+  subtractVectors,
+  vectorScalarMult,
+} from "../../utils/VectorMath";
 
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
@@ -34,6 +43,8 @@ const getControlPoints = (pts, evtId) => {
   return pts[k];
 }
 
+const makeSimpleLineData = (pd) => pd.timeline.map(e => [e.x, e.y])
+
 const makeLineData = (pathData) =>
   pathData.timeline.reduce(
     (acc, event, i, events) => [
@@ -47,6 +58,46 @@ const makeLineData = (pathData) =>
     ],
     []
   );
+// Offset each point on all lines depending on the line's character's id.
+function parallelOffset(data, offsetMultiplier) {
+  const lineData = [];
+  const distanceScale = d3.scaleLinear().domain([0, 250]).range([0, offsetMultiplier]);
+
+  // For each character's line.
+  data.forEach((element, i) => {
+    const lineWithOffsetPoints = [];
+
+    // For each timeline.
+    element.timeline.forEach(function (point, j, array) {
+      lineWithOffsetPoints.push(point); // Always push the current point.
+
+      if (j == array.length - 1) return; // Do nothing for the last point.
+
+      const currentPoint = objectToVector(point);
+      const nextPoint = objectToVector(array[j + 1]);
+      const leftToRightVector = subtractVectors(nextPoint, currentPoint);
+
+      // Find vector describing the total offset, which is the sum of the perpendicular nudge and halfway between the points.
+      const offsetVector = addVectors(
+        vectorScalarMult(
+          // Nudge perpendicularly away from the line according to the character's id.
+          normalize(perpendicularCounterClockwise(leftToRightVector)),
+          (element.character.id - 5) * distanceScale(magnitude(leftToRightVector))
+        ),
+        vectorScalarMult(leftToRightVector, 0.5) // Halfway between the current point and the next point.
+      );
+
+      // Offset the inner point depending on character id.
+      lineWithOffsetPoints.push(addVectors(currentPoint, offsetVector));
+    });
+
+    // Replace the old event coordinates with the offset ones.
+    element.timeline = lineWithOffsetPoints;
+    lineData.push(element);
+  });
+
+  return lineData;
+}
 
 const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 
@@ -54,14 +105,16 @@ const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 // This function takes an array of timelines and renders timelines
 // onto an already rendered map element. The boolean "isMapRendered"
 // ensures that the useEffect callback is not called without a prepared map.
-export function Timelines({ timelineData, dateRange, bookIds, isMapRendered }) {
+export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, parallelLines, offsetMultiplier }) {
   useEffect(() => {
     // Filter out points that are beyond the current time or not in current books, then sort by the time.
     const data = filterData(timelineData, dateRange, bookIds);
+    const lineData = parallelLines ? parallelOffset(data, offsetMultiplier) : data;
+
     const timelinesGroup = d3.select("#timelines");
 
     // Do data join.
-    const timelineUpdate = timelinesGroup.selectAll(".timeline").data(data, (d) => d.character.id);
+    const timelineUpdate = timelinesGroup.selectAll(".timeline").data(lineData, (d) => d.character.id);
     const circleUpdate = timelinesGroup.selectAll(".characterCircle").data(data, (d) => d.character.id);
 
     // Perform actions on enter selection.
@@ -88,7 +141,7 @@ export function Timelines({ timelineData, dateRange, bookIds, isMapRendered }) {
     circleEnter.append("title").text((d) => d.character.name);
 
     // Perform actions on merged update and enter selections.
-    const timelineMerge = timelineEnter.merge(timelineUpdate).attr("d", (d) => line(makeLineData(d)));
+    const timelineMerge = timelineEnter.merge(timelineUpdate).attr("d", (d) => line(parallelLines ? makeSimpleLineData(d) : makeLineData(d)));
 
     const circleMerge = circleEnter
       .merge(circleUpdate)
@@ -98,7 +151,7 @@ export function Timelines({ timelineData, dateRange, bookIds, isMapRendered }) {
     // Remove exit selection.
     timelineUpdate.exit().remove();
     circleUpdate.exit().remove();
-  }, [isMapRendered, dateRange, bookIds, timelineData]);
+  }, [isMapRendered, dateRange, bookIds, timelineData, offsetMultiplier]);
 
   return null;
 }

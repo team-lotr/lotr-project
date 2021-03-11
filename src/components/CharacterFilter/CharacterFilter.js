@@ -23,7 +23,7 @@ export function CharacterFilter({ data, activeCharacters, setActiveCharacters })
           );
         })}
       </div>
-      <div class="character-filter__buttons">
+      <div className="character-filter__buttons">
         <div className="character-filter__button" onClick={() => setActiveCharacters(data.map((c) => c.id))}>
           Select All
         </div>

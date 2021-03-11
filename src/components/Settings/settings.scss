@@ -13,7 +13,7 @@
   width: 200px;
 
   .settings__header {
-    @extend .header-3;
+    @extend .header-2;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,5 +45,51 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .settings__content label {
+    display: flex;
+    align-items: center;
+    @extend .body-text-1;
+    line-height: 20px;
+
+    input[type="checkbox"] {
+      margin: 0;
+      margin-left: 5px;
+
+      vertical-align: middle;
+    }
+  }
+}
+
+.setting--scalar {
+  display: flex;
+  
+  .setting__value {
+    font-weight: bold;
+    width: 15px;
+  }
+
+  .setting__button {
+    text-align: center;
+    font-size: 20px;
+    height: 18px;
+    width: 18px;
+    line-height: 18px;
+    user-select: none;
+
+    border: 1px solid gray;
+    border-radius: 5px;
+    
+    &:hover {
+      cursor:pointer;
+      opacity: 0.8;
+      background-color: $active-color;
+      color: $white;
+    }
+  }
+
+  & > * {
+    margin-left: 5px;
   }
 }

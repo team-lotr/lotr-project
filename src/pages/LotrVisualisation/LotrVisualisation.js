@@ -11,6 +11,7 @@ import {
   LotrMap,
   TutorialPopup,
   Settings,
+  Setting,
   TimeNavigator,
 } from "../../components";
 import "./lotr-visualisation.scss";
@@ -36,6 +37,9 @@ export function LotrVisualisation({ client }) {
   const [activeCharacters, setActiveCharacters] = useState(client.getAll("character", "id"));
   const [activeBookIds, setActiveBookIds] = useState(client.getDistinctBookIds());
   const [currentZoom, setCurrentZoom] = useState(minScale);
+  const [parallelLines, setParallelLines] = useState(false);
+  const [offsetMultiplier, setOffsetMultiplier] = useState(5);
+  const [eventIndex, setEventIndex] = useState(0);
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -57,24 +61,15 @@ export function LotrVisualisation({ client }) {
   const distinctEventDates = client.getDistinctDates(activeBookIds);
 
   // Set up the place data.
-  const placeData = client.getAll("place").map((place) => ({
-    ...place,
-    events: client
-      .getAll("event")
-      .filter((event) => event.placeId === place.id)
-      .map((event) => ({ ...event, lotrDateValue: new LotrDate(event.date).value }))
-      .sort((first, second) => first.lotrDateValue - second.lotrDateValue),
-  }));
+  const placeData = client.getPlacesWithEventData(activeCharacters, activeBookIds, dateRange);
 
   // show event popup details
   function handlePlaceClick(mouseEvent, place) {
-    // place.events
-    const characterIds = client.getCharactersForEvents(place.events.map((e) => e.id));
+    setEventIndex(0);
     setPopupData({
       ...place,
       screenX: mouseEvent.x,
       screenY: mouseEvent.y,
-      characterIds,
     });
   }
 
@@ -133,17 +128,15 @@ export function LotrVisualisation({ client }) {
           timelineData={timelineData}
           dateRange={dateRange}
           bookIds={activeBookIds}
+          parallelLines={parallelLines}
+          offsetMultiplier={offsetMultiplier}
         />
         <Places
           isMapRendered={isMapRendered}
           data={placeData}
-          dateRange={dateRange}
-          bookIds={activeBookIds}
           onClick={handlePlaceClick}
           zoomPercent={(currentZoom - minScale) / maxScale}
         />
-
-        {/* <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} /> */}
         <TimeNavigator
           activeBookIds={activeBookIds}
           setActiveBookIds={setActiveBookIds}
@@ -156,10 +149,25 @@ export function LotrVisualisation({ client }) {
           activeCharacters={activeCharacters}
           setActiveCharacters={setActiveCharacters}
         />
-        <EventPopup data={popupData} />
+        <EventPopup data={popupData} eventIndex={eventIndex} setEventIndex={setEventIndex}/>
         <TutorialPopup />
         <Settings>
           <DebugDot isMapRendered={isMapRendered} />
+          <Setting
+            label="Toggle Parallel Lines"
+            value={parallelLines}
+            type={"boolean"}
+            onChange={(v) => setParallelLines(v)}
+          />
+          <Setting
+            label="Path Offset Multiplier"
+            value={offsetMultiplier}
+            type="scalar"
+            onChange={(v) => setOffsetMultiplier(v)}
+            min={0}
+            max={10}
+            step={1}
+          />
         </Settings>
       </div>
     </>
