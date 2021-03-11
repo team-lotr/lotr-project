@@ -32,7 +32,7 @@ const characterImageIds = {
 
 export function processRawData() {
   let places = [];
-  const placeIdMap = {};
+  let placeIdMap = {};
   for (const [idx, place] of placesRaw.entries()) {
     places.push({
       ...place,
@@ -40,6 +40,7 @@ export function processRawData() {
     });
     placeIdMap[`${place.bookId}:${place.id}`] = idx;
   }
+  placeIdMap = processDuplicatedPlaces(placeIdMap);
 
   let events = [];
   const eventIdMap = {};
@@ -85,4 +86,29 @@ export function processRawData() {
   }
 
   return [characters, events, places, controlPointsRaw];
+}
+
+function processDuplicatedPlaces(map) {
+  // Merge duplicated entries by having first instance take priority
+  map["6:36"] = map["1:11"]; // Prancing Pony 6:36 & 1:11
+  map["6:35"] = map["2:1"]; // Rivendell 2:1 & 6:35
+  map["6:43"] = map["2:8"] = map["1:1"]; // Hobbiton 1:1 & 2:8 & 6:43
+  map["6:44"] = map["1:7"]; // Crickhollow 1:7 & 6:44
+  map["6:37"] = map["1:9"]; // House of Tom Bombadil 1:9 & 6:37
+  map["6:46"] = map["1:3"]; // Near Woodhall 1:3 & 6:46
+  map["3:17"] = map["2:17"]; // Caras Galadhon 2:17 & 3:17
+  map["6:30"] = map["3:15"]; // Isengard 3:15 & 6:30
+  map["6:32"] = map["3:19"]; // Gap of Rohan 3:19 & 6:32
+  map["6:29"] = map["5:5"] = map["3:20"]; // Helm's Deep 3:20 & 5:5 & 6:29
+  map["3:3"] = map["2:24"]; // Anduin near Amon Hem 2:24 & 3:3
+  map["5:20"] = map["4:8"]; // Near Morhannon 4:8 & 5:20
+  map["6:21"] = map["5:22"] = map["4:9"]; // Morannon 4:9 & 5:22 & 6:21
+  map["6:28"] = map["5:1"] = map["2:7"]; // Edoras 2:7 & 5:1 & 6:28
+  map["6:1"] = map["4:17"]; // Tower of Cirith Ungol 4:17 & 6:1
+  map["5:18"] = map["4:15"]; // Minas Morgul 4:15 & 5:18
+  map["6:24"] = map["5:13"]; // Pelennor Fields 5:13 & 6:24
+  map["6:23"] = map["5:10"]; // Osgiliath 5:10 & 6:23
+  map["6:25"] = map["5:3"] = map["2:2"]; // Minas Tirith 2:2 & 5:3 & 6:25
+
+  return map;
 }
