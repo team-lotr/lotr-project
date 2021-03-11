@@ -1,12 +1,19 @@
 import { useEffect } from "react";
 import * as d3 from "d3";
-import _, { object } from "underscore";
+import _ from "underscore";
 import "./timelines.scss";
-import { addVectors, magnitude, normalize, objectToVector, perpendicularCounterClockwise, subtractVectors, vectorScalarMult } from "../../utils/VectorMath";
+import {
+  addVectors,
+  magnitude,
+  normalize,
+  objectToVector,
+  perpendicularCounterClockwise,
+  subtractVectors,
+  vectorScalarMult,
+} from "../../utils/VectorMath";
 
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
-const characterIdOffsetMultiplier = 5;
 
 function filterData(data, dateRange, bookIds) {
   const result = [];
@@ -26,36 +33,37 @@ function filterData(data, dateRange, bookIds) {
 }
 
 // Offset each point on all lines depending on the line's character's id.
-function parallelOffset(data) {
+function parallelOffset(data, offsetMultiplier) {
   const lineData = [];
+  const distanceScale = d3.scaleLinear().domain([0, 250]).range([0, offsetMultiplier]);
 
   // For each character's line.
   data.forEach((element, i) => {
     const lineWithOffsetPoints = [];
 
     // For each timeline.
-    element.timeline
-      .forEach(function (point, j, array) {
-        lineWithOffsetPoints.push(point); // Always push the current point.
+    element.timeline.forEach(function (point, j, array) {
+      lineWithOffsetPoints.push(point); // Always push the current point.
 
-        if (j == array.length - 1) return; // Do nothing for the last point.
+      if (j == array.length - 1) return; // Do nothing for the last point.
 
-        const currentPoint = objectToVector(point);
-        const nextPoint = objectToVector(array[j + 1]);
-        const leftToRightVector = subtractVectors(nextPoint, currentPoint);
+      const currentPoint = objectToVector(point);
+      const nextPoint = objectToVector(array[j + 1]);
+      const leftToRightVector = subtractVectors(nextPoint, currentPoint);
 
-        // Find vector describing the total offset, which is the sum of the perpendicular nudge and halfway between the points.
-        const offsetVector = addVectors(
-          vectorScalarMult( // Nudge perpendicularly away from the line according to the character's id.
-            normalize(perpendicularCounterClockwise(leftToRightVector)),
-            (element.character.id - 5) * distanceScale(magnitude(leftToRightVector))
-          ),
-          vectorScalarMult(leftToRightVector, 0.5) // Halfway between the current point and the next point.
-        );
+      // Find vector describing the total offset, which is the sum of the perpendicular nudge and halfway between the points.
+      const offsetVector = addVectors(
+        vectorScalarMult(
+          // Nudge perpendicularly away from the line according to the character's id.
+          normalize(perpendicularCounterClockwise(leftToRightVector)),
+          (element.character.id - 5) * distanceScale(magnitude(leftToRightVector))
+        ),
+        vectorScalarMult(leftToRightVector, 0.5) // Halfway between the current point and the next point.
+      );
 
-        // Offset the inner point depending on character id.
-        lineWithOffsetPoints.push(addVectors(currentPoint, offsetVector));
-      });
+      // Offset the inner point depending on character id.
+      lineWithOffsetPoints.push(addVectors(currentPoint, offsetVector));
+    });
 
     // Replace the old event coordinates with the offset ones.
     element.timeline = lineWithOffsetPoints;
@@ -69,17 +77,15 @@ const makeLineData = (pathData) => pathData.timeline.map((event) => [event.x, ev
 
 const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 
-const distanceScale = d3.scaleLinear().domain([0, 250]).range([0, characterIdOffsetMultiplier]);
-
 // Timelines
 // This function takes an array of timelines and renders timelines
 // onto an already rendered map element. The boolean "isMapRendered"
 // ensures that the useEffect callback is not called without a prepared map.
-export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, parallelLines }) {
+export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, parallelLines, offsetMultiplier }) {
   useEffect(() => {
     // Filter out points that are beyond the current time or not in current books, then sort by the time.
     const data = filterData(timelineData, dateRange, bookIds);
-    const lineData = (parallelLines) ? parallelOffset(data) : data;
+    const lineData = parallelLines ? parallelOffset(data, offsetMultiplier) : data;
 
     const timelinesGroup = d3.select("#timelines");
 
@@ -121,7 +127,7 @@ export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, par
     // Remove exit selection.
     timelineUpdate.exit().remove();
     circleUpdate.exit().remove();
-  }, [isMapRendered, dateRange, bookIds, timelineData]);
+  }, [isMapRendered, dateRange, bookIds, timelineData, offsetMultiplier]);
 
   return null;
 }

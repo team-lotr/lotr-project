@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Setting } from "../Settings";
 import * as d3 from "d3";
 
 const renderDebugDot = (selection, props) => {
@@ -48,10 +49,5 @@ export function DebugDot({ isMapRendered }) {
     }
   }, [isMapRendered, showDot]);
 
-  return (
-    <label>
-      Toggle Debug Dot
-      <input type="checkbox" checked={showDot} onChange={() => setShowDot(!showDot)} />
-    </label>
-  );
+  return <Setting label="Toggle Debug Dot" value={showDot} type="boolean" onChange={(v) => setShowDot(v)} />;
 }

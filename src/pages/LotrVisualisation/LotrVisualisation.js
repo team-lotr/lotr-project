@@ -11,6 +11,7 @@ import {
   LotrMap,
   TutorialPopup,
   Settings,
+  Setting,
   TimeNavigator,
 } from "../../components";
 import "./lotr-visualisation.scss";
@@ -37,6 +38,7 @@ export function LotrVisualisation({ client }) {
   const [activeBookIds, setActiveBookIds] = useState(client.getDistinctBookIds());
   const [currentZoom, setCurrentZoom] = useState(minScale);
   const [parallelLines, setParallelLines] = useState(false);
+  const [offsetMultiplier, setOffsetMultiplier] = useState(5);
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -122,6 +124,7 @@ export function LotrVisualisation({ client }) {
           dateRange={dateRange}
           bookIds={activeBookIds}
           parallelLines={parallelLines}
+          offsetMultiplier={offsetMultiplier}
         />
         <Places
           isMapRendered={isMapRendered}
@@ -129,8 +132,6 @@ export function LotrVisualisation({ client }) {
           onClick={handlePlaceClick}
           zoomPercent={(currentZoom - minScale) / maxScale}
         />
-
-        {/* <TimeSelector time={currentTime} range={distinctEventDates} onChange={(time) => setCurrentTime(time)} /> */}
         <TimeNavigator
           activeBookIds={activeBookIds}
           setActiveBookIds={setActiveBookIds}
@@ -147,10 +148,21 @@ export function LotrVisualisation({ client }) {
         <TutorialPopup />
         <Settings>
           <DebugDot isMapRendered={isMapRendered} />
-          <label>
-            Toggle Parallel Lines
-            <input type="checkbox" checked={parallelLines} onChange={() => setParallelLines(!parallelLines)} />
-          </label>
+          <Setting
+            label="Toggle Parallel Lines"
+            value={parallelLines}
+            type={"boolean"}
+            onChange={(v) => setParallelLines(v)}
+          />
+          <Setting
+            label="Path Offset Multiplier"
+            value={offsetMultiplier}
+            type="scalar"
+            onChange={(v) => setOffsetMultiplier(v)}
+            min={0}
+            max={10}
+            step={1}
+          />
         </Settings>
       </div>
     </>
