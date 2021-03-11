@@ -23,22 +23,36 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
+
+// Used on main header
 .header-1 {
-  font-family: "Dancing Script", cursive;
+  font-family: "Ringbearer", cursive;
   font-size: 24px;
   font-weight: 400;
 }
 
+// Titles of character filter box, settings, event title
 .header-2 {
   font-family: "Aniron", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 100;
 }
 
-.header-3 {
-  font-family: "Aniron", sans-serif;
+// Used on subtitle under main header
+.subheader-1 {
+  font-family: "Aniron", sans-serif; 
+  font-size: 11px;
+}
+
+.subheader-2 {
+  font-family: "Aniron", cursive;
   font-size: 14px;
-  font-weight: 100; 
+}
+
+// Character avatar name
+.label-1 {
+  font-family: 'Aniron';
+  font-size: 9px;
 }
 
 .body-text-1 {
