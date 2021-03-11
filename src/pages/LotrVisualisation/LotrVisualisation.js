@@ -129,8 +129,6 @@ export function LotrVisualisation({ client }) {
         <Places
           isMapRendered={isMapRendered}
           data={placeData}
-          dateRange={dateRange}
-          bookIds={activeBookIds}
           onClick={handlePlaceClick}
           zoomPercent={(currentZoom - minScale) / maxScale}
         />

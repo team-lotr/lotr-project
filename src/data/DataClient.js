@@ -171,18 +171,23 @@ export class DataClient {
     // bookIds = number[]
     // dateRange = { start: LotrDate, end: LotrDate }
 
-    const allPlaces = this.getAll("place");
+    let allPlaces = this.getAll("place");
+    allPlaces = allPlaces.filter(p => bookIds.includes(p.bookId));
+
     const results = [];
     for (const place of allPlaces) {
       let placeEvents = this.getAll("event");
       placeEvents = placeEvents.filter((e) => e.placeId === place.id);
       placeEvents = placeEvents.map((e) => ({ ...e, lotrDateValue: new LotrDate(e.date).value }));
+      placeEvents = placeEvents.filter(e => e.lotrDateValue >= dateRange.start.value && e.lotrDateValue <= dateRange.end.value);
       placeEvents.sort((firstEvt, secondEvt) => firstEvt.lotrDateValue - secondEvt.lotrDateValue);
       results.push({
         ...place,
         events: placeEvents
       })
     }
+
+    // filter places not in current date range
 
     return results;
   }
