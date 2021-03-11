@@ -167,27 +167,31 @@ export class DataClient {
   }
 
   getPlacesWithEventData(characterIds, bookIds, dateRange) {
-    // characterIds = number[]
-    // bookIds = number[]
-    // dateRange = { start: LotrDate, end: LotrDate }
+
+    let allCharacterEventIds = [];
+    for (const characterId of characterIds) {
+      const character = this.getCharacterBy("id", characterId);
+      allCharacterEventIds.push(...character.events);
+    }
+    allCharacterEventIds = Array.from(new Set(allCharacterEventIds));
 
     let allPlaces = this.getAll("place");
     allPlaces = allPlaces.filter(p => bookIds.includes(p.bookId));
 
+    let allEvents = this.getAll("event");
+    allEvents = allEvents.map((e) => ({ ...e, lotrDateValue: new LotrDate(e.date).value })); 
     const results = [];
     for (const place of allPlaces) {
-      let placeEvents = this.getAll("event");
-      placeEvents = placeEvents.filter((e) => e.placeId === place.id);
-      placeEvents = placeEvents.map((e) => ({ ...e, lotrDateValue: new LotrDate(e.date).value }));
+      let placeEvents = allEvents.filter((e) => e.placeId === place.id);
       placeEvents = placeEvents.filter(e => e.lotrDateValue >= dateRange.start.value && e.lotrDateValue <= dateRange.end.value);
+      placeEvents = placeEvents.filter(e => allCharacterEventIds.includes(e.id));
+
       placeEvents.sort((firstEvt, secondEvt) => firstEvt.lotrDateValue - secondEvt.lotrDateValue);
       results.push({
         ...place,
         events: placeEvents
       })
     }
-
-    // filter places not in current date range
 
     return results;
   }

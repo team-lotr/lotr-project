@@ -51,7 +51,7 @@ export function Places({ data, isMapRendered, onClick, zoomPercent }) {
 
     // Remove exit selection.
     circleUpdate.exit().remove();
-  }, [isMapRendered, zoomPercent]);
+  }, [isMapRendered, zoomPercent, data]);
 
   return null;
 }
