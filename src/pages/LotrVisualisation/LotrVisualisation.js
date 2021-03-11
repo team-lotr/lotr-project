@@ -55,14 +55,7 @@ export function LotrVisualisation({ client }) {
   const distinctEventDates = client.getDistinctDates(activeBookIds);
 
   // Set up the place data.
-  const placeData = client.getAll("place").map((place) => ({
-    ...place,
-    events: client
-      .getAll("event")
-      .filter((event) => event.placeId === place.id)
-      .map((event) => ({ ...event, lotrDateValue: new LotrDate(event.date).value }))
-      .sort((first, second) => first.lotrDateValue - second.lotrDateValue),
-  }));
+  const placeData = client.getPlacesWithEventData(activeCharacters, activeBookIds, dateRange);
 
   // show event popup details
   function handlePlaceClick(mouseEvent, place) {

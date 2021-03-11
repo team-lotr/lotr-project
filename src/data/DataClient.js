@@ -165,4 +165,25 @@ export class DataClient {
     const bookIds = events.map((e) => e.bookId);
     return Array.from(new Set(bookIds));
   }
+
+  getPlacesWithEventData(characterIds, bookIds, dateRange) {
+    // characterIds = number[]
+    // bookIds = number[]
+    // dateRange = { start: LotrDate, end: LotrDate }
+
+    const allPlaces = this.getAll("place");
+    const results = [];
+    for (const place of allPlaces) {
+      let placeEvents = this.getAll("event");
+      placeEvents = placeEvents.filter((e) => e.placeId === place.id);
+      placeEvents = placeEvents.map((e) => ({ ...e, lotrDateValue: new LotrDate(e.date).value }));
+      placeEvents.sort((firstEvt, secondEvt) => firstEvt.lotrDateValue - secondEvt.lotrDateValue);
+      results.push({
+        ...place,
+        events: placeEvents
+      })
+    }
+
+    return results;
+  }
 }
