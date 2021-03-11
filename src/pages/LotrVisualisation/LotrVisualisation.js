@@ -39,6 +39,7 @@ export function LotrVisualisation({ client }) {
   const [currentZoom, setCurrentZoom] = useState(minScale);
   const [parallelLines, setParallelLines] = useState(false);
   const [offsetMultiplier, setOffsetMultiplier] = useState(5);
+  const [eventIndex, setEventIndex] = useState(0);
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -61,6 +62,7 @@ export function LotrVisualisation({ client }) {
 
   // show event popup details
   function handlePlaceClick(mouseEvent, place) {
+    setEventIndex(0);
     setPopupData({
       ...place,
       screenX: mouseEvent.x,
@@ -144,7 +146,7 @@ export function LotrVisualisation({ client }) {
           activeCharacters={activeCharacters}
           setActiveCharacters={setActiveCharacters}
         />
-        <EventPopup data={popupData} />
+        <EventPopup data={popupData} eventIndex={eventIndex} setEventIndex={setEventIndex}/>
         <TutorialPopup />
         <Settings>
           <DebugDot isMapRendered={isMapRendered} />

@@ -1,36 +1,32 @@
-import { useState } from "react";
 import "./event-popup.scss";
 import { CharacterAvatar } from "../CharacterAvatar";
 
-export function EventPopup({ data }) {
-  const initialIndex = data ? data.events.length - 1 : 0;
-  const [eventIndex, setEventIndex] = useState(initialIndex);
-
+export function EventPopup({ data, eventIndex, setEventIndex }) {
   if (!data) return null;
 
-  const handleArrowClick = (v) => {
-    if (eventIndex === 0 && v === -1) {
-      return;
-    }
-    if (eventIndex === data.events.length - 1 && v === 1) {
-      return;
-    }
-    setEventIndex(eventIndex + v);
-  };
+  const prevIndex = Math.max(eventIndex - 1, 0);
+  const nextIndex = Math.min(eventIndex + 1, data.events.length - 1);
 
   const event = data.events[eventIndex];
+
+  if (!event) {
+    console.log("Event undefined: ", eventIndex, data);
+  }
 
   return (
     <div className="event-popup">
       <div className="event-popup__place">{data.name}</div>
       <div className="event-popup__divider" />
       <div className="event-popup__header">
-        <p className="event-popup__arrow" onClick={() => handleArrowClick(-1)}>
-          {"<"}
+        <p className="event-popup__arrow" onClick={() => setEventIndex(eventIndex === 0 ? eventIndex : prevIndex)}>
+          {eventIndex === 0 ? null : "<"}
         </p>
         <h2 className="event-popup__title">{event.name}</h2>
-        <p className="event-popup__arrow" onClick={() => handleArrowClick(1)}>
-          {">"}
+        <p
+          className="event-popup__arrow"
+          onClick={() => setEventIndex(eventIndex === data.events.length - 1 ? eventIndex : nextIndex)}
+        >
+          {eventIndex === data.events.length - 1 ? null : ">"}
         </p>
       </div>
       <div className="event-popup__content">
