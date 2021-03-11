@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import * as d3 from "d3";
-import _ from "underscore";
+import _, { object } from "underscore";
 import "./timelines.scss";
-import { addVectors, normalize, objectToVector, perpendicularCounterClockwise, subtractVectors, vectorScalarMult } from "../../utils/VectorMath";
+import { addVectors, magnitude, normalize, objectToVector, perpendicularCounterClockwise, subtractVectors, vectorScalarMult } from "../../utils/VectorMath";
 
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
@@ -27,37 +27,49 @@ function filterData(data, dateRange, bookIds) {
 
 // Offset each point on all lines depending on the line's character's id.
 function parallelOffset(data) {
+  const lineData = [];
+
   // For each character's line.
   data.forEach((element, i) => {
-    // The new points that are offset.
-    const offsetPoints = [];
+    const lineWithOffsetPoints = [];
 
     // For each timeline.
     element.timeline
-      .map((event) => objectToVector(event)) // Convert coordinates to position vectors and iterate to make control points.
       .forEach(function (point, j, array) {
-        if (j == 0 || j == array.length - 1) { // First endpoint or last endpoint.
-          offsetPoints.push(point);
-        } else { // Any inner point.
-          const left = array[j - 1];
-          const right = array[j + 1];
+        lineWithOffsetPoints.push(point); // Always push the current point.
 
-          // Find vector describing offset direction.
-          const offsetUnitVector = normalize(perpendicularCounterClockwise(subtractVectors(right, left)));
+        if (j == array.length - 1) return; // Do nothing for the last point.
 
-          // Offset the inner point depending on character id.
-          offsetPoints.push(addVectors(point, vectorScalarMult(offsetUnitVector, (element.character.id - 5) * characterIdOffsetMultiplier)));
-        }
+        const currentPoint = objectToVector(point);
+        const nextPoint = objectToVector(array[j + 1]);
+        const leftToRightVector = subtractVectors(nextPoint, currentPoint);
+
+        // Find vector describing the total offset, which is the sum of the perpendicular nudge and halfway between the points.
+        const offsetVector = addVectors(
+          vectorScalarMult( // Nudge perpendicularly away from the line according to the character's id.
+            normalize(perpendicularCounterClockwise(leftToRightVector)),
+            (element.character.id - 5) * distanceScale(magnitude(leftToRightVector))
+          ),
+          vectorScalarMult(leftToRightVector, 0.5) // Halfway between the current point and the next point.
+        );
+
+        // Offset the inner point depending on character id.
+        lineWithOffsetPoints.push(addVectors(currentPoint, offsetVector));
       });
 
     // Replace the old event coordinates with the offset ones.
-    element.timeline = element.timeline.map((event, i) => ({ ...event, x: offsetPoints[i].x, y: offsetPoints[i].y }));
+    element.timeline = lineWithOffsetPoints;
+    lineData.push(element);
   });
+
+  return lineData;
 }
 
 const makeLineData = (pathData) => pathData.timeline.map((event) => [event.x, event.y]);
 
 const line = d3.line().curve(d3.curveCardinal.tension(0.6));
+
+const distanceScale = d3.scaleLinear().domain([0, 250]).range([0, characterIdOffsetMultiplier]);
 
 // Timelines
 // This function takes an array of timelines and renders timelines
@@ -67,15 +79,12 @@ export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, par
   useEffect(() => {
     // Filter out points that are beyond the current time or not in current books, then sort by the time.
     const data = filterData(timelineData, dateRange, bookIds);
-
-    if (parallelLines) {
-      parallelOffset(data);
-    }
+    const lineData = (parallelLines) ? parallelOffset(data) : data;
 
     const timelinesGroup = d3.select("#timelines");
 
     // Do data join.
-    const timelineUpdate = timelinesGroup.selectAll(".timeline").data(data, (d) => d.character.id);
+    const timelineUpdate = timelinesGroup.selectAll(".timeline").data(lineData, (d) => d.character.id);
     const circleUpdate = timelinesGroup.selectAll(".characterCircle").data(data, (d) => d.character.id);
 
     // Perform actions on enter selection.
