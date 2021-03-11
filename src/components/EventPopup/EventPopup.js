@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import "./event-popup.scss";
 
 export function EventPopup({ data }) {
-  console.log(data)
   const initialIndex = data ? data.events.length - 1 : 0;
   const [eventIndex, setEventIndex] = useState(initialIndex);
 
