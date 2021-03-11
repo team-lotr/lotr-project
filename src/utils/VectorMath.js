@@ -10,9 +10,9 @@ export const perpendicularClockwise = (v) => ({ x: -v.y, y: v.x });
 
 export const perpendicularCounterClockwise = (v) => ({ x: v.y, y: -v.x });
 
-export const magnitude = (v) => Math.sqrt(sqMagnitue(v));
+export const magnitude = (v) => Math.sqrt(sqMagnitude(v));
 
-export const sqMagnitue = (v) => v.x ** 2 + v.y ** 2;
+export const sqMagnitude = (v) => v.x ** 2 + v.y ** 2;
 
 export const normalize = (v) => vectorScalarMult(v, 1 / (magnitude(v) + 0.0001));
 
