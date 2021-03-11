@@ -20,8 +20,6 @@ export function EventPopup({ data }) {
 
   const event = data.events[eventIndex];
 
-  console.log(event);
-
   return (
     <div className="event-popup">
       <div className="event-popup__place">{data.name}</div>

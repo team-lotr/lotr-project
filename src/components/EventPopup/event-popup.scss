@@ -13,7 +13,7 @@
   width: 200px;
 
   .event-popup__place {
-    @extend .curvy-header; 
+    @extend .curvy-header;
     text-align: center;
     font-size: 22px;
     padding-bottom: 0;
@@ -72,6 +72,11 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+
+      .character-avatar .character-avatar__image:hover {
+        cursor: default;
+        opacity: 1;
+      }
     }
 
     & > * {
