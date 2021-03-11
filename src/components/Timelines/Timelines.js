@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import _ from "underscore";
 import "./timelines.scss";
 import { path } from "d3";
+import { getFID } from "web-vitals";
 
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
@@ -28,14 +29,19 @@ function filterData(data, dateRange, bookIds) {
   return result;
 }
 
+const getControlPoints = (pts, evtId) => {
+  const k = Object.keys(pts).find(k => k.endsWith(evtId))
+  return pts[k];
+}
+
 const makeLineData = (pathData) =>
   pathData.timeline.reduce(
     (acc, event, i, events) => [
       ...acc,
       // add control points for up to current event if there are any
       // control point ids are made by combining fullIds of the preceding and the current event
-      ...(i > 0 && pathData.controlPoints[`${events[i - 1].fullId},${event.fullId}`]
-        ? pathData.controlPoints[`${events[i - 1].fullId},${event.fullId}`].map(({ x, y }) => [x, y])
+      ...(getControlPoints(pathData.controlPoints, event.fullId)
+        ? getControlPoints(pathData.controlPoints, event.fullId).map(({ x, y }) => [x, y])
         : []),
       [event.x, event.y],
     ],
