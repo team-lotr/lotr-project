@@ -26,7 +26,7 @@ const DEFAULT_DATE_RANGE = {
   end: DEFAULT_END_TIME,
 };
 
-const minScale = 1;
+const minScale = 0.7;
 const maxScale = 20;
 
 export function LotrVisualisation({ client }) {
