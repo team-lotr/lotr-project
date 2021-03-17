@@ -7,6 +7,7 @@ import { getFID } from "web-vitals";
 import {
   addVectors,
   magnitude,
+  negatedVector,
   normalize,
   objectToVector,
   perpendicularCounterClockwise,
@@ -77,18 +78,19 @@ function parallelOffset(data, offsetMultiplier) {
       const nextPoint = objectToVector(array[j + 1]);
       const leftToRightVector = subtractVectors(nextPoint, currentPoint);
 
-      // Find vector describing the total offset, which is the sum of the perpendicular nudge and halfway between the points.
-      const offsetVector = addVectors(
-        vectorScalarMult(
-          // Nudge perpendicularly away from the line according to the character's id.
-          normalize(perpendicularCounterClockwise(leftToRightVector)),
-          (element.character.id - 5) * distanceScale(magnitude(leftToRightVector))
-        ),
-        vectorScalarMult(leftToRightVector, 0.5) // Halfway between the current point and the next point.
+      // Find vector describing the nudge offset.
+      const nudgeOffsetVector = vectorScalarMult(
+        // Nudge perpendicularly away from the line according to the character's id.
+        normalize(perpendicularCounterClockwise(leftToRightVector)),
+        (element.character.id - 5) * distanceScale(magnitude(leftToRightVector))
       );
 
-      // Offset the inner point depending on character id.
-      lineWithOffsetPoints.push(addVectors(currentPoint, offsetVector));
+      // Vector describing the parallel offset.
+      const parallelOffsetVector = vectorScalarMult(leftToRightVector, 0.2); // Some way between the current point and the next point.
+
+      // Offset the inner points depending on character id.
+      lineWithOffsetPoints.push(addVectors(currentPoint, addVectors(nudgeOffsetVector, parallelOffsetVector)));
+      lineWithOffsetPoints.push(addVectors(nextPoint, addVectors(nudgeOffsetVector, negatedVector(parallelOffsetVector))));
     });
 
     // Replace the old event coordinates with the offset ones.
@@ -162,8 +164,6 @@ const highlight = (event, d) => {
     .classed("highlightedLine", (_d) => d.character.id === _d.character.id)
     .classed("fadedLine", (_d) => d.character.id !== _d.character.id)
     .classed("regularLine", false);
-
-  d3.selectAll(".highlightedLine").raise();
 
   d3.selectAll(".characterCircle")
     .classed("fadedCircle", (_d) => d.character.id !== _d.character.id)
