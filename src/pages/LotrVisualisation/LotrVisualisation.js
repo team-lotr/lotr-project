@@ -109,8 +109,11 @@ export function LotrVisualisation({ client }) {
           setCurrentZoom(event.transform.k);
 
           // For each selection in the array, set the opacity according to the event scale.
-          semanticOpacitySelections.forEach((element) =>
-            element.selection.style("opacity", element.scale(event.transform.k))
+          semanticOpacitySelections.forEach((element) => {
+            const opacity = element.scale(event.transform.k);
+            element.selection.style("opacity", opacity);
+            element.selection.attr("display", opacity > 0 ? null : "none");
+          }
           );
         })
     );
