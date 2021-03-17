@@ -23,5 +23,3 @@ export const sqDistance = (v1, v2) => (v1.x - v2.x) ** 2 + (v1.y - v2.y) ** 2;
 export const negatedVector = (v) => ({ x: -v.x, y: -v.y });
 
 export const crossProduct2D = (v1, v2) => v1.x * v2.y - v1.y * v2.x;
-
-export const xor = (a, b) => (a || b) && !(a && b);
