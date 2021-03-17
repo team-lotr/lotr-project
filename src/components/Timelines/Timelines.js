@@ -18,6 +18,8 @@ import {
 const characterCircleRadius = 5;
 const hightlightedCircleRadius = 10;
 
+let globalParallelLines = false;
+
 // needed info:
 //  char name
 // for the points -> end date
@@ -109,9 +111,11 @@ const line = d3.line().curve(d3.curveCardinal.tension(0.6));
 // ensures that the useEffect callback is not called without a prepared map.
 export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, parallelLines, offsetMultiplier }) {
   useEffect(() => {
+    globalParallelLines = parallelLines;
+
     // Filter out points that are beyond the current time or not in current books, then sort by the time.
     const data = filterData(timelineData, dateRange, bookIds);
-    const lineData = parallelLines ? parallelOffset(data, offsetMultiplier) : data;
+    const lineData = globalParallelLines ? parallelOffset(data, offsetMultiplier) : data;
 
     const timelinesGroup = d3.select("#timelines");
 
@@ -143,7 +147,7 @@ export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, par
     circleEnter.append("title").text((d) => d.character.name);
 
     // Perform actions on merged update and enter selections.
-    const timelineMerge = timelineEnter.merge(timelineUpdate).attr("d", (d) => line(parallelLines ? makeSimpleLineData(d) : makeLineData(d)));
+    const timelineMerge = timelineEnter.merge(timelineUpdate).attr("d", (d) => line(globalParallelLines ? makeSimpleLineData(d) : makeLineData(d)));
 
     const circleMerge = circleEnter
       .merge(circleUpdate)
@@ -160,6 +164,7 @@ export function Timelines({ timelineData, dateRange, bookIds, isMapRendered, par
 
 // Function for highlighting a path and de-emphasizing the other paths.
 const highlight = (event, d) => {
+
   d3.selectAll(".timeline")
     .classed("highlightedLine", (_d) => d.character.id === _d.character.id)
     .classed("fadedLine", (_d) => d.character.id !== _d.character.id)
@@ -170,10 +175,18 @@ const highlight = (event, d) => {
     .classed("regularCircle", (_d) => d.character.id === _d.character.id);
 
   d3.selectAll(".regularCircle").raise().attr("r", hightlightedCircleRadius);
+
+  d3.select("#timelines")
+    .append("path")
+    .classed("animatedLine", true)
+    .attr("d", line(globalParallelLines ? makeSimpleLineData(d) : makeLineData(d)))
+    .raise();
 };
 
 // Function for resetting the paths from the effects of the highlight function.
 const unhighlight = () => {
+  d3.selectAll(".animatedLine").remove();
+
   d3.selectAll(".timeline").classed("highlightedLine", false).classed("fadedLine", false).classed("regularLine", true);
 
   d3.selectAll(".characterCircle")

@@ -27,3 +27,22 @@
 .regularCircle {
     stroke: none;
 }
+
+.animatedLine {
+    stroke-width: 3;
+    stroke: white;
+    stroke-dasharray: 20;
+    stroke-dashoffset: 1000;
+    
+    animation: dash 50s linear forwards;
+    animation-iteration-count: infinite;
+
+    fill: none;
+    pointer-events: none;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
