@@ -47,6 +47,7 @@ export function LotrVisualisation({ client }) {
   const [activePage, setActivePage] = useState(
     sessionStorage.getItem(SEEN_TUTORIAL_KEY) !== "true" ? "tutorial" : null
   );
+  const [distinctEventDates, setDistinctEventDates] = useState(client.getDistinctDates(activeBookIds));
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -65,7 +66,6 @@ export function LotrVisualisation({ client }) {
     const controlPoints = client.getControlPoints(character.name);
     return { character, timeline, controlPoints };
   });
-  const distinctEventDates = client.getDistinctDates(activeBookIds);
 
   // Set up the place data.
   const placeData = client.getPlacesWithEventData(activeCharacters, activeBookIds, dateRange);
@@ -78,6 +78,12 @@ export function LotrVisualisation({ client }) {
       screenX: mouseEvent.x,
       screenY: mouseEvent.y,
     });
+  }
+
+  function handleActiveBookChange(newBookIds) {
+    setPopupData(null);
+    setDistinctEventDates(client.getDistinctDates(newBookIds));
+    setActiveBookIds(newBookIds);
   }
 
   useEffect(() => {
@@ -160,7 +166,7 @@ export function LotrVisualisation({ client }) {
         />
         <TimeNavigator
           activeBookIds={activeBookIds}
-          setActiveBookIds={setActiveBookIds}
+          setActiveBookIds={handleActiveBookChange}
           dateRange={dateRange}
           setDateRange={setDateRange}
           fullDateRange={distinctEventDates}
