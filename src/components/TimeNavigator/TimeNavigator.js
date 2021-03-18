@@ -60,7 +60,7 @@ export function TimeNavigator({ activeBookIds, setActiveBookIds, dateRange, setD
             onClick={() => setSelectedDateField("start")}
             data-active={selectedDateField === "start"}
           >
-            {dateRange.start.lotrDateString}
+            {dateRange.start ? dateRange.start.lotrDateString : "N/A"}
           </span>
           <span className="time-navigator__state-text">to</span>
           <span
@@ -68,7 +68,7 @@ export function TimeNavigator({ activeBookIds, setActiveBookIds, dateRange, setD
             onClick={() => setSelectedDateField("end")}
             data-active={selectedDateField === "end"}
           >
-            {dateRange.end.lotrDateString}
+            {dateRange.end ? dateRange.end.lotrDateString : "N/A"}
           </span>
         </div>
         <TimeSelector

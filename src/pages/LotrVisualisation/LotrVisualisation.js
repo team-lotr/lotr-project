@@ -82,7 +82,12 @@ export function LotrVisualisation({ client }) {
 
   function handleActiveBookChange(newBookIds) {
     setPopupData(null);
-    setDistinctEventDates(client.getDistinctDates(newBookIds));
+    const newDistinctDates = client.getDistinctDates(newBookIds);
+    setDateRange({
+      start: newDistinctDates[0] || DEFAULT_START_TIME,
+      end: newDistinctDates[newDistinctDates.length - 1] || DEFAULT_END_TIME,
+    });
+    setDistinctEventDates(newDistinctDates);
     setActiveBookIds(newBookIds);
   }
 
