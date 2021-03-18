@@ -8,6 +8,18 @@
   transform: translate(-50%, 0);
   width: 560px;
 
+  .time-navigator__collapse {
+    position: relative;
+    height: 10px;
+    top: 3.6rem;
+    right: -33.8rem;
+
+    &:hover {
+      cursor: pointer;
+      font-weight: 800;
+    }
+  }
+
   .time-navigator__books {
     display: flex;
 
@@ -27,6 +39,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-right: 12px;
+    transition: all 0.1s;
+
+    &.time-navigator__container--collapsed {
+      height: 3px;
+      padding: 0px;
+      transition: all 0.1s;
+      &:hover {
+        cursor: pointer;
+        background-color: lightgrey;
+      }
+
+      & > * {
+        visibility: hidden;
+      }
+    }
 
     & > * {
       margin-bottom: 15px;
@@ -53,7 +81,7 @@
       }
 
       &[data-active="true"] {
-        color: $white; 
+        color: $white;
         background-color: $active-color;
       }
     }
@@ -61,7 +89,6 @@
     .time-navigator__state-field--book {
       width: 110px;
     }
-
 
     .time-navigator__state-field--date {
       width: 100px;
@@ -111,4 +138,9 @@ $bookButtonSize: 30px;
   &[data-active="false"] {
     color: gray;
   }
+}
+
+.collapsed-time-navigator > .time-navigator__books {
+  height: 0px;
+  visibility: hidden;
 }

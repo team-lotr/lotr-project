@@ -1,8 +1,8 @@
 import "./time-navigator.scss";
 import { ReactComponent as BookIcon } from "../../assets/book.svg";
-import { useState } from "react";
 import { LotrDate } from "../../data/LotrDate";
 import { TimeSelector } from "../TimeSelector/TimeSelector";
+import React, { useState } from "react";
 
 const bookIds = [1, 2, 3, 4, 5, 6];
 const TOTAL_BOOKS = 6;
@@ -12,6 +12,7 @@ const endDate = new LotrDate("20 Nov 3020");
 
 export function TimeNavigator({ activeBookIds, setActiveBookIds, dateRange, setDateRange, fullDateRange }) {
   const [selectedDateField, setSelectedDateField] = useState("end"); // "start" | "end"
+  const [collapsed, setCollapsed] = useState(false);
 
   function handleBookClick(id) {
     activeBookIds.includes(id)
@@ -23,8 +24,8 @@ export function TimeNavigator({ activeBookIds, setActiveBookIds, dateRange, setD
     console.log(selectedDateField);
     console.log(newDate);
     const newDateRange = {
-      ...dateRange
-    }
+      ...dateRange,
+    };
     newDateRange[selectedDateField] = newDate;
     setDateRange(newDateRange);
   }
@@ -34,17 +35,25 @@ export function TimeNavigator({ activeBookIds, setActiveBookIds, dateRange, setD
   }
 
   return (
-    <div className="time-navigator">
+    <div
+      className={`time-navigator ${collapsed ? "collapsed-time-navigator" : ""}`}
+      onClick={() => collapsed && setCollapsed(false)}
+    >
+      <span className="time-navigator__collapse" onClick={() => setCollapsed(true)}>
+        &#9661;
+      </span>
       <div className="time-navigator__books">
         {activeBookIds &&
           bookIds.map((id) => (
             <BookButton key={id} id={id} onClick={handleBookClick} active={activeBookIds.includes(id)} />
           ))}
       </div>
-      <div className="time-navigator__container">
+      <div className={`time-navigator__container ${collapsed ? "time-navigator__container--collapsed" : ""}`}>
         <div className="time-navigator__state">
           <span className="time-navigator__state-text">Showing</span>
-          <span className="time-navigator__state-field time-navigator__state-field--book">{getBookStateText(activeBookIds)}</span>
+          <span className="time-navigator__state-field time-navigator__state-field--book">
+            {getBookStateText(activeBookIds)}
+          </span>
           <span className="time-navigator__state-text">events from</span>
           <span
             className="time-navigator__state-field time-navigator__state-field--date"
