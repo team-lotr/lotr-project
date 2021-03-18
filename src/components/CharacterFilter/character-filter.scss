@@ -2,6 +2,7 @@
 @import "../../styles/fonts.scss";
 
 $boxWidth: 120px;
+$boxHeight: 630px;
 
 .character-filter {
   position: fixed;
@@ -17,7 +18,7 @@ $boxWidth: 120px;
   align-items: center;
   width: $boxWidth;
   box-shadow: $md-shadow;
-  height: 78vh;
+  height: $boxHeight;
 
   .character-filter__collapse {
     position: relative;
@@ -72,8 +73,9 @@ $boxWidth: 120px;
 
 .collapsed-character-filter {
   width: 3px;
+  height: $boxHeight;
   padding: 0px;
-  transition: width 0.1s;
+  transition: all 0.1s ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -81,7 +83,7 @@ $boxWidth: 120px;
   }
 }
 
-.collapsed-character-filter > * {
+.collapsed-character-filter * {
   opacity: 0;
-  visibility: hidden;
+  display: none;
 }
