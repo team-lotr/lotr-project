@@ -4,6 +4,7 @@ export * from "./DebugDot";
 export * from "./EventPopup";
 export * from "./Header";
 export * from "./Nav";
+export * from "./PagesNav";
 export * from "./LotrMap";
 export * from "./Places";
 export * from "./Settings";

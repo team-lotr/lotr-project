@@ -2,7 +2,7 @@ import "./header.scss";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
-export function Header() {
+export function Header({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const handleClick = () => {
     if (collapsed) {
@@ -19,6 +19,7 @@ export function Header() {
       </Link>
       <div className="header__divider" />
       <p className="header__subtitle">Interactive timeline of the Lord of the Rings universe</p>
+      {children}
     </div>
   );
 }

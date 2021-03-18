@@ -1,0 +1,23 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+
+.pages-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  padding: 0px 40px;
+
+  .pages-nav__item {
+    @extend .label-1;
+    border: 1px solid $border-color-green;
+    border-radius: 5px;
+    padding: 2px 8px;
+    
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      background-color: $hover-bg-color-1;
+      color: $white;
+    }
+  }
+}
