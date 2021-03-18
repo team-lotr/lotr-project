@@ -16,7 +16,7 @@ import {
   PagesNavItem,
   PagesPopup,
 } from "../../components";
-import { TutorialPage, DataPage } from "../../popup-pages";
+import { TutorialPage, DataPage, AboutPage, LicensePage, HowToPage } from "../../popup-pages";
 import { SEEN_TUTORIAL_KEY } from "../../constants";
 import "./lotr-visualisation.scss";
 
@@ -136,6 +136,9 @@ export function LotrVisualisation({ client }) {
         </PagesNav>
       </Header>
       <PagesPopup activePage={activePage} onClose={() => setActivePage(null)}>
+        <HowToPage key="how-to" />
+        <AboutPage key="about" />
+        <LicensePage key="license" />
         <DataPage key="data" />
         <TutorialPage key="tutorial" />
       </PagesPopup>

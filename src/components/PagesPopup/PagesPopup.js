@@ -17,10 +17,7 @@ export function PagesPopup({ activePage, onClose, children }) {
     <>
       <div className="pages-popup__cover" />
       <div className="pages-popup">
-        <div className="pages-popup__container">
-          <p onClick={onClose}>X</p>
-          {pageComponent}
-        </div>
+        <div className="pages-popup__container">{pageComponent}</div>
       </div>
     </>
   );
