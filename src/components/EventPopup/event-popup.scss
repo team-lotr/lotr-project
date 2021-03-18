@@ -12,6 +12,27 @@
   box-shadow: $md-shadow;
   width: 300px;
 
+  .event-popup__close {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    margin: 0px;
+    font-weight: 600;
+    color: darkred;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-right: 3px;
+    height: 1px;
+    transition: all 0.1s;
+
+    &:hover {
+      color: lighten($color: darkred, $amount: 10%);
+      cursor: pointer;
+      font-weight: 700;
+      // transform: scale(1.2);
+    }
+  }
+
   .event-popup__place {
     @extend .header-2;
     text-align: center;
@@ -51,7 +72,7 @@
       }
       &:empty {
         cursor: default;
-        background-color: #FFFFFF00;
+        background-color: #ffffff00;
       }
     }
 

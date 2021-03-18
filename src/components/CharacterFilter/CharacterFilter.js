@@ -1,7 +1,10 @@
 import "./character-filter.scss";
 import { CharacterAvatar } from "../CharacterAvatar";
+import React, { useState } from "react";
 
 export function CharacterFilter({ data, activeCharacters, setActiveCharacters }) {
+  const [collapsed, setCollapsed] = useState(false);
+
   function handleCharacterAvatarClick(characterId) {
     let newActiveCharacters;
     if (activeCharacters.includes(characterId)) {
@@ -13,7 +16,13 @@ export function CharacterFilter({ data, activeCharacters, setActiveCharacters })
   }
 
   return (
-    <div className="character-filter">
+    <div
+      className={`character-filter ${collapsed ? "collapsed-character-filter" : ""}`}
+      onClick={() => collapsed && setCollapsed(false)}
+    >
+      <span className="character-filter__collapse" onClick={() => setCollapsed(true)}>
+        &#9665;
+      </span>
       <h2 className="character-filter__title">Characters</h2>
       <div className="character-filter__items">
         {data.map((c) => {

@@ -22,6 +22,26 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    position: absolute;
+
+    .tutorial-popup__close {
+        position: relative;
+        right: -50%;
+        top: -10px;
+        font-weight: 600;
+        color: darkred;
+        cursor: pointer;
+        padding-left: 3px;
+        padding-right: 3px;
+        transition: all 0.1s;
+
+        &:hover {
+          color: lighten($color: darkred, $amount: 10%);
+          cursor: pointer;
+          font-weight: 700;
+          transform: scale(1.2);
+        }
+    }
 
     .tutorial-popup__title {
       font-family: "Ringbearer";

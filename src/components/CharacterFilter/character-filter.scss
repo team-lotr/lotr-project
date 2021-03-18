@@ -2,6 +2,7 @@
 @import "../../styles/fonts.scss";
 
 $boxWidth: 120px;
+$boxHeight: 630px;
 
 .character-filter {
   position: fixed;
@@ -17,6 +18,20 @@ $boxWidth: 120px;
   align-items: center;
   width: $boxWidth;
   box-shadow: $md-shadow;
+  height: $boxHeight;
+
+  .character-filter__collapse {
+    position: relative;
+    top: -6px;
+    right: -45%;
+    transition: all 0.1s;
+    height: 10px;
+
+    &:hover {
+      cursor: pointer;
+      font-weight: 800;
+    }
+  }
 
   .character-filter__title {
     @extend .header-2;
@@ -37,7 +52,7 @@ $boxWidth: 120px;
     margin-top: 10px;
 
     .character-filter__button {
-      @extend .body-text; 
+      @extend .body-text;
       padding: 3px 8px;
       border: 1px solid gray;
       border-radius: 5px;
@@ -53,4 +68,22 @@ $boxWidth: 120px;
       margin-bottom: 5px;
     }
   }
+}
+
+
+.collapsed-character-filter {
+  width: 3px;
+  height: $boxHeight;
+  padding: 0px;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+  }
+}
+
+.collapsed-character-filter * {
+  opacity: 0;
+  display: none;
 }

@@ -149,7 +149,7 @@ export function LotrVisualisation({ client }) {
           activeCharacters={activeCharacters}
           setActiveCharacters={setActiveCharacters}
         />
-        <EventPopup data={popupData} eventIndex={eventIndex} setEventIndex={setEventIndex}/>
+        <EventPopup onClose={() => setPopupData(null)} data={popupData} eventIndex={eventIndex} setEventIndex={setEventIndex}/>
         <TutorialPopup />
         <Settings>
           <DebugDot isMapRendered={isMapRendered} />
