@@ -18,6 +18,7 @@ export function TutorialPopup() {
           <div className="tutorial-popup__cover" />
           <div className="tutorial-popup">
             <div className="tutorial-popup__container">
+              <span className="tutorial-popup__close" onClick={handleAction}>X</span>
               <h1 className="tutorial-popup__title">There and Back Again</h1>
               <div className="tutorial-popup__divider" />
               <div className="tutorial-popup__content">
