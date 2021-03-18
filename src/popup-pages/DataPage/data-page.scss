@@ -1,0 +1,20 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+@import "../../styles/components.scss";
+
+.data-page {
+  @extend .page;
+  
+
+  .data-page__title {
+    @extend .header-2;
+  }
+
+  .data-page__button {
+    @extend .page-button;
+  }
+
+  & > * {
+    @extend .body-text;
+  }
+}

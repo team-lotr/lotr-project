@@ -1,0 +1,20 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+@import "../../styles/components.scss";
+
+.license-page {
+  @extend .page;
+  
+
+  .license-page__title {
+    @extend .header-2;
+  }
+
+  .license-page__button {
+    @extend .page-button;
+  }
+
+  & > * {
+    @extend .body-text;
+  }
+}

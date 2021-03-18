@@ -132,7 +132,7 @@ export function LotrVisualisation({ client }) {
           <PagesNavItem label="How To" onClick={() => setActivePage("how-to")} />
           <PagesNavItem label="Data" onClick={() => setActivePage("data")} />
           <PagesNavItem label="About" onClick={() => setActivePage("about")} />
-          <PagesNavItem label="Licence" onClick={() => setActivePage("license")} />
+          <PagesNavItem label="License" onClick={() => setActivePage("license")} />
         </PagesNav>
       </Header>
       <PagesPopup activePage={activePage} onClose={() => setActivePage(null)}>
@@ -142,7 +142,6 @@ export function LotrVisualisation({ client }) {
         <DataPage key="data" />
         <TutorialPage key="tutorial" />
       </PagesPopup>
-      {/* <TutorialPopup /> */}
       <div ref={chartRef}>
         <LotrMap />
         <Timelines
