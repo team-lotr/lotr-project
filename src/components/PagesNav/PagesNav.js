@@ -6,8 +6,8 @@ export function PagesNav({ children }) {
 
 export function PagesNavItem({ label, onClick }) {
   return (
-    <div className="pages-nav__item" onClick={onClick}>
+    <button className="pages-nav__item" onClick={onClick}>
       {label}
-    </div>
+    </button>
   );
 }
