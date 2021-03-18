@@ -23,7 +23,7 @@ export function TutorialPopup() {
               <div className="tutorial-popup__content">
                 <p>
                   Welcome to <i>There and Back Again</i>, an interactive visualisation of the the travel timelines of
-                  the fellowship in the Lord of the Rings. This visualisation is based on data that has been carefully
+                  the fellowship in the Lord of the Rings. This visualisation is based on <a target="_blank" href="https://docs.google.com/spreadsheets/d/15ykK0MIWrG7DyYbbWT8skaWTP3jfUjdVhIKg76N5BWE/edit?usp=sharing">data  &#8599;</a> that has been carefully
                   selected from Tolkien's triology.
                 </p>
                 <p>
