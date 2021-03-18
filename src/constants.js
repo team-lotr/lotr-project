@@ -1,0 +1,1 @@
+export const SEEN_TUTORIAL_KEY = "seen-tutorial";

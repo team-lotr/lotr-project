@@ -9,13 +9,15 @@ import {
   CharacterFilter,
   EventPopup,
   LotrMap,
-  TutorialPopup,
   Settings,
   Setting,
   TimeNavigator,
   PagesNav,
   PagesNavItem,
+  PagesPopup,
 } from "../../components";
+import { TutorialPage, DataPage } from "../../popup-pages";
+import { SEEN_TUTORIAL_KEY } from "../../constants";
 import "./lotr-visualisation.scss";
 
 // world bounds
@@ -42,7 +44,9 @@ export function LotrVisualisation({ client }) {
   const [parallelLines, setParallelLines] = useState(false);
   const [offsetMultiplier, setOffsetMultiplier] = useState(5);
   const [eventIndex, setEventIndex] = useState(0);
-  const [activePage, setActivePage] = useState(null);
+  const [activePage, setActivePage] = useState(
+    sessionStorage.getItem(SEEN_TUTORIAL_KEY) !== "true" ? "tutorial" : null
+  );
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -131,7 +135,11 @@ export function LotrVisualisation({ client }) {
           <PagesNavItem label="Licence" onClick={() => setActivePage("license")} />
         </PagesNav>
       </Header>
-      <TutorialPopup />
+      <PagesPopup activePage={activePage} onClose={() => setActivePage(null)}>
+        <DataPage key="data" />
+        <TutorialPage key="tutorial" />
+      </PagesPopup>
+      {/* <TutorialPopup /> */}
       <div ref={chartRef}>
         <LotrMap />
         <Timelines

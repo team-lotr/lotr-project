@@ -1,0 +1,71 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+
+.tutorial-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .tutorial-page__close {
+    position: relative;
+    right: -50%;
+    top: -10px;
+    font-weight: 600;
+    color: darkred;
+    cursor: pointer;
+    padding-left: 3px;
+    padding-right: 3px;
+    transition: all 0.1s;
+
+    &:hover {
+      color: lighten($color: darkred, $amount: 10%);
+      cursor: pointer;
+      font-weight: 700;
+      transform: scale(1.2);
+    } 
+  }
+
+  .tutorial-page__title {
+    font-family: "Ringbearer";
+  }
+
+  .tutorial-page__divider {
+    width: 80%;
+    border-bottom: 1px solid $border-color-green;
+    opacity: 0.7;
+  }
+
+  .tutorial-page__content {
+    @extend .body-text;
+    padding: 0 10%;
+
+    & > * {
+      margin-bottom: 5px;
+    }
+  }
+
+  .tutorial-page__quote {
+    font-style: italic;
+    margin: 10px auto;
+    width: 60%;
+    text-align: center;
+  }
+
+  .tutorial-page__button {
+    background-color: $bg-color;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+
+    &:hover {
+      background-color: #7c8f7b;
+      color: white;
+      cursor: pointer;
+      border-color: #7c8f7b;
+    }
+  }
+
+  & > * {
+    margin-bottom: 10px;
+  } 
+}
