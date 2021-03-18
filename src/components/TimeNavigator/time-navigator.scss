@@ -69,6 +69,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @extend .body-text-2;
 
     .time-navigator__state-field {
       padding: 3px 4px;
@@ -127,12 +128,14 @@ $bookButtonSize: 30px;
   }
 
   &:hover {
-    background-color: $hover-bg-color;
+    background-color: $hover-bg-color-2;
+    color: $white;
     cursor: pointer;
   }
 
   &[data-active="true"] {
     color: $active-color;
+    border-color: $active-color;
   }
 
   &[data-active="false"] {

@@ -52,14 +52,14 @@ $boxHeight: 630px;
     margin-top: 10px;
 
     .character-filter__button {
-      @extend .body-text;
+      @extend .label-1;
       padding: 3px 8px;
       border: 1px solid gray;
       border-radius: 5px;
 
       &:hover {
         cursor: pointer;
-        background: #8fa3db;
+        background: $hover-bg-color;
         color: white;
       }
     }
