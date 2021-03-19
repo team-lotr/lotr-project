@@ -187,8 +187,8 @@ export function LotrVisualisation({ client }) {
           eventIndex={eventIndex}
           setEventIndex={setEventIndex}
         />
+        <DebugDot isMapRendered={isMapRendered} showDot={false} />
         <Settings>
-          <DebugDot isMapRendered={isMapRendered} />
           <Setting
             label="Toggle Parallel Lines"
             value={parallelLines}

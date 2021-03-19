@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
-import { Setting } from "../Settings";
 import * as d3 from "d3";
+
+// HOW TO ACTIVATE DEBUG DOT
+// 1. Get React Developer Tools
+// 2. Open components tab
+// 3. Find DebugDot
+// 4. Under props: showDot = true
+// 5. Use it as usual
+// 6. Refresh the page to get rid of it
 
 const renderDebugDot = (selection, props) => {
   const { xStart, yStart, radius } = props;
@@ -38,8 +45,8 @@ const dragended = (event, d) => {
   console.log(`{ "x": ${Number(d.x.toFixed(0))}, "y": ${Number(d.y.toFixed(0))} }`)
 };
 
-export function DebugDot({ isMapRendered }) {
-  const [showDot, setShowDot] = useState(false);
+export function DebugDot({ isMapRendered, showDot }) {
+  // const [showDot, setShowDot] = useState(false);
 
   useEffect(() => {
     const zoomGroup = d3.select("#zoomContainer");
@@ -50,5 +57,6 @@ export function DebugDot({ isMapRendered }) {
     }
   }, [isMapRendered, showDot]);
 
-  return <Setting label="Toggle Debug Dot" value={showDot} type="boolean" onChange={(v) => setShowDot(v)} />;
+  // return <Setting label="Toggle Debug Dot" value={showDot} type="boolean" onChange={(v) => setShowDot(v)} />;
+  return null;
 }
