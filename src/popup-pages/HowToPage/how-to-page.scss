@@ -10,6 +10,16 @@
     @extend .header-2;
   }
 
+  .how-to-page__description {
+    padding: 0 20px;
+  }
+
+  .how-to-page__video {
+    width: 750px;
+    height: 450px;
+    
+  }
+
   .how-to-page__button {
     @extend .page-button;
   }
