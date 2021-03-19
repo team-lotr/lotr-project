@@ -39,6 +39,19 @@ export function AboutPage({ close }) {
           <TeamMemberBox key={name} name={name} email={email} tags={tags} />
         ))}
       </div>
+      <h2 className="about-page__title">Sources and References</h2>
+      <div className="about-page__references">
+        <p>
+          [1] North, Chris. “Information Visualization.” Handbook of Human Factors and Ergonomics, by Gavriel ed
+          Salvendy, Wiley, 2012, pp. 1209–1232.
+        </p>
+        <p>
+          [2] “The Eyes Have It: A Task by Data Type Taxonomy for Information Visualizations.” The Craft of Information
+          Visualization: Readings and Reflections, by Benjamin Bederson and Ben Shneiderman, 2003.
+        </p>
+        <p>[3] “Timeline of the History of Middle-Earth - LotrProject.” The Lord of the Rings Family Tree Project</p>
+        <p>[4] lotrproject.com/timeline/. Tolkien, J. R. R. Lord of the Rings. HarperCollinsPublishers, 2005.</p>
+      </div>
       <button className="about-page__button" onClick={close}>
         Close
       </button>
@@ -55,7 +68,7 @@ function TeamMemberBox({ name, email, tags }) {
       <div className="team-member-box__col">
         <h3 className="team-member-box__name">{name}</h3>
         <p className="team-member-box__email">{email}</p>
-        <p className="team-member-box__tags">{tags.join(",")}</p>
+        <p className="team-member-box__tags">{tags.join(", ")}</p>
       </div>
     </div>
   );
