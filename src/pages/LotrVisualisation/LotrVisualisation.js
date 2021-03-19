@@ -138,6 +138,7 @@ export function LotrVisualisation({ client }) {
 
   return (
     <>
+      <SmallScreenBlocker />
       <Header>
         <PagesNav>
           <PagesNavItem label="How To" onClick={() => setActivePage("how-to")} />
@@ -207,5 +208,16 @@ export function LotrVisualisation({ client }) {
         </Settings>
       </div>
     </>
+  );
+}
+
+function SmallScreenBlocker() {
+  return (
+    <div className="small-screen-blocker">
+      <h2 className="small-screen-blocker__title">There and Back Again</h2>
+      <p>
+        Sorry! This visualisation is only adapted to larger screens at the moment. Try it on a larger screen instead!
+      </p>
+    </div>
   );
 }
