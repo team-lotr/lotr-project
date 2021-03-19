@@ -4,10 +4,16 @@
 
 .about-page {
   @extend .page;
-  
 
   .about-page__title {
     @extend .header-2;
+  }
+
+  .about-page__team {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .about-page__button {
@@ -16,5 +22,51 @@
 
   & > * {
     @extend .body-text;
+  }
+}
+
+$teamMemberImageSize: 80px;
+.team-member-box {
+  width: 30%;
+  margin: 5px;
+  display: flex;
+  // border: 1px solid gray;
+
+  .team-member-box__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .team-member-box__col:first {
+    flex: 1;
+  }
+
+  .team-member-box__col:last-child {
+    flex: 3;
+    align-items: start;
+  }
+
+  .team-member-box__name {
+    @extend .label-1;
+    font-size: 13px;
+  }
+
+  .team-member-box__email {
+    opacity: 0.8;
+  }
+
+  .team-member-box__tags {
+    @extend .body-text;
+    font-size: 12px;
+  }
+
+  .team-member-box__img {
+    width: $teamMemberImageSize;
+    height: $teamMemberImageSize;
+    border-radius: 50px;
+    border: 1px solid gray;
   }
 }

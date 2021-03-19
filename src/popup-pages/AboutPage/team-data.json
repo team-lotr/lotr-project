@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Hugo",
+    "email": "hheyman@kth.se",
+    "tags": ["Frontend", "Design"]
+  },
+  {
+    "name": "Felix",
+    "email": "fgudehn@kth.se",
+    "tags": ["Frontend", "Data Management", "UX-Design"]
+  },
+  {
+    "name": "Liang",
+    "email": "lyfc@kth.se",
+    "tags": ["Frontend", "Design"]
+  },
+  {
+    "name": "Anders",
+    "email": "astee@kth.se",
+    "tags": ["D3.js", "Data Management"]
+  },
+  {
+    "name": "Siyana",
+    "email": "siyanai@kth.se",
+    "tags": ["Data Generation", "Frontend"]
+  }
+]
