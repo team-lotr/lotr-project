@@ -182,13 +182,18 @@ export class DataClient {
     allCharacterEventIds = Array.from(new Set(allCharacterEventIds));
 
     let allPlaces = this.getAll("place");
-    allPlaces = allPlaces.filter((p) => bookIds.includes(p.bookId));
+    allPlaces = allPlaces.filter((p) => {
+      if (p.allPlaceBookIds) {
+        return Boolean(bookIds.filter((id) => p.allPlaceBookIds.includes(id)).length);
+      }
+      return bookIds.includes(p.bookId);
+    });
 
     let allEvents = this.getAll("event");
     allEvents = allEvents.map((e) => {
       return {
         ...e,
-        characters: allCharacters.filter(c => c.events.includes(e.id)),
+        characters: allCharacters.filter((c) => c.events.includes(e.id)),
         lotrDateValue: new LotrDate(e.date).value,
       };
     });

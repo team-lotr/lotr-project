@@ -34,11 +34,13 @@ export function processRawData() {
   let places = [];
   let placeIdMap = {};
   for (const [idx, place] of placesRaw.entries()) {
+    const compositePlaceId = `${place.bookId}:${place.id}`;
     places.push({
       ...place,
       id: idx,
+      allPlaceBookIds: getMultipleBookIds(compositePlaceId),
     });
-    placeIdMap[`${place.bookId}:${place.id}`] = idx;
+    placeIdMap[compositePlaceId] = idx;
   }
   placeIdMap = processDuplicatedPlaces(placeIdMap);
 
@@ -111,4 +113,29 @@ function processDuplicatedPlaces(map) {
   map["6:25"] = map["5:3"] = map["2:2"]; // Minas Tirith 2:2 & 5:3 & 6:25
 
   return map;
+}
+
+function getMultipleBookIds(placeCompositeId) {
+  const compositeIdToBookIds = {
+    "1:11": [1, 6],
+    "2:1": [2, 6],
+    "1:1": [1, 2, 6],
+    "1:7": [1, 6],
+    "1:9": [1, 6],
+    "1:3": [1, 6],
+    "2:17": [2, 3],
+    "3:15": [3, 6],
+    "3:19": [3, 6],
+    "3:20": [3, 5, 6],
+    "2:24": [2, 3],
+    "4:8": [4, 5],
+    "4:9": [4, 5, 6],
+    "2:7": [2, 5, 6],
+    "4:17": [4, 6],
+    "4:15": [4, 5],
+    "5:13": [5, 6],
+    "5:10": [5, 6],
+    "2:2": [2, 5, 6],
+  };
+  return compositeIdToBookIds[placeCompositeId];
 }
