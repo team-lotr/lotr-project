@@ -1,7 +1,7 @@
 import "./event-popup.scss";
 import { CharacterAvatar } from "../CharacterAvatar";
 
-export function EventPopup({ data, eventIndex, setEventIndex }) {
+export function EventPopup({ data, eventIndex, setEventIndex, onClose }) {
   if (!data) return null;
 
   const prevIndex = Math.max(eventIndex - 1, 0);
@@ -15,6 +15,7 @@ export function EventPopup({ data, eventIndex, setEventIndex }) {
 
   return (
     <div className="event-popup">
+      <span className="event-popup__close" onClick={onClose}>X</span>
       <div className="event-popup__place">{data.name}</div>
       <div className="event-popup__divider" />
       <div className="event-popup__header">

@@ -9,11 +9,15 @@ import {
   CharacterFilter,
   EventPopup,
   LotrMap,
-  TutorialPopup,
   Settings,
   Setting,
   TimeNavigator,
+  PagesNav,
+  PagesNavItem,
+  PagesPopup,
 } from "../../components";
+import { TutorialPage, DataPage, AboutPage, LicensePage, HowToPage } from "../../popup-pages";
+import { SEEN_TUTORIAL_KEY } from "../../constants";
 import "./lotr-visualisation.scss";
 
 // world bounds
@@ -40,6 +44,10 @@ export function LotrVisualisation({ client }) {
   const [parallelLines, setParallelLines] = useState(false);
   const [offsetMultiplier, setOffsetMultiplier] = useState(5);
   const [eventIndex, setEventIndex] = useState(0);
+  const [activePage, setActivePage] = useState(
+    sessionStorage.getItem(SEEN_TUTORIAL_KEY) !== "true" ? "tutorial" : null
+  );
+  const [distinctEventDates, setDistinctEventDates] = useState(client.getDistinctDates(activeBookIds));
 
   // Set up the timeline data
   const timelineData = client.getCharactersById(activeCharacters).map((character) => {
@@ -58,7 +66,6 @@ export function LotrVisualisation({ client }) {
     const controlPoints = client.getControlPoints(character.name);
     return { character, timeline, controlPoints };
   });
-  const distinctEventDates = client.getDistinctDates(activeBookIds);
 
   // Set up the place data.
   const placeData = client.getPlacesWithEventData(activeCharacters, activeBookIds, dateRange);
@@ -71,6 +78,17 @@ export function LotrVisualisation({ client }) {
       screenX: mouseEvent.x,
       screenY: mouseEvent.y,
     });
+  }
+
+  function handleActiveBookChange(newBookIds) {
+    setPopupData(null);
+    const newDistinctDates = client.getDistinctDates(newBookIds);
+    setDateRange({
+      start: newDistinctDates[0] || DEFAULT_START_TIME,
+      end: newDistinctDates[newDistinctDates.length - 1] || DEFAULT_END_TIME,
+    });
+    setDistinctEventDates(newDistinctDates);
+    setActiveBookIds(newBookIds);
   }
 
   useEffect(() => {
@@ -120,7 +138,21 @@ export function LotrVisualisation({ client }) {
 
   return (
     <>
-      <Header />
+      <Header>
+        <PagesNav>
+          <PagesNavItem label="How To" onClick={() => setActivePage("how-to")} />
+          <PagesNavItem label="Data" onClick={() => setActivePage("data")} />
+          <PagesNavItem label="About" onClick={() => setActivePage("about")} />
+          <PagesNavItem label="License" onClick={() => setActivePage("license")} />
+        </PagesNav>
+      </Header>
+      <PagesPopup activePage={activePage} onClose={() => setActivePage(null)}>
+        <HowToPage key="how-to" />
+        <AboutPage key="about" />
+        <LicensePage key="license" />
+        <DataPage key="data" />
+        <TutorialPage key="tutorial" />
+      </PagesPopup>
       <div ref={chartRef}>
         <LotrMap />
         <Timelines
@@ -139,7 +171,7 @@ export function LotrVisualisation({ client }) {
         />
         <TimeNavigator
           activeBookIds={activeBookIds}
-          setActiveBookIds={setActiveBookIds}
+          setActiveBookIds={handleActiveBookChange}
           dateRange={dateRange}
           setDateRange={setDateRange}
           fullDateRange={distinctEventDates}
@@ -149,8 +181,12 @@ export function LotrVisualisation({ client }) {
           activeCharacters={activeCharacters}
           setActiveCharacters={setActiveCharacters}
         />
-        <EventPopup data={popupData} eventIndex={eventIndex} setEventIndex={setEventIndex} />
-        <TutorialPopup />
+        <EventPopup
+          onClose={() => setPopupData(null)}
+          data={popupData}
+          eventIndex={eventIndex}
+          setEventIndex={setEventIndex}
+        />
         <Settings>
           <DebugDot isMapRendered={isMapRendered} />
           <Setting

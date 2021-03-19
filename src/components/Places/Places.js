@@ -19,7 +19,7 @@ export function Places({ data, isMapRendered, onClick, zoomPercent }) {
       // For each place, filter out events that are in the current time range.
       .map((place) => ({
         ...place,
-        events: place.events.filter((event) => zoomPercent >= event.evt_type * 0.1),
+        events: place.events.filter((event) => zoomPercent >= event.evt_type * 0.03),
       }))
       // Then, for each place, remove the ones that now have empty events lists.
       .filter((place) => place.events.length > 0);
@@ -37,7 +37,7 @@ export function Places({ data, isMapRendered, onClick, zoomPercent }) {
       .attr("r", regularPlaceRadius)
       .on("mouseover", highlight)
       .on("mouseout", unhighlight)
-      .on("click", onClick);
+      .on("click", onClick)
 
     circleEnter.append("title");
 

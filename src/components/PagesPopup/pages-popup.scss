@@ -1,0 +1,36 @@
+@import "../../styles/shared.scss";
+@import "../../styles/fonts.scss";
+
+.pages-popup__cover {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $overlay-color;
+}
+
+.pages-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+
+  .pages-popup__container {
+    background-color: $bg-color;
+    border: 3px solid $border-color-green;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    max-width: 55%;
+  }
+}

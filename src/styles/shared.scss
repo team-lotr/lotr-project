@@ -6,15 +6,19 @@ $border-color: #797878;
 $shadow-dark-color: #929191;
 $header-text-color: #555353;
 $body-text-color: #686666;
+
 $border-color-blue: #4F4CEB;
 $border-color-green: #2E3B1D;
-$overlay-color: rgba(0, 0, 0, 0.5);
-$hover-bg-color: #8599e0;
-$active-color: #4F4CEB; 
 
-// Spacing
+$overlay-color: rgba(0, 0, 0, 0.5);
+
+$active-color: #5ebd63; 
+
+$hover-bg-color: #2a6d40;
+$hover-bg-color-1: #476327;
+$hover-bg-color-2: rgb(192, 191, 191);
 
 // Shadow
-
 $sm-shadow: 1px 1px 2px $shadow-dark-color;
 $md-shadow: 2px 2px 3px $shadow-dark-color;
+
