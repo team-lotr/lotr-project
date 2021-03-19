@@ -204,14 +204,6 @@ export function LotrVisualisation({ client }) {
             max={10}
             step={1}
           />
-
-          <hr style={{ marginTop: "5px" }} />
-          <a
-            target="_blank"
-            href="https://docs.google.com/spreadsheets/d/15ykK0MIWrG7DyYbbWT8skaWTP3jfUjdVhIKg76N5BWE/edit?usp=sharing"
-          >
-            <label className="setting setting--scalar">View Dataset &#8599;</label>
-          </a>
         </Settings>
       </div>
     </>
